@@ -1,0 +1,33 @@
+.home {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/coffee-shop.jpg");
+  background-size: cover;
+  display: flex;
+  padding: 4rem;
+
+  &__left {
+    padding: 7rem;
+    background-color: #ffd1664f;
+    width: 50%;
+  }
+
+  &__header {
+    padding-bottom: 3rem;
+    font-size: 5.5rem;
+    color: #fff;
+  }
+
+  &__description {
+    line-height: 4rem;
+    color: #fff;
+    font-size: 1.8rem;
+  }
+
+  &__button {
+    margin-top: 4rem;
+    height: 2rem;
+    padding: 4rem 0;
+    font-size: 3rem;
+  }
+}

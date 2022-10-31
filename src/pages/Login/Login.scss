@@ -1,0 +1,14 @@
+.login {
+  &__google {
+    border: none;
+    padding: 2rem;
+    background-color: #ffd166;
+    color: #fff;
+    font-size: 1.8rem;
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+      background-color: #ffc233;
+    }
+  }
+}

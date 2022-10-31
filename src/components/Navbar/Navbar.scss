@@ -1,15 +1,57 @@
 .navbar {
   display: flex;
-  justify-content: center;
+  padding: 4rem;
+  height: 15rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
-  background-color: #000;
-  padding: 2rem;
+  position: fixed;
+
+  &__home {
+    border-radius: 50%;
+    padding: 3rem;
+    background-color: #ffd166;
+    &:hover {
+      background-color: #fff;
+      transition: background-color 1s ease;
+    }
+  }
+
+  &__search {
+    width: 30rem;
+    padding: 4px;
+    background: none;
+    font-size: 2rem;
+    border-left: 8px solid #ffd166;
+    border-top: none;
+    border-bottom: none;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
 
   &__link {
     color: #fff;
+    font-size: 1.8rem;
     padding: 2rem;
+
     &:hover {
-      color: pink;
+      color: #ffd166;
+      border-bottom: 8px solid #ffd166;
+      transition: all 0.5s ease;
+    }
+  }
+
+  &__logout {
+    border: none;
+    font-size: 1.5rem;
+    background: none;
+    color: #fff;
+    &:hover {
+      background-color: #ef476f;
+      cursor: pointer;
     }
   }
 }

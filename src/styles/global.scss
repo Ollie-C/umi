@@ -1,1 +1,12 @@
 @use "./partials/resets";
+
+.main {
+  background-image: url("../assets/images/background.jpg");
+  background-size: cover;
+  padding: 4rem 4rem;
+}
+
+.app-wrapper {
+  padding-top: 15rem;
+  height: 100%;
+}
