@@ -1,15 +1,21 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, signUserOut }) => {
   return (
     <nav className="navbar">
       <NavLink className="navbar__link" to="/">
         Home
       </NavLink>
-      <NavLink className="navbar__link" to="/login">
-        Login
-      </NavLink>
+      {!isLoggedIn ? (
+        <NavLink className="navbar__link" to="/login">
+          Login
+        </NavLink>
+      ) : (
+        <button onClick={signUserOut} className="navbar__link">
+          Logout
+        </button>
+      )}
     </nav>
   );
 };
