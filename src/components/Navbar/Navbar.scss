@@ -19,13 +19,14 @@
   }
 
   &__search {
-    width: 30rem;
-    padding: 4px;
+    width: 50rem;
+    padding: 1rem 2rem;
     background: none;
     font-size: 2rem;
     border-left: 8px solid #ffd166;
     border-top: none;
     border-bottom: none;
+    border-right: 2px solid #ffd166;
 
     &::placeholder {
       color: #fff;

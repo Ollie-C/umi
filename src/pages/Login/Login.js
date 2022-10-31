@@ -14,6 +14,7 @@ const Login = ({ setIsLoggedIn }) => {
   };
   return (
     <div className="login">
+      <h1 className="login__header">Create an account or sign in</h1>
       <button className="login__google" onClick={googleSignIn}>
         Sign in with Google
       </button>

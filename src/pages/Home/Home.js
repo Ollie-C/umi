@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
-const Home = () => {
+const Home = ({ isLoggedIn }) => {
   return (
     <div className="home">
       <div className="home__left">
@@ -9,9 +9,11 @@ const Home = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
           repellendus obcaecati, autem praesentium culpa doloribus.
         </p>
-        <Link className="home__button" to="/login">
-          Get started
-        </Link>
+        {!isLoggedIn && (
+          <Link className="home__button" to="/login">
+            Get started
+          </Link>
+        )}
       </div>
     </div>
   );

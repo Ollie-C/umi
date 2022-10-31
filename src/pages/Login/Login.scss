@@ -1,11 +1,22 @@
 .login {
+  height: 100vh;
+  position: relative;
+
+  &__header {
+    font-size: 6rem;
+    color: #fff;
+    width: 30%;
+  }
   &__google {
+    position: absolute;
+    top: 50vh;
     border: none;
     padding: 2rem;
     background-color: #ffd166;
     color: #fff;
     font-size: 1.8rem;
-    width: 100%;
+    width: 50%;
+
     &:hover {
       cursor: pointer;
       background-color: #ffc233;
