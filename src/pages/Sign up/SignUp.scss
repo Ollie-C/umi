@@ -1,3 +1,50 @@
 .signup {
   height: 100vh;
+
+  &__header {
+    margin-bottom: 4rem;
+    color: #fff;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  &__label {
+    font-size: 1.2rem;
+  }
+
+  &__input {
+    padding: 1rem;
+    background: none;
+    border: none;
+  }
+
+  &__radio {
+    margin: 2rem 1rem;
+  }
+
+  &__button-wrapper {
+    padding: 4rem 0;
+  }
+
+  &__button {
+    border: none;
+    padding: 2rem;
+    background-color: #ffd166;
+    color: #fff;
+    font-size: 1.8rem;
+    width: 50%;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #ffc233;
+    }
+  }
+
+  &__cancel {
+    margin-left: 2rem;
+  }
 }
