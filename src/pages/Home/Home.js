@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import elephant from "../../assets/images/elephant.svg";
 import "./Home.scss";
 const Home = ({ isLoggedIn }) => {
   return (
@@ -14,6 +15,9 @@ const Home = ({ isLoggedIn }) => {
             GET STARTED
           </Link>
         )}
+      </div>
+      <div className="home__right">
+        <img className="home__elephant" src={elephant} alt="elephant" />
       </div>
     </div>
   );

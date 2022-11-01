@@ -4,7 +4,7 @@
 
   background-size: cover;
   display: flex;
-  padding: 4rem 0;
+  padding: 2rem 0;
 
   &__left {
     padding: 7rem;
@@ -35,5 +35,9 @@
     &:hover {
       color: #000;
     }
+  }
+
+  &__elephant {
+    width: 80rem;
   }
 }

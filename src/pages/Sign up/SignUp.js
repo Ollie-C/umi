@@ -1,12 +1,13 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.scss";
 
 const SignUp = ({ isLoggedIn }) => {
   const [isOrganisation, setIsOrganisation] = useState(false);
   const [newUser, setNewUser] = useState();
+  const navigate = useNavigate();
 
   const usersRef = collection(db, "users");
 
@@ -27,6 +28,7 @@ const SignUp = ({ isLoggedIn }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     createUser();
+    navigate("/login");
   };
 
   return (
