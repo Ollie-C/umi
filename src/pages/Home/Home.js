@@ -11,7 +11,7 @@ const Home = ({ isLoggedIn }) => {
         </p>
         {!isLoggedIn && (
           <Link className="home__button" to="/login">
-            Get started
+            GET STARTED
           </Link>
         )}
       </div>

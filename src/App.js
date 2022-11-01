@@ -3,11 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./fb-config";
+//PAGES
 import Home from "./pages/Home/Home";
+import SignUp from "./pages/Sign up/SignUp";
 import Login from "./pages/Login/Login";
-import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import UsePoints from "./pages/Use Points/UsePoints";
+//COMPONENTS
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +35,7 @@ const App = () => {
                 <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               }
             ></Route>
+            <Route path="/signup" element={<SignUp />}></Route>
             <Route
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}

@@ -7,7 +7,7 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
       <NavLink className="navbar__home" to="/"></NavLink>
       {!isLoggedIn ? (
         <NavLink className="navbar__link" to="/login">
-          LOGIN
+          LOGIN / SIGN UP
         </NavLink>
       ) : (
         <>
