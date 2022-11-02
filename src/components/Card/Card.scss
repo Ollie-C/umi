@@ -1,0 +1,42 @@
+@use "../../styles/partials/mixins" as *;
+
+.card {
+  &__image {
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.575);
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.575);
+  }
+
+  &__description {
+    padding: 1rem 0;
+  }
+
+  &__text {
+    padding: 1rem 0;
+    margin-right: 4rem;
+    font-size: 1.4rem;
+  }
+
+  &__stats {
+    display: flex;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__points {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffd166;
+    background-color: rgba(0, 0, 0, 0.575);
+  }
+}

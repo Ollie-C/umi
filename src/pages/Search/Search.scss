@@ -1,16 +1,27 @@
+@use "../../styles/partials/mixins" as *;
+
 .search {
   display: flex;
-  height: 100vh;
+  height: 200vh;
 
   &__map {
-    background-color: #fff;
-    width: 70rem;
-    height: 70rem;
+    display: none;
+    @include tablet {
+      display: flex;
+      background-color: #fff;
+      width: 70rem;
+      height: 70rem;
+    }
   }
 
   &__listings {
-    background-color: #ffd166;
     height: 70rem;
     flex-grow: 1;
+    padding: 4rem;
+  }
+
+  &__header {
+    font-size: 2.4rem;
+    color: #fff;
   }
 }

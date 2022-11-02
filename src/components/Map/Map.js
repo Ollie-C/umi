@@ -4,10 +4,9 @@ import { Icon } from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/map-marker";
 import "./Map.scss";
 
-const LocationPin = ({ text }) => (
+const LocationPin = () => (
   <div className="pin">
     <Icon icon={locationIcon} className="pin__icon" />
-    <p className="pin__text">{text}</p>
   </div>
 );
 

@@ -1,4 +1,6 @@
 @use "./partials/resets";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
 
 .main {
   background-image: url("../assets/images/background.jpg");

@@ -1,6 +1,6 @@
 import "./Search.scss";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Map from "../../components/Map/Map";
+import Card from "../../components/Card/Card";
 
 const Search = () => {
   const { REACT_APP_GM_API_KEY } = process.env;
@@ -20,7 +20,12 @@ const Search = () => {
         />
       </div>
 
-      <div className="search__listings"></div>
+      <div className="search__listings">
+        <h2 className="search__header">8 results:</h2>
+        <div className="cards-wrapper">
+          <Card />
+        </div>
+      </div>
     </div>
   );
 };
