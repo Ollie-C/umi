@@ -1,4 +1,5 @@
 import "./Search.scss";
+import CategoryBar from "../../components/CategoryBar/CategoryBar";
 import Map from "../../components/Map/Map";
 import Card from "../../components/Card/Card";
 
@@ -11,22 +12,25 @@ const Search = () => {
   };
 
   return (
-    <div className="search">
-      <div className="search__map">
-        <Map
-          apiKey={REACT_APP_GM_API_KEY}
-          location={originCoffeeAddress}
-          zoomLevel={15}
-        />
-      </div>
+    <>
+      <CategoryBar />
+      <div className="search">
+        <div className="search__map">
+          <Map
+            apiKey={REACT_APP_GM_API_KEY}
+            location={originCoffeeAddress}
+            zoomLevel={15}
+          />
+        </div>
 
-      <div className="search__listings">
-        <h2 className="search__header">8 results:</h2>
-        <div className="cards-wrapper">
-          <Card />
+        <div className="search__listings">
+          <h2 className="search__header">8 RESULTS:</h2>
+          <div className="cards-wrapper">
+            <Card />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

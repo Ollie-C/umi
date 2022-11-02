@@ -1,12 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+
 .navbar {
   display: flex;
-  padding: 4rem;
+  padding: 4rem 2rem;
   height: 11rem;
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   position: fixed;
+  @include tablet {
+    padding: 4rem 6rem;
+  }
 
   &__home {
     border-radius: 50%;

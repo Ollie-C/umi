@@ -1,0 +1,50 @@
+@use "../../styles/partials/mixins" as *;
+
+.categoryBar {
+  display: flex;
+  padding: 0 2rem;
+  height: 6rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffd166;
+  width: 100%;
+
+  @include tablet {
+    padding: 0 6rem;
+    height: 8rem;
+  }
+
+  &__button {
+    padding: 2rem 0;
+    height: 85%;
+    border: none;
+    flex-grow: 1;
+    font-size: 1.4rem;
+    margin: auto 2px;
+    background-color: #ffd166;
+    color: #fff;
+    border-radius: 10px;
+    &--extra {
+      display: none;
+    }
+    &--all {
+      padding: 0 2rem;
+      margin-right: 4rem;
+      flex-grow: 0;
+      font-weight: 800;
+    }
+    &:hover {
+      background-color: #fff;
+      transition: background-color 1s ease;
+      color: #ffd166;
+      cursor: pointer;
+    }
+
+    @include tablet {
+      font-size: 1.4rem;
+      &--extra {
+        display: block;
+      }
+    }
+  }
+}
