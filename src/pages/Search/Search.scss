@@ -4,13 +4,13 @@
 
   &__map {
     background-color: #fff;
-    width: 50%;
-    height: 100vh;
+    width: 70rem;
+    height: 70rem;
   }
 
   &__listings {
     background-color: #ffd166;
-    width: 50%;
-    height: 100vh;
+    height: 70rem;
+    flex-grow: 1;
   }
 }
