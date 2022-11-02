@@ -24,18 +24,40 @@
   }
 
   &__search {
-    width: 50rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__searchbar,
+  &__select {
+    width: 30rem;
     padding: 1rem 2rem;
     background: none;
-    font-size: 2rem;
-    border-left: 8px solid #ffd166;
-    border-top: none;
-    border-bottom: none;
-    border-right: 2px solid #ffd166;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    margin-right: 4px;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
 
     &::placeholder {
       color: #fff;
+      opacity: 80%;
     }
+  }
+
+  &__arrow {
+    color: #ffd166;
+    margin-left: 2rem;
+    &:hover {
+      color: #ef476f;
+      cursor: pointer;
+    }
+  }
+
+  &__select {
+    width: 15rem;
   }
 
   &__link {

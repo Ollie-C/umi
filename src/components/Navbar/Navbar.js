@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
+import { Icon } from "@iconify/react";
 
 const Navbar = ({ isLoggedIn, signUserOut }) => {
   return (
@@ -11,12 +12,25 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
         </NavLink>
       ) : (
         <>
-          <input
-            type="text"
-            className="navbar__search"
-            placeholder="What do you fancy? ... "
-            name="search"
-          ></input>
+          <form className="navbar__search">
+            <input
+              type="text"
+              className="navbar__searchbar"
+              placeholder="Where are you looking?"
+              name="search"
+            ></input>
+            <select name="category" className="navbar__select">
+              <option value="Cafe">Cafe</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Retail">Retail</option>
+            </select>
+            <Icon
+              className="navbar__arrow"
+              icon="uil:location-point"
+              width="50"
+            />
+          </form>
           <NavLink className="navbar__link" to="/profile">
             PROFILE
           </NavLink>
