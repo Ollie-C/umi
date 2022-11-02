@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ isLoggedIn, signUserOut }) => {
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <NavLink className="navbar__home" to="/"></NavLink>
@@ -12,7 +14,7 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
         </NavLink>
       ) : (
         <>
-          <form className="navbar__search">
+          <form id="searchForm" className="navbar__search">
             <input
               type="text"
               className="navbar__searchbar"
@@ -26,9 +28,12 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
               <option value="Retail">Retail</option>
             </select>
             <Icon
+              type="submit"
+              form="searchForm"
               className="navbar__arrow"
               icon="uil:location-point"
               width="50"
+              onClick={() => navigate("/search")}
             />
           </form>
           <NavLink className="navbar__link" to="/profile">
