@@ -43,7 +43,7 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
             EXCHANGE
           </NavLink>
           <button onClick={signUserOut} className="navbar__logout">
-            Logout
+            LOGOUT
           </button>
         </>
       )}

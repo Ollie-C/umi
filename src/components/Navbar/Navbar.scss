@@ -61,7 +61,7 @@
 
   &__link {
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     padding: 2rem;
 
     &:hover {
@@ -73,11 +73,11 @@
 
   &__logout {
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background: none;
-    color: #fff;
+    color: #ef476f;
     &:hover {
-      background-color: #ef476f;
+      background-color: #fff;
       cursor: pointer;
     }
   }
