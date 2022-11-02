@@ -1,0 +1,16 @@
+.search {
+  display: flex;
+  height: 100vh;
+
+  &__map {
+    background-color: #fff;
+    width: 50%;
+    height: 100vh;
+  }
+
+  &__listings {
+    background-color: #ffd166;
+    width: 50%;
+    height: 100vh;
+  }
+}

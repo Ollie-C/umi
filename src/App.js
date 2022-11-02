@@ -9,6 +9,7 @@ import SignUp from "./pages/Sign up/SignUp";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import UsePoints from "./pages/Use Points/UsePoints";
+import Search from "./pages/Search/Search";
 //COMPONENTS
 import Navbar from "./components/Navbar/Navbar";
 
@@ -20,7 +21,7 @@ const App = () => {
     await signOut(auth);
     localStorage.clear();
     setIsLoggedIn(false);
-    window.location.pathname = "/login";
+    window.location.pathname = "/";
   };
 
   return (
@@ -50,6 +51,10 @@ const App = () => {
             <Route
               path="/usepoints"
               element={<UsePoints isLoggedIn={isLoggedIn} />}
+            ></Route>
+            <Route
+              path="/search"
+              element={<Search isLoggedIn={isLoggedIn} />}
             ></Route>
           </Routes>
         </div>
