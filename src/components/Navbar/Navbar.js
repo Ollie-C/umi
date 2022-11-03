@@ -2,9 +2,16 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Navbar = ({ isLoggedIn, signUserOut }) => {
+  const [address, setAddress] = useState();
   const navigate = useNavigate();
+
+  const changeHandler = (e) => {
+    setAddress(e.target.value);
+  };
+
   return (
     <nav className="navbar">
       <NavLink className="navbar__home" to="/"></NavLink>
@@ -20,6 +27,7 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
               className="navbar__searchbar"
               placeholder="Where are you looking?"
               name="search"
+              onChange={changeHandler}
             ></input>
             <select name="category" className="navbar__select">
               <option value="Cafe">Cafe</option>
@@ -33,7 +41,7 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
               className="navbar__arrow"
               icon="uil:location-point"
               width="50"
-              onClick={() => navigate("/search")}
+              onClick={() => navigate(`/search/${address}`)}
             />
           </form>
           <NavLink className="navbar__link" to="/profile">

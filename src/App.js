@@ -56,6 +56,10 @@ const App = () => {
               path="/search"
               element={<Search isLoggedIn={isLoggedIn} />}
             ></Route>
+            <Route
+              path="/search/:location"
+              element={<Search isLoggedIn={isLoggedIn} />}
+            ></Route>
           </Routes>
         </div>
       </main>
