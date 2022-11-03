@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Navbar = ({ isLoggedIn, signUserOut }) => {
+const Navbar = ({ handleSearchSubmit, isLoggedIn, signUserOut }) => {
   const [address, setAddress] = useState();
   const navigate = useNavigate();
 
@@ -41,7 +41,11 @@ const Navbar = ({ isLoggedIn, signUserOut }) => {
               className="navbar__arrow"
               icon="uil:location-point"
               width="50"
-              onClick={() => navigate(`/search/${address}`)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSearchSubmit(address);
+                navigate(`search/${address}`);
+              }}
             />
           </form>
           <NavLink className="navbar__link" to="/profile">

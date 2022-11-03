@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [searchedPlace, setSearchedPlace] = useState(null);
   console.log(isLoggedIn);
 
   const signUserOut = async () => {
@@ -24,9 +25,18 @@ const App = () => {
     window.location.pathname = "/";
   };
 
+  const handleSearchSubmit = (searchTerm) => {
+    console.log(searchTerm);
+    setSearchedPlace(searchTerm);
+  };
+
   return (
     <BrowserRouter>
-      <Navbar isLoggedIn={isLoggedIn} signUserOut={signUserOut} />
+      <Navbar
+        handleSearchSubmit={handleSearchSubmit}
+        isLoggedIn={isLoggedIn}
+        signUserOut={signUserOut}
+      />
       <main className="main">
         <div className="app-wrapper">
           <Routes>
@@ -58,7 +68,9 @@ const App = () => {
             ></Route>
             <Route
               path="/search/:location"
-              element={<Search isLoggedIn={isLoggedIn} />}
+              element={
+                <Search searchedPlace={searchedPlace} isLoggedIn={isLoggedIn} />
+              }
             ></Route>
           </Routes>
         </div>
