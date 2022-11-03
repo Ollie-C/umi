@@ -35,6 +35,10 @@ const Profile = ({ isLoggedIn }) => {
     console.log(userData);
   });
 
+  if (!isLoggedIn) {
+    return <h1>Please log in ...</h1>;
+  }
+
   return (
     <div className="profile">
       <h1 className="profile__header">Welcome to your profile</h1>

@@ -5,30 +5,42 @@ import Card from "../../components/Card/Card";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { collection, getDocs } from "firebase/firestore";
+import { db, auth } from "../../fb-config";
 
 const Search = ({ searchedPlace }) => {
   const { location } = useParams();
   const [coordinates, setCoordinates] = useState();
+  const [results, setResults] = useState([]);
+  const establishmentsCollectionRef = collection(db, "establishments");
 
   const { REACT_APP_GM_API_KEY } = process.env;
 
-  // const currentCoordinates = coordinates
-  //   ? coordinates
-  //   : {
-  //       lat: 51.52653572916955,
-  //       lng: -0.08113255926569261,
-  //     };
+  const getEstablishments = async () => {
+    try {
+      if (auth) {
+        const data = await getDocs(establishmentsCollectionRef);
+        const establishmentData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setResults(establishmentData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getCentre = async () => {
-    console.log(searchedPlace);
     const { data } = await axios.get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${searchedPlace}&key=${REACT_APP_GM_API_KEY}`
     );
-
     setCoordinates(data.results[0].geometry.location);
-    console.log(data);
   };
-  console.log(coordinates);
+
+  useEffect(() => {
+    getEstablishments();
+  }, []);
 
   useEffect(() => {
     getCentre();
@@ -52,9 +64,11 @@ const Search = ({ searchedPlace }) => {
 
         <div className="search__listings">
           <h2 className="search__header">8 results near {location}: </h2>
-          <div className="cards-wrapper">
-            <Card />
-          </div>
+          <ul className="cards-wrapper">
+            {results.map((result) => {
+              return <Card key={result.id} result={result} />;
+            })}
+          </ul>
         </div>
       </div>
     </>
