@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Vurger from "../../assets/images/vurger.PNG";
 
 const Establishment = () => {
   const { establishmentId } = useParams();
@@ -30,7 +31,47 @@ const Establishment = () => {
 
   return (
     <div className="establishment">
-      <h1 className="establishment__title">{currentEstablishment.name}</h1>
+      <div className="establishment__images-wrapper">
+        <img
+          src={Vurger}
+          alt="establishment-cover-image"
+          className="establishment__cover"
+        />
+        <div className="establishment__gallery">
+          <img src={Vurger} alt="" className="establishment__image" />
+          <img src={Vurger} alt="" className="establishment__image" />
+          <img src={Vurger} alt="" className="establishment__image" />
+          <img src={Vurger} alt="" className="establishment__image" />
+        </div>
+      </div>
+      <div className="establishment__title">
+        <h2 className="establishment__name">{currentEstablishment.name}</h2>
+        <p className="establishment__rating">{currentEstablishment.rating}</p>
+      </div>
+      <p className="establishment__description">
+        {currentEstablishment.description}
+      </p>
+      <div className="establishment__contact">
+        <h2 className="establishment__header">Address:</h2>
+        <p className="establishment__description ">
+          56 Road Avenue, London NW8 7BT
+        </p>
+      </div>
+      <div className="establishment__initiatives">
+        <h2 className="initiatives__title">Sustainable Initiatives:</h2>
+        <article className="initiatives__card">
+          <h3 className="initiatives__name">PLANT-BASED</h3>
+        </article>
+        <article className="initiatives__card">
+          <h3 className="initiatives__name">ZERO-WASTE</h3>
+        </article>
+        <article className="initiatives__card">
+          <h3 className="initiatives__name">ZERO-WASTE</h3>
+        </article>
+      </div>
+      <button className="establishment__button">
+        <p className="establishment__points">Collect 20 points</p>
+      </button>
     </div>
   );
 };

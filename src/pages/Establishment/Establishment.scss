@@ -1,3 +1,105 @@
+@use "../../styles/partials/mixins" as *;
+
 .establishment {
-  height: 100vh;
+  padding: 3rem 2rem;
+  @include tablet {
+    padding: 4rem 6rem;
+  }
+
+  &__images-wrapper {
+    display: flex;
+  }
+  &__cover {
+    width: 100%;
+
+    border-radius: 20px;
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__gallery {
+    display: none;
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 1rem;
+    }
+  }
+
+  &__image {
+    width: 50%;
+    height: 50%;
+    border-radius: 20px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5rem 0;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 3.2rem;
+    color: #fff;
+    @include tablet {
+      font-size: 5rem;
+    }
+  }
+
+  &__rating {
+    font-size: 2rem;
+  }
+
+  &__description {
+    color: rgba(16, 15, 15, 0.7);
+    margin: 3rem 0;
+    font-size: 2.2rem;
+    line-height: 3rem;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: #ffd166;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 3rem;
+    border-radius: 20px;
+    border: none;
+    &:hover {
+      background-color: #ef476f;
+      cursor: pointer;
+    }
+  }
+
+  &__points {
+    color: #fff;
+  }
+
+  &__initiatives {
+    width: 100%;
+    margin: 3rem 0;
+  }
+}
+
+.initiatives {
+  &__title {
+    font-size: 3rem;
+  }
+  &__card {
+    margin: 2rem 0;
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    align-items: center;
+    background-color: #ffd1665d;
+  }
+
+  &__name {
+    color: #fff;
+    font-size: 3rem;
+    padding: 3rem;
+  }
 }
