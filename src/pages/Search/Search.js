@@ -2,13 +2,14 @@ import "./Search.scss";
 import CategoryBar from "../../components/CategoryBar/CategoryBar";
 import Map from "../../components/Map/Map";
 import Card from "../../components/Card/Card";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { collection, getDocs } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 
 const Search = ({ searchedPlace }) => {
+  const navigate = useNavigate();
   const { location } = useParams();
   const [coordinates, setCoordinates] = useState();
   const [results, setResults] = useState([]);
@@ -66,7 +67,16 @@ const Search = ({ searchedPlace }) => {
           <h2 className="search__header">8 results near {location}: </h2>
           <ul className="cards-wrapper">
             {results.map((result) => {
-              return <Card key={result.id} result={result} />;
+              return (
+                <div
+                  onClick={() => {
+                    navigate(`/${result.id}`);
+                  }}
+                  className="card-wrapper"
+                >
+                  <Card key={result.id} result={result} />
+                </div>
+              );
             })}
           </ul>
         </div>

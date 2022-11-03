@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import UsePoints from "./pages/Use Points/UsePoints";
 import Search from "./pages/Search/Search";
+import Establishment from "./pages/Establishment/Establishment";
 //COMPONENTS
 import Navbar from "./components/Navbar/Navbar";
 
@@ -46,6 +47,7 @@ const App = () => {
                 <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               }
             ></Route>
+            <Route path="/:establishmentId" element={<Establishment />}></Route>
             <Route
               path="/signup"
               element={<SignUp isLoggedIn={isLoggedIn} />}
