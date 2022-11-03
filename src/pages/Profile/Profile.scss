@@ -1,9 +1,94 @@
+@use "../../styles/partials/mixins" as *;
 .profile {
   height: 100vh;
-  padding: 2rem 6rem;
+  padding: 2rem;
+  @include tablet {
+    padding: 4rem 6rem;
+  }
 
   &__header {
     color: #fff;
     font-size: 5rem;
+  }
+
+  &__subheader {
+    color: #fff;
+    font-size: 3rem;
+    margin: 2rem 0;
+    text-align: center;
+    @include tablet {
+      text-align: left;
+    }
+  }
+
+  &__email {
+    margin: 2rem 0;
+    padding: 5px;
+    color: #ffd166;
+    font-size: 1.8rem;
+    background-color: rgba(19, 18, 18, 0.285);
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+  }
+
+  &__balance {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__points {
+    font-size: 6rem;
+  }
+
+  &__contributions {
+    display: flex;
+  }
+
+  &__total {
+    background-color: #ffd166;
+    border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    margin: 1rem 0;
+
+    &--second {
+      background-color: #ef476f;
+    }
+  }
+
+  &__transactions {
+    flex-grow: 1;
+    margin: 1rem;
+  }
+
+  &__transaction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+  }
+}
+
+.totals-wrapper {
+  width: 30%;
+}
+
+.transaction {
+  &__shop {
+    font-weight: 900;
+  }
+
+  &__text {
+    margin-right: 1rem;
   }
 }

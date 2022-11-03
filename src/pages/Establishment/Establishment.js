@@ -7,8 +7,8 @@ import Vurger from "../../assets/images/vurger.PNG";
 
 const Establishment = () => {
   const { establishmentId } = useParams();
-  const establishmentDocRef = doc(db, "establishments", establishmentId);
   const [currentEstablishment, setCurrentEstablishment] = useState([]);
+  const establishmentDocRef = doc(db, "establishments", establishmentId);
 
   const getCurrentEstablishment = async () => {
     try {
