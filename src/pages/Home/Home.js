@@ -19,6 +19,7 @@ const Home = () => {
       transactions: [],
       initiatves: [],
       joined: Date.now(),
+      establishmentId: false,
     };
     const userDocRef = doc(db, "users", id);
     const docSnap = await getDoc(userDocRef);

@@ -11,6 +11,26 @@
     font-size: 5rem;
   }
 
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__addorganisation {
+    padding: 1rem;
+    font-size: 2rem;
+    color: #ffd166;
+    letter-spacing: 4px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    &:hover {
+      color: #fff;
+      background-color: #ef476f;
+      cursor: pointer;
+    }
+  }
   &__subheader {
     color: #fff;
     font-size: 3rem;

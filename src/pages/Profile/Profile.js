@@ -4,8 +4,10 @@ import { useEffect } from "react";
 import React from "react";
 import { UserAuth } from "../../context/AuthContext";
 import "./Profile.scss";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { logOut, user } = UserAuth();
   console.log(user);
 
@@ -50,7 +52,15 @@ const Profile = () => {
       <h1 className="profile__header">
         Welcome to your profile, {user.displayName}
       </h1>
-      <p className="profile__email">email</p>
+      <div className="profile__buttons">
+        <p className="profile__email">email</p>
+        <button
+          onClick={() => navigate("/add")}
+          className="profile__addorganisation"
+        >
+          + Connect
+        </button>
+      </div>
       <button onClick={handleLogOut}>Log out</button>
       <h2 className="profile__subheader">Balance</h2>
       <button

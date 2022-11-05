@@ -1,15 +1,15 @@
 import "./styles/global.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 //PAGES
 import Home from "./pages/Home/Home";
-import SignUp from "./pages/Sign up/SignUp";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import UsePoints from "./pages/Use Points/UsePoints";
 import Search from "./pages/Search/Search";
 import Establishment from "./pages/Establishment/Establishment";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, UserAuth } from "./context/AuthContext";
+import Connect from "./pages/Connect/Connect";
 //COMPONENTS
 import Navbar from "./components/Navbar/Navbar";
 import Restricted from "./components/Restricted/Restricted";
@@ -30,7 +30,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/:establishmentId" element={<Establishment />} />
-              <Route path="/signup" element={<SignUp />} />
+
               <Route path="/login" element={<Login />} />
               <Route
                 path="/profile"
@@ -61,6 +61,14 @@ const App = () => {
                 element={
                   <Restricted>
                     <Search searchedPlace={searchedPlace} />
+                  </Restricted>
+                }
+              />
+              <Route
+                path="/add"
+                element={
+                  <Restricted>
+                    <Connect />
                   </Restricted>
                 }
               />
