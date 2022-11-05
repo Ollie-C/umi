@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+
 import "./Login.scss";
 
 const Login = () => {
@@ -10,7 +11,6 @@ const Login = () => {
   const handleLogIn = async () => {
     try {
       await logIn();
-      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -19,8 +19,10 @@ const Login = () => {
   useEffect(() => {
     if (user) {
       navigate("/");
+      console.log(user);
     }
   }, [user]);
+
   return (
     <div className="login">
       <h1 className="login__header">Create an account or sign in</h1>
