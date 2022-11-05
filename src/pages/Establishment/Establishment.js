@@ -8,6 +8,7 @@ import Vurger from "../../assets/images/vurger.PNG";
 const Establishment = () => {
   const { establishmentId } = useParams();
   const [currentEstablishment, setCurrentEstablishment] = useState([]);
+  const [rewardAccess, setRewardAccess] = useState(false);
   const establishmentDocRef = doc(db, "establishments", establishmentId);
 
   const getCurrentEstablishment = async () => {
@@ -48,6 +49,7 @@ const Establishment = () => {
         <h2 className="establishment__name">{currentEstablishment.name}</h2>
         <p className="establishment__rating">{currentEstablishment.rating}</p>
       </div>
+      <button onClick={() => setRewardAccess(true)}>Check in</button>
       <p className="establishment__description">
         {currentEstablishment.description}
       </p>
@@ -69,9 +71,15 @@ const Establishment = () => {
           <h3 className="initiatives__name">ZERO-WASTE</h3>
         </article>
       </div>
-      <button className="establishment__button">
-        <p className="establishment__points">Collect 20 points</p>
-      </button>
+      {rewardAccess ? (
+        <button className="establishment__button">
+          <p className="establishment__points">Collect 20 points</p>
+        </button>
+      ) : (
+        <button className="establishment__button establishment__button--locked">
+          [Locked] 20 points
+        </button>
+      )}
     </div>
   );
 };

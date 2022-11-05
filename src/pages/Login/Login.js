@@ -1,22 +1,31 @@
-import { auth, provider } from "../../fb-config";
-import { signInWithPopup } from "firebase/auth";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../../context/AuthContext";
 import "./Login.scss";
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = () => {
   const navigate = useNavigate();
+  const { logIn, user } = UserAuth();
 
-  const googleSignIn = async () => {
-    await signInWithPopup(auth, provider);
-    localStorage.setItem("isLoggedIn", true);
-    setIsLoggedIn(true);
-    navigate("/");
+  const handleLogIn = async () => {
+    try {
+      await logIn();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <div className="login">
       <h1 className="login__header">Create an account or sign in</h1>
-      <button className="login__google" onClick={googleSignIn}>
-        Sign in with Google
+      <button className="login__google" onClick={handleLogIn}>
+        Log in with Google
       </button>
     </div>
   );

@@ -1,49 +1,74 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
-import { useState } from "react";
 import { useEffect } from "react";
+import React from "react";
+import { UserAuth } from "../../context/AuthContext";
 import "./Profile.scss";
 
-const Profile = ({ isLoggedIn }) => {
-  const [user, setUser] = useState([]);
+const Profile = () => {
+  const { logOut, user } = UserAuth();
+  console.log(user);
 
-  const userDocRef = doc(db, "users", "1P3YQMeCkWNKoQdMKrwI");
-
-  const getCurrentUser = async () => {
+  const handleLogOut = async () => {
     try {
-      if (auth) {
-        const docSnap = await getDoc(userDocRef);
-        setUser(docSnap.data());
-      }
+      await logOut();
     } catch (error) {
       console.log(error);
     }
   };
+  // const userDocRef = doc(db, "users", "1P3YQMeCkWNKoQdMKrwI");
 
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
+  // const getCurrentUser = async () => {
+  //   try {
+  //     if (auth) {
+  //       const docSnap = await getDoc(userDocRef);
+  //       setUser(docSnap.data());
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  if (!isLoggedIn) {
+  // const updatePoints = async () => {
+  //   await updateDoc(userDocRef, {
+  //     points: user.points + 20,
+  //     total_points: user.total_points + 20,
+  //   });
+  //   getCurrentUser();
+  // };
+
+  // useEffect(() => {
+  //   getCurrentUser();
+  // }, []);
+
+  if (!user) {
     return <h1>Please log in ...</h1>;
   }
 
   return (
     <div className="profile">
       <h1 className="profile__header">
-        Welcome to your profile, {user.username}
+        Welcome to your profile, {user.displayName}
       </h1>
-      <p className="profile__email">{user.email}</p>
+      <p className="profile__email">email</p>
+      <button onClick={handleLogOut}>Log out</button>
       <h2 className="profile__subheader">Balance</h2>
+      <button
+      // onClick={() => {
+      //   updatePoints();
+      // }}
+      >
+        Update
+      </button>
       <div className="profile__balance">
-        <h2 className="profile__points">290</h2>
+        <h2 className="profile__points">300</h2>
       </div>
       <h2 className="profile__subheader">Contributions</h2>
       <div className="profile__contributions">
         <div className="totals-wrapper">
           <div className="profile__total">
             <p>Total points:</p>
-            <h2 className="profile__totals">1030</h2>
+            <h2 className="profile__totals">1000</h2>
           </div>
           <div className="profile__total profile__total--second">
             <p>Fav Initiative:</p>

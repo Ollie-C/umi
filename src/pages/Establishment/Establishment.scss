@@ -72,6 +72,9 @@
       background-color: #ef476f;
       cursor: pointer;
     }
+    &--locked {
+      background-color: rgb(157, 157, 157);
+    }
   }
 
   &__points {

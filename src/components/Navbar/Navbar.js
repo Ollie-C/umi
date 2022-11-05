@@ -3,10 +3,20 @@ import "./Navbar.scss";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 
-const Navbar = ({ handleSearchSubmit, isLoggedIn, signUserOut }) => {
+const Navbar = ({ handleSearchSubmit }) => {
   const [address, setAddress] = useState();
   const navigate = useNavigate();
+  const { user, logOut } = UserAuth();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const changeHandler = (e) => {
     setAddress(e.target.value);
@@ -15,7 +25,7 @@ const Navbar = ({ handleSearchSubmit, isLoggedIn, signUserOut }) => {
   return (
     <nav className="navbar">
       <NavLink className="navbar__home" to="/"></NavLink>
-      {!isLoggedIn ? (
+      {!user ? (
         <NavLink className="navbar__link" to="/login">
           LOGIN
         </NavLink>
@@ -54,7 +64,7 @@ const Navbar = ({ handleSearchSubmit, isLoggedIn, signUserOut }) => {
           <NavLink className="navbar__link" to="/usepoints">
             EXCHANGE
           </NavLink>
-          <button onClick={signUserOut} className="navbar__logout">
+          <button onClick={handleLogOut} className="navbar__logout">
             LOGOUT
           </button>
         </>
