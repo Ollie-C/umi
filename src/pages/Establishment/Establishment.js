@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import Vurger from "../../assets/images/vurger.PNG";
 
 const Establishment = () => {
@@ -71,6 +72,7 @@ const Establishment = () => {
           <h3 className="initiatives__name">ZERO-WASTE</h3>
         </article>
       </div>
+
       {rewardAccess ? (
         <button className="establishment__button">
           <p className="establishment__points">Collect 20 points</p>

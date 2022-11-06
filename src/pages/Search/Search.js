@@ -26,6 +26,7 @@ const Search = ({ searchedPlace }) => {
           id: doc.id,
         }));
         setResults(establishmentData);
+        console.log(results);
       }
     } catch (error) {
       console.log(error);

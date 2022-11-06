@@ -2,6 +2,7 @@ import { useContext, createContext, useState, useEffect } from "react";
 import { auth } from "../fb-config";
 import {
   GoogleAuthProvider,
+  signInWithRedirect,
   signInWithPopup,
   signOut,
   onAuthStateChanged,
@@ -14,7 +15,7 @@ const AuthProvider = ({ children }) => {
 
   const logIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+    signInWithRedirect(auth, provider);
   };
 
   const logOut = () => {

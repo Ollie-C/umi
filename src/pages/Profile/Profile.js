@@ -1,15 +1,18 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, collection, getDoc, getDocs } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import { UserAuth } from "../../context/AuthContext";
-import "./Profile.scss";
 import { useNavigate } from "react-router-dom";
+import "./Profile.scss";
+import UserTransaction from "../../components/UserTransaction/UserTransaction";
 
 const Profile = () => {
   const navigate = useNavigate();
   const { logOut, user } = UserAuth();
-  console.log(user);
+  const [currentUser, setCurrentUser] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  console.log(user.uid);
 
   const handleLogOut = async () => {
     try {
@@ -18,42 +21,61 @@ const Profile = () => {
       console.log(error);
     }
   };
-  // const userDocRef = doc(db, "users", "1P3YQMeCkWNKoQdMKrwI");
+  const userDocRef = doc(db, "users", String(user.uid));
+  const transactionsRef = collection(
+    db,
+    "users",
+    String(user.uid),
+    "transactions"
+  );
 
-  // const getCurrentUser = async () => {
-  //   try {
-  //     if (auth) {
-  //       const docSnap = await getDoc(userDocRef);
-  //       setUser(docSnap.data());
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const getTransactions = async () => {
+    try {
+      const data = await getDocs(transactionsRef);
+      const transactionsData = data.docs.map((transaction) => ({
+        ...transaction.data(),
+        id: transaction.id,
+      }));
+      setTransactions(transactionsData);
+      console.log(transactions);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // const updatePoints = async () => {
-  //   await updateDoc(userDocRef, {
-  //     points: user.points + 20,
-  //     total_points: user.total_points + 20,
-  //   });
-  //   getCurrentUser();
-  // };
+  const getCurrentUser = async () => {
+    try {
+      const docSnap = await getDoc(userDocRef);
+      if (docSnap) {
+        setCurrentUser(docSnap.data());
+      } else {
+        console.log("User data not found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // useEffect(() => {
-  //   getCurrentUser();
-  // }, []);
+  useEffect(() => {
+    getCurrentUser();
+    getTransactions();
+  }, [user]);
 
   if (!user) {
     return <h1>Please log in ...</h1>;
   }
 
+  if (!currentUser) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div className="profile">
       <h1 className="profile__header">
-        Welcome to your profile, {user.displayName}
+        Welcome to your profile, {currentUser.name}
       </h1>
       <div className="profile__buttons">
-        <p className="profile__email">email</p>
+        <p className="profile__email">{currentUser.email}</p>
         <button
           onClick={() => navigate("/add")}
           className="profile__addorganisation"
@@ -63,22 +85,16 @@ const Profile = () => {
       </div>
       <button onClick={handleLogOut}>Log out</button>
       <h2 className="profile__subheader">Balance</h2>
-      <button
-      // onClick={() => {
-      //   updatePoints();
-      // }}
-      >
-        Update
-      </button>
+
       <div className="profile__balance">
-        <h2 className="profile__points">300</h2>
+        <h2 className="profile__points">{currentUser.points}</h2>
       </div>
       <h2 className="profile__subheader">Contributions</h2>
       <div className="profile__contributions">
         <div className="totals-wrapper">
           <div className="profile__total">
             <p>Total points:</p>
-            <h2 className="profile__totals">1000</h2>
+            <h2 className="profile__totals">{currentUser.totalPoints}</h2>
           </div>
           <div className="profile__total profile__total--second">
             <p>Fav Initiative:</p>
@@ -86,18 +102,19 @@ const Profile = () => {
           </div>
         </div>
         <div className="profile__transactions">
-          <div className="profile__transaction">
-            <p className="transaction__text">20 points earned at</p>
-            <p className="transaction__shop">Origin Coffee</p>
-          </div>
-          <div className="profile__transaction">
-            <p className="transaction__text">20 points earned at</p>
-            <p className="transaction__shop">Origin Coffee</p>
-          </div>
-          <div className="profile__transaction">
-            <p className="transaction__text">20 points earned at</p>
-            <p className="transaction__shop">Origin Coffee</p>
-          </div>
+          <h2>Recent transactions:</h2>
+          {transactions ? (
+            transactions.map((transaction) => {
+              return (
+                <UserTransaction
+                  key={transaction.id}
+                  transaction={transaction}
+                />
+              );
+            })
+          ) : (
+            <p>No transactions recorded.</p>
+          )}
         </div>
       </div>
     </div>
