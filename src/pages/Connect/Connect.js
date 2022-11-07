@@ -15,16 +15,17 @@ const Connect = () => {
     postcode: "",
     category: "",
     description: "",
-    initiatves: {
-      zeroWaste: false,
-      reuse: false,
-      plantBased: false,
+    initiatives: {
       handmade: false,
-      organic: false,
-      local: false,
+      local: true,
+      organic: true,
+      plantBased: true,
       renewableEnergy: false,
+      reuse: false,
+      zeroWaste: false,
     },
   });
+
   console.log(user.uid);
 
   const addEstablishment = async () => {
@@ -37,7 +38,9 @@ const Connect = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setEstablishtment({ ...establishment, [name]: value });
+
     console.log(establishment);
   };
 
@@ -100,6 +103,7 @@ const Connect = () => {
             <select
               name="category"
               className="addI-form__input addI-form__input--dropdown"
+              onChange={(e) => handleChange(e)}
             >
               <option value="Cafe">Cafe</option>
               <option value="Restaurant">Restaurant</option>
