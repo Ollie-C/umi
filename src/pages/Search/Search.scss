@@ -10,12 +10,13 @@
     @include tablet {
       display: flex;
       background-color: #fff;
-      width: 80rem;
+      width: 100%;
       height: 80rem;
     }
   }
 
   &__listings {
+    width: 100%;
     flex-grow: 1;
     padding: 2rem;
     @include tablet {
@@ -27,6 +28,19 @@
   &__header {
     font-size: 1.8rem;
     color: #fff;
+  }
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-wrapper {
+  margin: 3rem 0;
+  &:hover {
+    cursor: pointer;
   }
 }
 

@@ -1,4 +1,11 @@
-import { doc, collection, getDoc, getDocs } from "firebase/firestore";
+import {
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -12,7 +19,7 @@ const Profile = () => {
   const { logOut, user } = UserAuth();
   const [currentUser, setCurrentUser] = useState([]);
   const [transactions, setTransactions] = useState([]);
-  console.log(user.uid);
+  const [userEstablishment, setUserEstablishment] = useState("");
 
   const handleLogOut = async () => {
     try {
@@ -22,6 +29,7 @@ const Profile = () => {
     }
   };
   const userDocRef = doc(db, "users", String(user.uid));
+  const establishmentsRef = collection(db, "establishments");
   const transactionsRef = collection(
     db,
     "users",
@@ -43,6 +51,24 @@ const Profile = () => {
     }
   };
 
+  const getEstablishment = async () => {
+    try {
+      const establishmentQuery = query(
+        establishmentsRef,
+        where("ownerId", "==", String(user.uid))
+      );
+      const querySnapshot = await getDocs(establishmentQuery);
+      console.log(querySnapshot);
+      const establishmentData = querySnapshot.docs.map((establishment) => ({
+        ...establishment.data(),
+        id: establishment.id,
+      }));
+      setUserEstablishment(establishmentData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getCurrentUser = async () => {
     try {
       const docSnap = await getDoc(userDocRef);
@@ -59,6 +85,7 @@ const Profile = () => {
   useEffect(() => {
     getCurrentUser();
     getTransactions();
+    getEstablishment();
   }, [user]);
 
   if (!user) {
@@ -76,19 +103,28 @@ const Profile = () => {
       </h1>
       <div className="profile__buttons">
         <p className="profile__email">{currentUser.email}</p>
-        <p className="profile__email">Organisation Owner</p>
-        <button
-          onClick={() => navigate("/add")}
-          className="profile__addorganisation"
-        >
-          + Connect
-        </button>
-        <button
-          onClick={() => navigate("/dashboard")}
-          className="profile__addorganisation"
-        >
-          Go to Dashboard
-        </button>
+        <div className="profile__organisation">
+          {!userEstablishment ? (
+            <button
+              onClick={() => navigate("/add")}
+              className="profile__addorganisation"
+            >
+              + Connect
+            </button>
+          ) : (
+            <>
+              <p className="profile__email">
+                {userEstablishment[0].name} Owner
+              </p>
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="profile__addorganisation"
+              >
+                Go to Dashboard
+              </button>
+            </>
+          )}
+        </div>
       </div>
       <button onClick={handleLogOut}>Log out</button>
       <h2 className="profile__subheader">Balance</h2>

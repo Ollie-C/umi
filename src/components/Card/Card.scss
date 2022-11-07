@@ -1,6 +1,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .card {
+  @include tablet {
+    width: 30rem;
+  }
   &__image {
     margin: 2rem 0;
     width: 100%;
