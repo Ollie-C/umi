@@ -25,10 +25,13 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h1 className="login__header">Create an account or sign in</h1>
-      <button className="login__google" onClick={handleLogIn}>
-        Log in with Google
-      </button>
+      <div className="login__card">
+        <h1 className="login__header">Welcome to komorebi.</h1>
+        <p className="login__text">Let's get started.</p>
+        <button className="login__google" onClick={handleLogIn}>
+          Log in with Google
+        </button>
+      </div>
     </div>
   );
 };

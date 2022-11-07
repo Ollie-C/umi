@@ -7,6 +7,9 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  @include tablet {
+    padding: 2rem 6rem;
+  }
 
   &__header {
     color: #fff;
@@ -26,7 +29,7 @@
 
     @include tablet {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       flex-wrap: wrap;
       padding: 4rem 0;
     }
@@ -34,51 +37,64 @@
 
   &__card {
     padding: 1rem 0;
-    background-color: #fff;
+
     border-radius: 10px;
     margin: 2rem 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
     @include tablet {
+      height: 40rem;
       width: 40rem;
       margin: 2rem;
     }
   }
 
   &__top {
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid #ffd166;
     padding: 0 2rem;
   }
 
   &__bottom {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 2rem 0;
   }
 
   &__qrcode {
     width: 20rem;
+    padding: 2rem;
   }
 
   &__label {
     padding: 2rem 0;
     font-weight: 100;
     font-size: 1.4rem;
+    color: #fff;
   }
 
   &__detail {
     border-bottom: 1px solid rgb(224, 224, 224);
     font-weight: 600;
     margin-right: 1rem;
+    color: rgb(66, 66, 66);
   }
 }
 
 .dashboard__card-header {
   font-size: 2.2rem;
   text-align: center;
-  padding: 1rem 0;
-  color: #ffd166;
+  padding: 2rem 0;
+  color: #fff;
+  @include tablet {
+    font-size: 3rem;
+  }
 }
 
 .detail-wrapper {

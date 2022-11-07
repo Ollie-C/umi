@@ -1,26 +1,56 @@
+@use "../../styles/partials/mixins" as *;
+
 .login {
-  height: 100vh;
+  min-height: 90vh;
   padding: 2rem 6rem;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    height: 50rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffd166;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 10px;
+    @include tablet {
+      padding: 4rem;
+    }
+  }
 
   &__header {
     font-size: 6rem;
     color: #fff;
     width: 30%;
   }
+
+  &__text {
+    color: #fff;
+    font-size: 1.8rem;
+  }
   &__google {
-    position: absolute;
-    top: 50vh;
-    border: none;
+    margin: 3rem 0;
+    border: 2px solid #fff;
     padding: 2rem;
     background-color: #ffd166;
     color: #fff;
     font-size: 1.8rem;
-    width: 50%;
+
+    border-radius: 10px;
+    @include tablet {
+      width: 50%;
+    }
 
     &:hover {
       cursor: pointer;
-      background-color: #ffc233;
+      background-color: #fff;
+      color: #ffd166;
+      border: 2px solid #ffd166;
+      transition: all 2s ease;
     }
   }
 }

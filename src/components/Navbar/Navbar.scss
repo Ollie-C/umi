@@ -2,14 +2,15 @@
 
 .navbar {
   display: flex;
-  padding: 4rem 2rem;
-  height: 7rem;
+  padding: 2rem;
+
   align-items: center;
   justify-content: space-between;
   width: 100%;
   position: fixed;
+  flex-wrap: wrap;
   @include tablet {
-    padding: 4rem 6rem;
+    padding: 2rem 6rem;
   }
   &:hover {
     background-color: rgb(252, 247, 247, 0.8);
@@ -38,16 +39,20 @@
 
   &__searchbar,
   &__select {
-    width: 30rem;
-    padding: 0.5rem 2rem;
-    background: none;
-    font-size: 1.4rem;
     border-radius: 10px;
     border: 1px solid rgb(66, 66, 66);
+    width: 22rem;
+    background: none;
+    padding: 0.5rem 2rem;
     margin-right: 4px;
-    color: rgb(66, 66, 66, 0.7);
     &:hover {
       color: #ffd166;
+    }
+    @include tablet {
+      font-size: 1.4rem;
+      width: 30rem;
+
+      color: rgb(66, 66, 66, 0.7);
     }
 
     &::placeholder {
@@ -71,11 +76,14 @@
     color: rgb(66, 66, 66);
     font-size: 1.4rem;
     padding: 2rem;
-
+    display: none;
     &:hover {
       color: #ffd166;
       border-bottom: 8px solid #ffd166;
       transition: all 0.5s ease;
+    }
+    @include tablet {
+      display: flex;
     }
   }
 
@@ -84,8 +92,12 @@
     font-size: 1.3rem;
     background: none;
     color: #ef476f;
+    display: none;
     &:hover {
       cursor: pointer;
+    }
+    @include tablet {
+      display: flex;
     }
   }
 }
