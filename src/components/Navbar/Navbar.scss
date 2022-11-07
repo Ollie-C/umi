@@ -3,19 +3,27 @@
 .navbar {
   display: flex;
   padding: 4rem 2rem;
-  height: 11rem;
+  height: 7rem;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   position: fixed;
   @include tablet {
     padding: 4rem 6rem;
   }
+  &:hover {
+    background-color: rgb(252, 247, 247, 0.8);
+  }
+
+  &__logo {
+    color: rgb(66, 66, 66);
+    font-weight: 100;
+    font-size: 1.4rem;
+  }
 
   &__home {
     border-radius: 50%;
-    padding: 3rem;
+    padding: 2rem;
     background-color: #ffd166;
     &:hover {
       background-color: #fff;
@@ -31,38 +39,37 @@
   &__searchbar,
   &__select {
     width: 30rem;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     background: none;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border-radius: 10px;
+    border: 1px solid rgb(66, 66, 66);
     margin-right: 4px;
-    color: #fff;
+    color: rgb(66, 66, 66, 0.7);
     &:hover {
-      cursor: pointer;
       color: #ffd166;
     }
 
     &::placeholder {
-      color: #fff;
+      color: rgb(66, 66, 66, 0.7);
     }
   }
 
   &__arrow {
     color: #ffd166;
-    margin-left: 2rem;
+    margin-left: 1rem;
     &:hover {
-      color: #ef476f;
       cursor: pointer;
     }
   }
 
   &__select {
-    width: 15rem;
+    width: 10rem;
   }
 
   &__link {
-    color: #fff;
-    font-size: 1.6rem;
+    color: rgb(66, 66, 66);
+    font-size: 1.4rem;
     padding: 2rem;
 
     &:hover {
@@ -78,7 +85,6 @@
     background: none;
     color: #ef476f;
     &:hover {
-      background-color: #fff;
       cursor: pointer;
     }
   }

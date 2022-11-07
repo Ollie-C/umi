@@ -13,6 +13,7 @@ const Navbar = ({ handleSearchSubmit }) => {
   const handleLogOut = async () => {
     try {
       await logOut();
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -25,6 +26,7 @@ const Navbar = ({ handleSearchSubmit }) => {
   return (
     <nav className="navbar">
       <NavLink className="navbar__home" to="/"></NavLink>
+      <h1 className="navbar__logo">k o m o r e b i .</h1>
       {!user ? (
         <NavLink className="navbar__link" to="/login">
           LOGIN
@@ -35,7 +37,7 @@ const Navbar = ({ handleSearchSubmit }) => {
             <input
               type="text"
               className="navbar__searchbar"
-              placeholder="Where are you looking?"
+              placeholder="Search a city ..."
               name="search"
               onChange={changeHandler}
             ></input>
@@ -49,8 +51,8 @@ const Navbar = ({ handleSearchSubmit }) => {
               type="submit"
               form="searchForm"
               className="navbar__arrow"
-              icon="uil:location-point"
-              width="50"
+              icon="majesticons:map-marker-area"
+              width="40"
               onClick={(e) => {
                 e.preventDefault();
                 handleSearchSubmit(address);

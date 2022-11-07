@@ -1,7 +1,6 @@
-import { Timestamp } from "firebase/firestore";
-
 const UserTransaction = ({ transaction }) => {
-  const date = Date(transaction.date);
+  const date = new Date(transaction.date).toLocaleString("en-GB");
+  console.log(date);
   if (!transaction) {
     return <p> Loading</p>;
   }
@@ -9,7 +8,7 @@ const UserTransaction = ({ transaction }) => {
     <div className="profile__transaction">
       <p className="transaction__text">
         {transaction.points} points earned at {transaction.location} on
-        {date}
+        {String(date)}
       </p>
     </div>
   );

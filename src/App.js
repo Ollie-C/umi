@@ -68,7 +68,7 @@ const App = () => {
                 }
               />
               <Route
-                path="/dashboard"
+                path="/dashboard/:id"
                 element={<EstablishmentDashboard />}
               ></Route>
               <Route path="/:id/collect/:token" element={<Collect />} />

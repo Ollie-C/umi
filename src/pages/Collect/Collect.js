@@ -9,28 +9,38 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "../../fb-config";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Collect = () => {
   const { id, token } = useParams();
   const { user } = UserAuth();
+  const [currentEstablishment, setCurrentEstablishment] = useState();
+
   const navigate = useNavigate();
   let newToken = uuidv4();
 
   const currentUser = doc(db, "users", String(user.uid));
-  const testBusiness = doc(db, "establishments", id);
+  const currentEstablishmentRef = doc(db, "establishments", id);
   const newTransactionRef = doc(
     collection(db, "users", String(user.uid), "transactions")
   );
 
+  const getEstablishment = async () => {
+    try {
+      const docSnap = await getDoc(currentEstablishmentRef);
+      const establishmentData = docSnap.data();
+      setCurrentEstablishment(establishmentData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const validateToken = async () => {
     try {
-      const docSnap = await getDoc(testBusiness);
+      const docSnap = await getDoc(currentEstablishmentRef);
       const currentRewardId = docSnap.data().rewardId;
-      console.log(currentRewardId);
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +50,7 @@ const Collect = () => {
     try {
       await setDoc(newTransactionRef, {
         date: Date.now(),
-        location: "Origin Coffee",
+        location: currentEstablishment.name,
         points: 20,
       });
       await updateDoc(currentUser, {
@@ -48,13 +58,17 @@ const Collect = () => {
         totalPoints: increment(20),
       });
       navigate("/profile");
-      await updateDoc(testBusiness, {
+      await updateDoc(currentEstablishmentRef, {
         rewardId: newToken,
       });
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    getEstablishment();
+  }, []);
 
   useEffect(() => {
     validateToken();
@@ -64,7 +78,6 @@ const Collect = () => {
     return <p>You are not logged in</p>;
   }
 
-  console.log(token);
   return (
     <div className="collect">
       <p>Token: {token} </p>

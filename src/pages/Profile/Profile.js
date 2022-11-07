@@ -117,7 +117,9 @@ const Profile = () => {
                 {userEstablishment[0].name} Owner
               </p>
               <button
-                onClick={() => navigate("/dashboard")}
+                onClick={() =>
+                  navigate(`/dashboard/${userEstablishment[0].id}`)
+                }
                 className="profile__addorganisation"
               >
                 Go to Dashboard

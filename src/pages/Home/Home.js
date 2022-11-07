@@ -39,7 +39,7 @@ const Home = () => {
     <>
       <div className="home">
         <div className="home__left">
-          <h1 className="home__header">Ecolocation: Earth's Loyalty Card</h1>
+          <h1 className="home__header">komorebi: Earth's Loyalty Card App</h1>
           <p className="home__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             repellendus obcaecati, autem praesentium culpa doloribus.
@@ -54,23 +54,15 @@ const Home = () => {
           <img className="home__elephant" src={elephant} alt="elephant" />
         </div>
       </div>
-      <div className="home">
-        <div className="home__right">
-          <img className="home__earth" src={earth} alt="earth" />
-        </div>
-        <div className="home__left">
-          <h1 className="home__header">Lorem ipsum dolor sit amet.</h1>
-          <p className="home__description">
+      <section className="about">
+        <div className="about__left">
+          <h1 className="about__header">About</h1>
+          <p className="about__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             repellendus obcaecati, autem praesentium culpa doloribus.
           </p>
-          {!user && (
-            <Link className="home__button" to="/login">
-              GET STARTED
-            </Link>
-          )}
         </div>
-      </div>
+      </section>
     </>
   );
 };

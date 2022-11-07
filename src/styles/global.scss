@@ -8,6 +8,10 @@
 }
 
 .app-wrapper {
-  padding-top: 11rem;
+  padding-top: 8rem;
   height: 100%;
+
+  &__left {
+    padding: 4rem;
+  }
 }

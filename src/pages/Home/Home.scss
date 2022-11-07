@@ -1,8 +1,9 @@
-.home {
+.home,
+.about {
   width: 100%;
   background-size: cover;
   display: flex;
-  padding: 4rem 6rem;
+  padding: 6rem;
 
   &__left {
     padding: 5rem;
@@ -38,7 +39,7 @@
   }
 
   &__elephant {
-    width: 85rem;
+    width: 90rem;
   }
 
   &__earth {
