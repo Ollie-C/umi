@@ -2,7 +2,7 @@
 
 .search {
   display: flex;
-  height: 200vh;
+  min-height: 200vh;
 
   &__map {
     display: none;

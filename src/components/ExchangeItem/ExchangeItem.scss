@@ -1,0 +1,16 @@
+.itemcard {
+  width: 40rem;
+
+  padding: 2rem;
+  opacity: 80%;
+
+  &:hover {
+    opacity: 100%;
+    cursor: pointer;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 20px;
+  }
+}

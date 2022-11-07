@@ -14,14 +14,12 @@ const EstablishmentDashboard = () => {
   let url = `/${testBusinessId}/collect/${token}`;
 
   const testBusiness = doc(db, "establishments", testBusinessId);
-
   const GenerateQRCode = async () => {
     QRCode.toDataURL(url, (err, url) => {
       if (err) return console.log(err);
       setQrcode(url);
     });
     await updateDoc(testBusiness, { rewardId: token });
-    console.log(token);
   };
 
   return (

@@ -61,7 +61,7 @@ const Navbar = ({ handleSearchSubmit }) => {
           <NavLink className="navbar__link" to="/profile">
             PROFILE
           </NavLink>
-          <NavLink className="navbar__link" to="/usepoints">
+          <NavLink className="navbar__link" to="/exchange">
             EXCHANGE
           </NavLink>
           <button onClick={handleLogOut} className="navbar__logout">

@@ -5,11 +5,11 @@ import { useState } from "react";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
-import UsePoints from "./pages/Use Points/UsePoints";
 import Search from "./pages/Search/Search";
 import Establishment from "./pages/Establishment/Establishment";
 import { AuthProvider } from "./context/AuthContext";
 import Connect from "./pages/Connect/Connect";
+import Exchange from "./pages/Exchange/Exchange";
 //COMPONENTS
 import Navbar from "./components/Navbar/Navbar";
 import Restricted from "./components/Restricted/Restricted";
@@ -42,14 +42,7 @@ const App = () => {
                   </Restricted>
                 }
               />
-              <Route
-                path="/usepoints"
-                element={
-                  <Restricted>
-                    <UsePoints />
-                  </Restricted>
-                }
-              />
+
               <Route
                 path="/search"
                 element={
@@ -79,6 +72,7 @@ const App = () => {
                 element={<EstablishmentDashboard />}
               ></Route>
               <Route path="/:id/collect/:token" element={<Collect />} />
+              <Route path="/exchange" element={<Exchange />} />
             </Routes>
           </div>
         </main>

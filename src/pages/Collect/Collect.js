@@ -6,11 +6,13 @@ import {
   increment,
   setDoc,
   collection,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { useEffect } from "react";
 
 const Collect = () => {
   const { id, token } = useParams();
@@ -23,6 +25,16 @@ const Collect = () => {
   const newTransactionRef = doc(
     collection(db, "users", String(user.uid), "transactions")
   );
+
+  const validateToken = async () => {
+    try {
+      const docSnap = await getDoc(testBusiness);
+      const currentRewardId = docSnap.data().rewardId;
+      console.log(currentRewardId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const collectPoints = async () => {
     try {
@@ -43,6 +55,10 @@ const Collect = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    validateToken();
+  }, []);
 
   if (!user) {
     return <p>You are not logged in</p>;

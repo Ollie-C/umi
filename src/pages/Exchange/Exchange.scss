@@ -1,0 +1,20 @@
+.exchange {
+  min-height: 100vh;
+  padding: 6rem;
+
+  &__items {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: center;
+    margin: 0 auto;
+  }
+  &__title {
+    color: #fff;
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+  }
+}

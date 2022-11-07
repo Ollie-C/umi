@@ -76,11 +76,18 @@ const Profile = () => {
       </h1>
       <div className="profile__buttons">
         <p className="profile__email">{currentUser.email}</p>
+        <p className="profile__email">Organisation Owner</p>
         <button
           onClick={() => navigate("/add")}
           className="profile__addorganisation"
         >
           + Connect
+        </button>
+        <button
+          onClick={() => navigate("/dashboard")}
+          className="profile__addorganisation"
+        >
+          Go to Dashboard
         </button>
       </div>
       <button onClick={handleLogOut}>Log out</button>
