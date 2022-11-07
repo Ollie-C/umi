@@ -30,7 +30,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    processNewUser(user.uid);
+    if (user) {
+      processNewUser(user.uid);
+    }
   }, []);
 
   return (

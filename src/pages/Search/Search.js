@@ -34,10 +34,12 @@ const Search = ({ searchedPlace }) => {
   };
 
   const getCentre = async () => {
-    const { data } = await axios.get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${searchedPlace}&key=${REACT_APP_GM_API_KEY}`
-    );
-    setCoordinates(data.results[0].geometry.location);
+    if (searchedPlace) {
+      const { data } = await axios.get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${searchedPlace}&key=${REACT_APP_GM_API_KEY}`
+      );
+      setCoordinates(data.results[0].geometry.location);
+    }
   };
 
   useEffect(() => {
@@ -49,7 +51,20 @@ const Search = ({ searchedPlace }) => {
   }, [searchedPlace]);
 
   if (!coordinates) {
-    return <h1>loading...</h1>;
+    return (
+      <div className="search-error">
+        <h1 className="search-error__text">loading...</h1>
+      </div>
+    );
+  }
+
+  if (!searchedPlace) {
+    return (
+      <div className="search-error">
+        <h1 className="search-error__text">No results found.</h1>
+        <p>Try a different location or category.</p>
+      </div>
+    );
   }
 
   return (
