@@ -14,7 +14,7 @@ const EstablishmentDashboard = () => {
   const { user } = UserAuth();
   const { id } = useParams();
 
-  const baseURL = "http://localhost:3000";
+  const baseURL = "https://umi-lime.vercel.app/";
 
   let token = uuidv4();
   let url = `${baseURL}/${id}/collect/${token}`;
