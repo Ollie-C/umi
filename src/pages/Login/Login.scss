@@ -1,4 +1,5 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .login {
   min-height: 100vh;
@@ -6,10 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../assets/images/1.jpg");
+  background-image: url("../../assets/images/4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
 
   &__card {
     height: 50rem;
@@ -17,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #ffd166;
+    background-color: #fff;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
       rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border-radius: 10px;
@@ -28,19 +30,19 @@
 
   &__header {
     font-size: 6rem;
-    color: #fff;
+    color: $primary-blue;
     width: 30%;
   }
 
   &__text {
-    color: #fff;
+    color: $primary-blue;
     font-size: 1.8rem;
   }
   &__google {
     margin: 3rem 0;
     border: 2px solid #fff;
     padding: 2rem;
-    background-color: #ffd166;
+    background-color: $primary-blue;
     color: #fff;
     font-size: 1.8rem;
 
@@ -52,8 +54,8 @@
     &:hover {
       cursor: pointer;
       background-color: #fff;
-      color: #ffd166;
-      border: 2px solid #ffd166;
+      color: $secondary-blue;
+      border: 2px solid $secondary-blue;
       transition: all 2s ease;
     }
   }

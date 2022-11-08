@@ -1,49 +1,153 @@
-.home,
-.about {
-  width: 100%;
-  background-size: cover;
-  display: flex;
-  padding: 12rem 2rem;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
-  &__left {
-    padding: 5rem;
-    background-color: #ffd1664f;
-    flex-grow: 1;
-  }
-
-  &__header {
-    width: 70%;
-    padding-bottom: 3rem;
-    font-size: 5.5rem;
-    color: #fff;
-  }
-
-  &__description {
-    line-height: 4rem;
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 6rem;
-  }
-
-  &__button {
-    font-size: 2rem;
-    padding: 1rem 4rem;
-    color: #ffd166;
-    letter-spacing: 8px;
+.home {
+  padding: 4rem 0;
+  &__top {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
-    background-color: #fff;
-    &:hover {
-      color: #fff;
-      background-color: #ef476f;
+    align-items: center;
+    padding: 4rem;
+
+    @include tablet {
+      flex-direction: row;
     }
   }
 
-  &__elephant {
-    width: 90rem;
+  &__left,
+  &__right {
+    width: 100%;
+    padding: 4rem 0;
+    @include tablet {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem;
+    }
   }
 
-  &__earth {
-    width: 60rem;
-    margin-right: 4rem;
+  &__right {
+    align-items: flex-end;
+  }
+  &__title {
+    font-size: 5rem;
+    padding: 2rem 0;
+  }
+
+  &__loyaltycard {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    flex-wrap: wrap;
+  }
+
+  &__searchbar,
+  &__select {
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    background: none;
+    padding: 1.2rem 2rem;
+    margin-right: 4px;
+    &:active {
+      color: $primary-blue;
+    }
+    &:hover {
+      color: #ffd166;
+    }
+    @include tablet {
+      font-size: 1.4rem;
+      width: 30rem;
+
+      color: rgb(66, 66, 66, 0.7);
+    }
+
+    &::placeholder {
+      color: rgb(66, 66, 66, 0.7);
+    }
+  }
+
+  &__arrow {
+    color: $primary-blue;
+    margin-left: 3rem;
+    &:hover {
+      color: $primary-grey;
+      cursor: pointer;
+      transition: all 1s ease;
+    }
+  }
+
+  &__select {
+    margin-left: 1rem;
+    width: 20rem;
+  }
+
+  &__cta {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+    border: none;
+    padding: 1rem 4rem;
+    color: #fff;
+    background-color: $primary-blue;
+    &:hover {
+      cursor: pointer;
+      transition: all 1s ease;
+      background-color: $secondary-blue;
+    }
   }
 }
+
+.logo {
+  width: 6rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+// .home,
+// .about {
+//   width: 100%;
+//   background-size: cover;
+//   display: flex;
+//   padding: 12rem 2rem;
+
+//   &__left {
+//     padding: 5rem;
+//     background-color: #ffd1664f;
+//     flex-grow: 1;
+//   }
+
+//   &__header {
+//     width: 70%;
+//     padding-bottom: 3rem;
+//     font-size: 5.5rem;
+//     color: #fff;
+//   }
+
+//   &__description {
+//     line-height: 4rem;
+//     color: #fff;
+//     font-size: 1.8rem;
+//     margin-bottom: 6rem;
+//   }
+
+//   &__elephant {
+//     width: 90rem;
+//   }
+
+//   &__earth {
+//     width: 60rem;
+//     margin-right: 4rem;
+//   }
+// }

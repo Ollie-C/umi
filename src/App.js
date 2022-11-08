@@ -27,57 +27,56 @@ const App = () => {
     <BrowserRouter>
       <AuthProvider>
         <main className="main">
-          <div className="app-wrapper">
-            <Routes>
-              <Route path="/login" element={<Login />} />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route element={<Layout />}>
               <Route
-                element={<Layout handleSearchSubmit={handleSearchSubmit} />}
-              >
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/:establishmentId" element={<Establishment />} />
+                path="/"
+                element={<Home handleSearchSubmit={handleSearchSubmit} />}
+              ></Route>
+              <Route path="/:establishmentId" element={<Establishment />} />
 
-                <Route
-                  path="/profile"
-                  element={
-                    <Restricted>
-                      <Profile />
-                    </Restricted>
-                  }
-                />
+              <Route
+                path="/profile"
+                element={
+                  <Restricted>
+                    <Profile />
+                  </Restricted>
+                }
+              />
 
-                <Route
-                  path="/search"
-                  element={
-                    <Restricted>
-                      <Search />
-                    </Restricted>
-                  }
-                />
-                <Route
-                  path="/search/:location"
-                  element={
-                    <Restricted>
-                      <Search searchedPlace={searchedPlace} />
-                    </Restricted>
-                  }
-                />
-                <Route
-                  path="/add"
-                  element={
-                    <Restricted>
-                      <Connect />
-                    </Restricted>
-                  }
-                />
-                <Route
-                  path="/dashboard/:id"
-                  element={<EstablishmentDashboard />}
-                ></Route>
-                <Route path="/:id/collect/:token" element={<Collect />} />
-                <Route path="/exchange" element={<Exchange />} />
-              </Route>
-            </Routes>
-          </div>
+              <Route
+                path="/search"
+                element={
+                  <Restricted>
+                    <Search />
+                  </Restricted>
+                }
+              />
+              <Route
+                path="/search/:location"
+                element={
+                  <Restricted>
+                    <Search searchedPlace={searchedPlace} />
+                  </Restricted>
+                }
+              />
+              <Route
+                path="/add"
+                element={
+                  <Restricted>
+                    <Connect />
+                  </Restricted>
+                }
+              />
+              <Route
+                path="/dashboard/:id"
+                element={<EstablishmentDashboard />}
+              ></Route>
+              <Route path="/:id/collect/:token" element={<Collect />} />
+              <Route path="/exchange" element={<Exchange />} />
+            </Route>
+          </Routes>
         </main>
       </AuthProvider>
     </BrowserRouter>

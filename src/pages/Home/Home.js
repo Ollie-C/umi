@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
-import elephant from "../../assets/images/elephant.svg";
-import earth from "../../assets/images/earth.png";
 import "./Home.scss";
 import { useEffect } from "react";
+import loyaltycard from "../../assets/images/umi_loyalitycard-kraft.png";
+import { useState } from "react";
+import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ handleSearchSubmit }) => {
   const { user } = UserAuth();
+  const [address, setAddress] = useState();
+  const navigate = useNavigate();
 
   const processNewUser = async (id) => {
     const userDetails = {
@@ -29,6 +33,10 @@ const Home = () => {
     await setDoc(doc(db, "users", id), userDetails);
   };
 
+  const changeHandler = (e) => {
+    setAddress(e.target.value);
+  };
+
   useEffect(() => {
     if (user) {
       processNewUser(user.uid);
@@ -38,7 +46,60 @@ const Home = () => {
   return (
     <>
       <div className="home">
-        <div className="home__left">
+        <div className="home__top">
+          <section className="home__left">
+            {user && <h1>Welcome back, {user.displayName}, to</h1>}
+            <h1 className="home__title">Earth's Loyalty Card</h1>
+            <p className="home__text">
+              Earn points through making concious decisions to choose
+              eco-friendly organisations.
+            </p>
+            {!user ? (
+              <button onClick={() => navigate("/login")} className="home__cta">
+                Get Started
+              </button>
+            ) : (
+              <form id="searchForm" className="home__search">
+                <input
+                  type="text"
+                  className="home__searchbar"
+                  placeholder="Search a city ..."
+                  name="search"
+                  onChange={changeHandler}
+                ></input>
+                {/* <select name="category" className="home__select">
+              <option value="Cafe">Cafe</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Retail">Retail</option>
+            </select> */}
+                <Icon
+                  type="submit"
+                  form="searchForm"
+                  className="home__arrow"
+                  icon="majesticons:map-marker-area"
+                  width="40"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSearchSubmit(address);
+                    navigate(`search/${address}`);
+                  }}
+                />
+              </form>
+            )}
+          </section>
+          <section className="home__right">
+            <div className="home__image-wrapper">
+              <img
+                className="home__loyaltycard"
+                src={loyaltycard}
+                alt="umi-loyalty-card-image"
+              />
+            </div>
+          </section>
+        </div>
+
+        {/* <div className="home__left">
           <h1 className="home__header">umi: Earth's Loyalty Card App</h1>
           <p className="home__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
@@ -70,8 +131,8 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             repellendus obcaecati, autem praesentium culpa doloribus.
           </p>
-        </div>
-      </section>
+        </div> */}
+      </div>
     </>
   );
 };

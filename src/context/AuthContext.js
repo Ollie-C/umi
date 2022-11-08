@@ -24,7 +24,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const setAuthStatus = onAuthStateChanged(auth, (currentUser) => {
-      console.log("current user", currentUser);
       setUser(currentUser);
     });
     return () => {

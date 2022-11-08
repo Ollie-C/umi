@@ -5,114 +5,115 @@
   @include tablet {
     padding: 4rem 6rem;
   }
-
-  &__header {
-    color: #fff;
-    font-size: 5rem;
-  }
-
-  &__buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  &__organisation {
-    display: flex;
-  }
-
-  &__addorganisation {
-    padding: 1rem;
-    font-size: 2rem;
-    color: #ffd166;
-    letter-spacing: 4px;
-    background-color: #fff;
-    border: none;
-    border-radius: 20px;
-    &:hover {
-      color: #fff;
-      background-color: #ef476f;
-      cursor: pointer;
-    }
-  }
-  &__subheader {
-    color: #fff;
-    font-size: 3rem;
-    margin: 2rem 0;
-    text-align: center;
-    @include tablet {
-      text-align: left;
-    }
-  }
-
-  &__email {
-    margin: 2rem 0;
-    padding: 5px;
-    color: #ffd166;
-    font-size: 1.8rem;
-    background-color: rgba(19, 18, 18, 0.285);
-    border-radius: 20px;
-    width: 30%;
-    text-align: center;
-  }
-
-  &__balance {
-    height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include tablet {
-      justify-content: flex-start;
-    }
-  }
-
-  &__points {
-    font-size: 6rem;
-  }
-
-  &__contributions {
-    display: flex;
-  }
-
-  &__total {
-    background-color: #ffd166;
-    border-radius: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    margin: 1rem 0;
-
-    &--second {
-      background-color: #ef476f;
-    }
-  }
-
-  &__transactions {
-    flex-grow: 1;
-    margin: 1rem;
-  }
-
-  &__transaction {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem 0;
-  }
 }
 
-.totals-wrapper {
-  width: 30%;
-}
+//   &__header {
+//     color: #fff;
+//     font-size: 5rem;
+//   }
 
-.transaction {
-  &__shop {
-    font-weight: 900;
-  }
+//   &__buttons {
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+//   }
 
-  &__text {
-    margin-right: 1rem;
-  }
-}
+//   &__organisation {
+//     display: flex;
+//   }
+
+//   &__addorganisation {
+//     padding: 1rem;
+//     font-size: 2rem;
+//     color: #ffd166;
+//     letter-spacing: 4px;
+//     background-color: #fff;
+//     border: none;
+//     border-radius: 20px;
+//     &:hover {
+//       color: #fff;
+//       background-color: #ef476f;
+//       cursor: pointer;
+//     }
+//   }
+//   &__subheader {
+//     color: #fff;
+//     font-size: 3rem;
+//     margin: 2rem 0;
+//     text-align: center;
+//     @include tablet {
+//       text-align: left;
+//     }
+//   }
+
+//   &__email {
+//     margin: 2rem 0;
+//     padding: 5px;
+//     color: #ffd166;
+//     font-size: 1.8rem;
+//     background-color: rgba(19, 18, 18, 0.285);
+//     border-radius: 20px;
+//     width: 30%;
+//     text-align: center;
+//   }
+
+//   &__balance {
+//     height: 10rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     @include tablet {
+//       justify-content: flex-start;
+//     }
+//   }
+
+//   &__points {
+//     font-size: 6rem;
+//   }
+
+//   &__contributions {
+//     display: flex;
+//   }
+
+//   &__total {
+//     background-color: #ffd166;
+//     border-radius: 4rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     height: 10rem;
+//     margin: 1rem 0;
+
+//     &--second {
+//       background-color: #ef476f;
+//     }
+//   }
+
+//   &__transactions {
+//     flex-grow: 1;
+//     margin: 1rem;
+//   }
+
+//   &__transaction {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 1rem 0;
+//   }
+// }
+
+// .totals-wrapper {
+//   width: 30%;
+// }
+
+// .transaction {
+//   &__shop {
+//     font-weight: 900;
+//   }
+
+//   &__text {
+//     margin-right: 1rem;
+//   }
+// }
