@@ -11,10 +11,10 @@ import { AuthProvider } from "./context/AuthContext";
 import Connect from "./pages/Connect/Connect";
 import Exchange from "./pages/Exchange/Exchange";
 //COMPONENTS
-import Navbar from "./components/Navbar/Navbar";
 import Restricted from "./components/Restricted/Restricted";
 import EstablishmentDashboard from "./pages/EstablishmentDashBoard/EstablishmentDashboard";
 import Collect from "./pages/Collect/Collect";
+import Layout from "./components/Shared/Layout";
 
 const App = () => {
   const [searchedPlace, setSearchedPlace] = useState(null);
@@ -26,53 +26,56 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Navbar handleSearchSubmit={handleSearchSubmit} />
         <main className="main">
           <div className="app-wrapper">
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/:establishmentId" element={<Establishment />} />
-
               <Route path="/login" element={<Login />} />
               <Route
-                path="/profile"
-                element={
-                  <Restricted>
-                    <Profile />
-                  </Restricted>
-                }
-              />
+                element={<Layout handleSearchSubmit={handleSearchSubmit} />}
+              >
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/:establishmentId" element={<Establishment />} />
 
-              <Route
-                path="/search"
-                element={
-                  <Restricted>
-                    <Search />
-                  </Restricted>
-                }
-              />
-              <Route
-                path="/search/:location"
-                element={
-                  <Restricted>
-                    <Search searchedPlace={searchedPlace} />
-                  </Restricted>
-                }
-              />
-              <Route
-                path="/add"
-                element={
-                  <Restricted>
-                    <Connect />
-                  </Restricted>
-                }
-              />
-              <Route
-                path="/dashboard/:id"
-                element={<EstablishmentDashboard />}
-              ></Route>
-              <Route path="/:id/collect/:token" element={<Collect />} />
-              <Route path="/exchange" element={<Exchange />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <Restricted>
+                      <Profile />
+                    </Restricted>
+                  }
+                />
+
+                <Route
+                  path="/search"
+                  element={
+                    <Restricted>
+                      <Search />
+                    </Restricted>
+                  }
+                />
+                <Route
+                  path="/search/:location"
+                  element={
+                    <Restricted>
+                      <Search searchedPlace={searchedPlace} />
+                    </Restricted>
+                  }
+                />
+                <Route
+                  path="/add"
+                  element={
+                    <Restricted>
+                      <Connect />
+                    </Restricted>
+                  }
+                />
+                <Route
+                  path="/dashboard/:id"
+                  element={<EstablishmentDashboard />}
+                ></Route>
+                <Route path="/:id/collect/:token" element={<Collect />} />
+                <Route path="/exchange" element={<Exchange />} />
+              </Route>
             </Routes>
           </div>
         </main>

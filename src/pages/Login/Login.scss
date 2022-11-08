@@ -1,11 +1,15 @@
 @use "../../styles/partials/mixins" as *;
 
 .login {
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 2rem 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../../assets/images/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   &__card {
     height: 50rem;

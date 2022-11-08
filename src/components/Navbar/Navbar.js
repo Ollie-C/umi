@@ -26,7 +26,7 @@ const Navbar = ({ handleSearchSubmit }) => {
   return (
     <nav className="navbar">
       <NavLink className="navbar__home" to="/"></NavLink>
-      <h1 className="navbar__logo">k o m o r e b i .</h1>
+      <h1 className="navbar__logo">u m i .</h1>
       {!user ? (
         <NavLink className="navbar__link" to="/login">
           LOGIN

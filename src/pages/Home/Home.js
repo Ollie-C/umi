@@ -39,7 +39,7 @@ const Home = () => {
     <>
       <div className="home">
         <div className="home__left">
-          <h1 className="home__header">komorebi: Earth's Loyalty Card App</h1>
+          <h1 className="home__header">umi: Earth's Loyalty Card App</h1>
           <p className="home__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             repellendus obcaecati, autem praesentium culpa doloribus.
@@ -56,7 +56,16 @@ const Home = () => {
       </div>
       <section className="about">
         <div className="about__left">
-          <h1 className="about__header">About</h1>
+          <h1 className="about__header">Earn umi Points</h1>
+          <p className="about__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            repellendus obcaecati, autem praesentium culpa doloribus.
+          </p>
+        </div>
+      </section>
+      <section className="initiatives">
+        <div className="about__left">
+          <h1 className="about__header">Earn umi Points</h1>
           <p className="about__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             repellendus obcaecati, autem praesentium culpa doloribus.

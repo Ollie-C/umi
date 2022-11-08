@@ -6,7 +6,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { Icon } from "@iconify/react";
 import { UserAuth } from "../../context/AuthContext";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const EstablishmentDashboard = () => {
   const [currentEstablishment, setCurrentEstablishment] = useState({});
@@ -14,8 +14,11 @@ const EstablishmentDashboard = () => {
   const { user } = UserAuth();
   const { id } = useParams();
 
+  const baseURL = "http://localhost:3000";
+
   let token = uuidv4();
-  let url = `/${id}/collect/${token}`;
+  let url = `${baseURL}/${id}/collect/${token}`;
+  console.log(url);
 
   const establishmentRef = doc(db, "establishments", id);
 
@@ -73,7 +76,6 @@ const EstablishmentDashboard = () => {
                   src={qrcode}
                   alt="establishment-qrcode"
                 />
-                {/* <Link to={url}>Collect</Link> */}
               </>
             )}
             {!qrcode ? (

@@ -69,32 +69,34 @@ const Search = ({ searchedPlace }) => {
 
   return (
     <>
-      <CategoryBar />
       <div className="search">
-        <div className="search__map">
-          <Map
-            apiKey={REACT_APP_GM_API_KEY}
-            location={coordinates}
-            zoomLevel={15}
-          />
-        </div>
+        <CategoryBar />
+        <div className="results-wrapper">
+          <div className="search__map">
+            <Map
+              apiKey={REACT_APP_GM_API_KEY}
+              location={coordinates}
+              zoomLevel={15}
+            />
+          </div>
 
-        <div className="search__listings">
-          <h2 className="search__header">8 results near {location}: </h2>
-          <ul className="cards-wrapper">
-            {results.map((result) => {
-              return (
-                <div
-                  onClick={() => {
-                    navigate(`/${result.id}`);
-                  }}
-                  className="card-wrapper"
-                >
-                  <Card key={result.id} result={result} />
-                </div>
-              );
-            })}
-          </ul>
+          <div className="search__listings">
+            <h2 className="search__header">8 results near {location}: </h2>
+            <ul className="cards-wrapper">
+              {results.map((result) => {
+                return (
+                  <div
+                    onClick={() => {
+                      navigate(`/${result.id}`);
+                    }}
+                    className="card-wrapper"
+                  >
+                    <Card key={result.id} result={result} />
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </>

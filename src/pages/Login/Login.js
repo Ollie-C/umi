@@ -18,15 +18,16 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
+      console.log("here", user);
+
       navigate("/");
-      console.log(user);
     }
   }, [user]);
 
   return (
     <div className="login">
       <div className="login__card">
-        <h1 className="login__header">Welcome to komorebi.</h1>
+        <h1 className="login__header">Welcome to umi.</h1>
         <p className="login__text">Let's get started.</p>
         <button className="login__google" onClick={handleLogIn}>
           Log in with Google

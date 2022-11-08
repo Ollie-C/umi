@@ -21,7 +21,6 @@ const Collect = () => {
   const navigate = useNavigate();
   let newToken = uuidv4();
 
-  const currentUser = doc(db, "users", String(user.uid));
   const currentEstablishmentRef = doc(db, "establishments", id);
   const newTransactionRef = doc(
     collection(db, "users", String(user.uid), "transactions")
@@ -47,6 +46,8 @@ const Collect = () => {
   };
 
   const collectPoints = async () => {
+    const currentUser = doc(db, "users", String(user.uid));
+
     try {
       await setDoc(newTransactionRef, {
         date: Date.now(),
@@ -67,11 +68,15 @@ const Collect = () => {
   };
 
   useEffect(() => {
-    getEstablishment();
+    if (user) {
+      getEstablishment();
+    }
   }, []);
 
   useEffect(() => {
-    validateToken();
+    if (user) {
+      validateToken();
+    }
   }, []);
 
   if (!user) {
