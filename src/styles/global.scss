@@ -1,3 +1,7 @@
 @use "./partials/resets";
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
+
+.main {
+  position: relative;
+}

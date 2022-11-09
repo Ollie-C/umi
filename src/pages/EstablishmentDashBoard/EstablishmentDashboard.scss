@@ -1,4 +1,5 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .dashboard {
   min-height: 100vh;
@@ -12,13 +13,13 @@
   }
 
   &__header {
-    color: #fff;
+    color: $primary-grey;
     width: 100%;
     font-size: 3rem;
-    padding: 2rem 0;
-    margin-bottom: 3rem;
+    padding: 4rem 0;
+
     @include tablet {
-      padding: 3rem 0;
+      padding: 6rem 0;
 
       font-size: 5rem;
     }
@@ -26,7 +27,7 @@
 
   &__card-wrapper {
     width: 100%;
-    border-top: 3px solid #ffd166;
+    border-top: 2px solid $primary-blue;
 
     @include tablet {
       display: flex;
@@ -57,7 +58,7 @@
   }
 
   &__top {
-    border-bottom: 1px solid #ffd16673;
+    border-bottom: 1px solid $primary-blue;
     padding: 0 2rem;
   }
 
@@ -79,7 +80,7 @@
     padding: 2rem 0;
     font-weight: 100;
     font-size: 1.4rem;
-    color: #fff;
+    color: $primary-blue;
   }
 
   &__detail {
@@ -94,7 +95,7 @@
   font-size: 3rem;
   text-align: center;
   padding: 2rem 0;
-  color: #fff;
+  color: $primary-grey;
   @include tablet {
     font-size: 3rem;
   }

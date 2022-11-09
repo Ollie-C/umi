@@ -1,14 +1,17 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .categoryBar {
   display: flex;
-
+  margin-top: 3.5rem;
   padding: 0 2rem;
   height: 6rem;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffd166;
+  background-color: $primary-blue;
   width: 100%;
+  position: fixed;
+  z-index: 1;
 
   @include tablet {
     padding: 0 6rem;
@@ -21,7 +24,7 @@
     flex-grow: 1;
     font-size: 1.4rem;
     margin: auto 2px;
-    background-color: #ffd166;
+    background-color: $primary-blue;
     color: #fff;
     border-radius: 10px;
     &--extra {
@@ -36,7 +39,7 @@
     &:hover {
       background-color: #fff;
       transition: background-color 1s ease;
-      color: #ffd166;
+      color: $primary-blue;
       cursor: pointer;
     }
 

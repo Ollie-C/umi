@@ -13,6 +13,8 @@ import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./Profile.scss";
 import UserTransaction from "../../components/UserTransaction/UserTransaction";
+import coin from "../../assets/images/unnamed.png";
+import { Icon } from "@iconify/react";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -20,6 +22,8 @@ const Profile = () => {
   const [currentUser, setCurrentUser] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [userEstablishment, setUserEstablishment] = useState("");
+
+  const date = new Date(currentUser.joined).toLocaleString("en-GB");
 
   const handleLogOut = async () => {
     try {
@@ -45,7 +49,6 @@ const Profile = () => {
         id: transaction.id,
       }));
       setTransactions(transactionsData);
-      console.log(transactions);
     } catch (error) {
       console.log(error);
     }
@@ -81,6 +84,7 @@ const Profile = () => {
       console.log(error);
     }
   };
+  console.log(userEstablishment);
 
   useEffect(() => {
     getCurrentUser();
@@ -97,71 +101,89 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile">
-      <h1 className="profile__header">
-        Welcome to your profile, {currentUser.name}
-      </h1>
-      <div className="profile__buttons">
-        <p className="profile__email">{currentUser.email}</p>
-        <div className="profile__organisation">
-          {!userEstablishment ? (
+    <div className="profile-wrapper">
+      <section className="profile">
+        <h1 className="profile__name">{currentUser.name}</h1>
+        <Icon
+          onClick={handleLogOut}
+          className="logout"
+          icon="ph:sign-out-duotone"
+          height="50"
+        />
+        {userEstablishment.length == 0 ? (
+          <button
+            onClick={() => navigate("/add")}
+            className="profile__dashboard"
+          >
+            Connect
+          </button>
+        ) : (
+          <>
+            <p className="profile__owner">{userEstablishment[0].name} Owner</p>
             <button
-              onClick={() => navigate("/add")}
-              className="profile__addorganisation"
+              onClick={() => navigate(`/dashboard/${userEstablishment[0].id}`)}
+              className="profile__dashboard"
             >
-              + Connect
+              Go to Dashboard
             </button>
-          ) : (
-            <>
-              <p className="profile__email">
-                {userEstablishment[0].name} Owner
-              </p>
-              <button
-                onClick={() =>
-                  navigate(`/dashboard/${userEstablishment[0].id}`)
-                }
-                className="profile__addorganisation"
-              >
-                Go to Dashboard
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-      <button onClick={handleLogOut}>Log out</button>
-      <h2 className="profile__subheader">Balance</h2>
-
-      <div className="profile__balance">
-        <h2 className="profile__points">{currentUser.points}</h2>
-      </div>
-      <h2 className="profile__subheader">Contributions</h2>
-      <div className="profile__contributions">
-        <div className="totals-wrapper">
-          <div className="profile__total">
-            <p>Total points:</p>
-            <h2 className="profile__totals">{currentUser.totalPoints}</h2>
+          </>
+        )}
+        <div className="profile__details">
+          <div className="detail__wrapper">
+            <label htmlFor="" className="profile__label">
+              email:
+            </label>
+            <p className="profile__detail"> {currentUser.email}</p>
           </div>
-          <div className="profile__total profile__total--second">
-            <p>Fav Initiative:</p>
-            <h2 className="profile__totals">Zero-waste</h2>
+          <div className="detail__wrapper">
+            <label htmlFor="" className="profile__label">
+              user since:
+            </label>
+            <p className="profile__detail"> {String(date)}</p>
           </div>
         </div>
-        <div className="profile__transactions">
-          <h2>Recent transactions:</h2>
-          {transactions ? (
-            transactions.map((transaction) => {
-              return (
-                <UserTransaction
-                  key={transaction.id}
-                  transaction={transaction}
-                />
-              );
-            })
-          ) : (
-            <p>No transactions recorded.</p>
-          )}
+        <div className="initiatives">
+          <h2 className="profile__header">Initiatives you follow:</h2>
         </div>
-      </div>
+      </section>
+      <section className="stats">
+        <h2 className="profile__header">POINTS</h2>
+        <div className="points">
+          <div className="points__left">
+            <img src={coin} alt="umi-points-icon" />
+          </div>
+          <div className="points__right">
+            <h3>Your points balance:</h3>
+            <h2 className="points__balance">{currentUser.points} umi</h2>
+            <p className="points__total">
+              Total points: {currentUser.totalPoints}
+            </p>
+            <button
+              onClick={() => navigate("/exchange")}
+              className="profile__exchange"
+            >
+              Use points
+            </button>
+          </div>
+        </div>
+        <div className="activity">
+          <h2 className="profile__header">ACTIVITY</h2>
+          <div className="activity__container">
+            {transactions ? (
+              transactions.map((transaction) => {
+                return (
+                  <UserTransaction
+                    key={transaction.id}
+                    transaction={transaction}
+                  />
+                );
+              })
+            ) : (
+              <p>No transactions recorded.</p>
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,17 +1,19 @@
 import "./ExchangeItem.scss";
 import sapling from "../../assets/images/sapling.jpg";
-import { Icon } from "@iconify/react";
+import coin from "../../assets/images/unnamed.png";
 
-const ExchangeItem = () => {
+const ExchangeItem = ({ item }) => {
   return (
     <div className="itemcard">
       <div className="itemcard__section">
         <img className="itemcard__image" src={sapling} alt="sapling" />
       </div>
       <div className="itemcard__section">
-        <h1 className="itemcard__header">Plant a tree</h1>
-        <Icon icon="akar-icons:coin" />
-        <p className="itemcard__points">200</p>
+        <h1 className="itemcard__header">{item.name}</h1>
+        <div className="itemcard__bottom">
+          <img className="itemcard__coin" src={coin} alt="" />
+          <p className="itemcard__points">{item.cost}</p>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 @use "./typology";
+@use "./variables" as *;
 
 *,
 *::before,
@@ -16,6 +17,7 @@ body {
   font-size: 1.6rem;
   // font-family: "Futura", sans-serif;
   font-family: "Quicksand", sans-serif;
+  color: $primary-grey;
 }
 
 ul {

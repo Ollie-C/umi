@@ -1,8 +1,25 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .search {
   min-height: 200vh;
   padding: 2rem 0;
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  &__back {
+    padding: 2rem;
+    color: $primary-blue;
+    &:hover {
+      color: $primary-grey;
+    }
+  }
 
   &__map {
     display: none;
@@ -16,6 +33,7 @@
   }
 
   &__listings {
+    margin-top: 12rem;
     width: 100%;
     flex-grow: 1;
     padding: 2rem;
@@ -27,7 +45,12 @@
 
   &__header {
     font-size: 1.8rem;
-    color: #fff;
+    color: $primary-grey;
+  }
+
+  &__location {
+    font-family: "Quicksand-bold";
+    color: $primary-brown;
   }
 }
 

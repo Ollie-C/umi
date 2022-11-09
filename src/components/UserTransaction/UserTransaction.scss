@@ -1,0 +1,12 @@
+@use "../../styles/partials/variables" as *;
+
+.activity {
+  &__wrapper {
+    display: flex;
+    padding: 1rem 0;
+  }
+  &__icon {
+    margin-right: 4rem;
+    color: $primary-grey;
+  }
+}

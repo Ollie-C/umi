@@ -1,9 +1,85 @@
 @use "../../styles/partials/mixins" as *;
-.profile {
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typology";
+
+.logout {
+  padding-bottom: 2rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.profile-wrapper {
+  display: flex;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 2rem;
-  @include tablet {
-    padding: 4rem 6rem;
+  width: 100%;
+  padding: 8rem;
+}
+
+.profile,
+.stats {
+  padding: 2rem 0;
+}
+.profile {
+  width: 30%;
+
+  &__name {
+    font-size: 6rem;
+  }
+
+  &__dashboard,
+  &__exchange {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    border: none;
+    padding: 1rem 4rem;
+    color: #fff;
+    background-color: $primary-blue;
+    &:hover {
+      cursor: pointer;
+      transition: all 1s ease;
+      background-color: $secondary-blue;
+    }
+  }
+
+  &__details {
+    padding: 4rem 0;
+  }
+
+  &__detail {
+    padding: 2rem 0;
+    font-family: "Quicksand-Medium";
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    padding: 2rem 0;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid $primary-grey;
+  padding: 2rem 15rem;
+}
+
+.points {
+  display: flex;
+  padding: 4rem 0;
+
+  &__right {
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__balance {
+    font-size: 8rem;
   }
 }
 

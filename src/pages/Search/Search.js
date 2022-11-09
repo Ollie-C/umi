@@ -2,7 +2,7 @@ import "./Search.scss";
 import CategoryBar from "../../components/CategoryBar/CategoryBar";
 import Map from "../../components/Map/Map";
 import Card from "../../components/Card/Card";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { collection, getDocs } from "firebase/firestore";
@@ -52,8 +52,14 @@ const Search = ({ searchedPlace }) => {
 
   if (!coordinates) {
     return (
-      <div className="search-error">
-        <h1 className="search-error__text">loading...</h1>
+      <div className="search">
+        <div className="search__error">
+          <h1 className="search-error__text">No results found.</h1>
+          <p>Try a different location.</p>
+          <Link className="search__back" to="/">
+            Back
+          </Link>
+        </div>
       </div>
     );
   }
@@ -81,7 +87,10 @@ const Search = ({ searchedPlace }) => {
           </div>
 
           <div className="search__listings">
-            <h2 className="search__header">8 results near {location}: </h2>
+            <h2 className="search__header">
+              Showing 8 results near
+              <span className="search__location"> {location}</span>:
+            </h2>
             <ul className="cards-wrapper">
               {results.map((result) => {
                 return (

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
 import "./Home.scss";
 import { useEffect } from "react";
 import loyaltycard from "../../assets/images/umi_loyalitycard-kraft.png";
+import umi from "../../assets/images/umi_logo-blue2.png";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
@@ -45,14 +46,24 @@ const Home = ({ handleSearchSubmit }) => {
 
   return (
     <>
+      <div className="home-wrapper"></div>
       <div className="home">
         <div className="home__top">
           <section className="home__left">
-            {user && <h1>Welcome back, {user.displayName}, to</h1>}
+            <div className="home__image-wrapper">
+              <img
+                className="home__loyaltycard"
+                src={loyaltycard}
+                alt="umi-loyalty-card-image"
+              />
+            </div>
+          </section>
+          <section className="home__right">
+            {user && <h1>Welcome back, {user.displayName}</h1>}
+            {/* <img src={umi} alt="" /> */}
             <h1 className="home__title">Earth's Loyalty Card</h1>
             <p className="home__text">
-              Earn points through making concious decisions to choose
-              eco-friendly organisations.
+              Earn points when choosing an eco-friendly alternative.
             </p>
             {!user ? (
               <button onClick={() => navigate("/login")} className="home__cta">
@@ -88,15 +99,12 @@ const Home = ({ handleSearchSubmit }) => {
               </form>
             )}
           </section>
-          <section className="home__right">
-            <div className="home__image-wrapper">
-              <img
-                className="home__loyaltycard"
-                src={loyaltycard}
-                alt="umi-loyalty-card-image"
-              />
-            </div>
-          </section>
+          <div className="initiatives">
+            <NavLink className="initiatives__link" to="/exchange">
+              Sustainable initiatives
+            </NavLink>
+            <Icon icon="dashicons:arrow-down" color="white" height="40" />
+          </div>
         </div>
 
         {/* <div className="home__left">

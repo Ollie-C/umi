@@ -1,8 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typology";
 .exchange {
   min-height: 100vh;
   padding: 6rem;
 
+  &__top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $primary-grey;
+  }
+
   &__items {
+    padding: 2rem 0;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -11,10 +23,9 @@
     margin: 0 auto;
   }
   &__title {
-    color: #fff;
-    font-size: 3rem;
-    width: 100%;
-    text-align: center;
-    padding: 3rem;
+    color: $primary-blue;
+    font-size: 4rem;
+
+    padding: 3rem 0;
   }
 }

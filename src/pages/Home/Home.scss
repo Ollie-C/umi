@@ -1,8 +1,18 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.home-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-image: url("../../assets/images/turtle.jpg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  opacity: 60%;
+  z-index: -1;
+}
 .home {
-  padding: 4rem 0;
   &__top {
     min-height: 100vh;
     display: flex;
@@ -11,6 +21,8 @@
     width: 100%;
     align-items: center;
     padding: 4rem;
+    background: none;
+    position: relative;
 
     @include tablet {
       flex-direction: row;
@@ -35,8 +47,14 @@
     align-items: flex-end;
   }
   &__title {
-    font-size: 5rem;
+    margin-top: 2rem;
+    font-size: 6rem;
     padding: 2rem 0;
+    color: $primary-grey;
+  }
+
+  &__image-wrapper {
+    width: 70%;
   }
 
   &__loyaltycard {
@@ -57,7 +75,7 @@
   &__select {
     width: 80%;
     border-radius: 10px;
-    border: 1px solid rgb(66, 66, 66);
+    border: 2px solid rgb(66, 66, 66);
     background: none;
     padding: 1.2rem 2rem;
     margin-right: 4px;
@@ -65,7 +83,7 @@
       color: $primary-blue;
     }
     &:hover {
-      color: #ffd166;
+      color: $primary-white;
     }
     @include tablet {
       font-size: 1.4rem;
@@ -75,15 +93,17 @@
     }
 
     &::placeholder {
-      color: rgb(66, 66, 66, 0.7);
+      color: $primary-white;
+      font-size: 1.6rem;
+      text-align: right;
     }
   }
 
   &__arrow {
-    color: $primary-blue;
+    color: $primary-grey;
     margin-left: 3rem;
     &:hover {
-      color: $primary-grey;
+      color: $primary-blue;
       cursor: pointer;
       transition: all 1s ease;
     }
@@ -107,12 +127,30 @@
       background-color: $secondary-blue;
     }
   }
+
+  &__text {
+    color: $primary-white;
+  }
 }
 
 .logo {
   width: 6rem;
   &:hover {
     cursor: pointer;
+  }
+}
+
+.initiatives {
+  position: absolute;
+  bottom: 2rem;
+  left: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__link {
+    font-family: Quicksand-medium;
+    color: $primary-white;
+    font-size: 2rem;
   }
 }
 // .home,

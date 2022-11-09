@@ -3,21 +3,17 @@
 
 .navbar {
   display: flex;
-  padding: 3rem;
+  padding: 2rem;
   align-items: center;
   width: 100%;
-  background-color: #fff;
+  background-color: $primary-grey;
   justify-content: space-between;
   position: fixed;
   flex-wrap: wrap;
+  z-index: 1;
+
   @include tablet {
     padding: 1rem 8rem;
-  }
-
-  &__logo {
-    color: rgb(66, 66, 66);
-    font-weight: 100;
-    font-size: 1.4rem;
   }
 
   &__home {
@@ -36,6 +32,8 @@
   }
 
   &__link {
+    position: absolute;
+    bottom: 0;
     margin-right: 4rem;
     &:hover {
       cursor: pointer;
@@ -73,10 +71,13 @@
     align-items: center;
   }
   &__icon {
-    color: $primary-grey;
+    color: $primary-white;
+
     &:hover {
       cursor: pointer;
       color: $primary-blue;
+      background-color: $primary-white;
+      border-radius: 50%;
       transition: all 1s ease-in-out;
     }
   }

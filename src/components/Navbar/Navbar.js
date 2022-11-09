@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/images/umi_logo-black.png";
+import logo from "../../assets/images/umi_logo-white.png";
 import { Icon } from "@iconify/react";
 
 import { UserAuth } from "../../context/AuthContext";
@@ -39,9 +39,6 @@ const Navbar = () => {
       )} */}
 
       <div className="user__wrapper">
-        <NavLink className="navbar__link" to="/exchange">
-          EXCHANGE
-        </NavLink>
         <Icon
           onClick={() => (user ? navigate("/profile") : navigate("/login"))}
           className="user__icon"
