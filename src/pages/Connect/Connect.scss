@@ -1,9 +1,12 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .connect {
-  padding: 4rem;
+  padding: 6rem 12rem;
 
   &__header {
-    margin-bottom: 4rem;
-    color: #fff;
+    padding: 4rem 0;
+    color: $primary-grey;
   }
 
   &__fields {
@@ -13,13 +16,16 @@
   }
 
   &__label {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
   }
 
   &__input {
     padding: 1rem;
     background: none;
-    border: none;
+    border: 1px solid $primary-grey;
+    border-radius: 10px;
+    font-size: 1.6rem;
   }
 
   &__radio {
@@ -33,18 +39,37 @@
   &__button {
     border: none;
     padding: 2rem;
-    background-color: #ffd166;
+    background-color: $primary-blue;
     color: #fff;
     font-size: 1.8rem;
     width: 50%;
-
+    margin-right: 4rem;
+    border-radius: 10px;
     &:hover {
       cursor: pointer;
-      background-color: #ffc233;
+      background-color: $secondary-blue;
     }
   }
 
   &__cancel {
     margin-left: 2rem;
   }
+
+  &__form {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  &__addimage {
+    padding: 1rem;
+  }
+}
+
+.field-wrapper {
+  padding: 0.8rem 0;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
