@@ -15,6 +15,7 @@ import Restricted from "./components/Restricted/Restricted";
 import EstablishmentDashboard from "./pages/EstablishmentDashBoard/EstablishmentDashboard";
 import Collect from "./pages/Collect/Collect";
 import Layout from "./components/Shared/Layout";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [searchedPlace, setSearchedPlace] = useState(null);
@@ -78,6 +79,7 @@ const App = () => {
             </Route>
           </Routes>
         </main>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );

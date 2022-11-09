@@ -1,40 +1,55 @@
-import { NavLink } from "react-router-dom";
+//Styles
+import "./Home.scss";
+//Firebase & context
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
-import "./Home.scss";
-import { useEffect } from "react";
+//images
 import loyaltycard from "../../assets/images/umi_loyalitycard-kraft.png";
-import umi from "../../assets/images/umi_logo-blue2.png";
-import { useState } from "react";
+import umiPhone from "../../assets/images/umi_top.png";
+//icons
 import { Icon } from "@iconify/react";
+import zeroWaste from "../../assets/icons/zero-waste.png";
+import ecoEnergy from "../../assets/icons/eco-light.png";
+import organic from "../../assets/icons/organic.png";
+import local from "../../assets/icons/place.png";
+import reuse from "../../assets/icons/reuse.png";
+import plantBased from "../../assets/icons/vegan.png";
+import handMade from "../../assets/icons/hand-made.png";
+//Hooks
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = ({ handleSearchSubmit }) => {
   const { user } = UserAuth();
   const [address, setAddress] = useState();
   const navigate = useNavigate();
+  const ref = useRef(null);
 
   const processNewUser = async (id) => {
-    const userDetails = {
-      email: user.email,
-      name: user.displayName,
-      points: 0,
-      totalPoints: 0,
-      transactions: [],
-      initiatves: [],
-      joined: Date.now(),
-      establishmentId: false,
-    };
-    const userDocRef = doc(db, "users", id);
-    const docSnap = await getDoc(userDocRef);
-    if (docSnap.data()) {
-      console.log("User exists");
-      return;
+    try {
+      const userDetails = {
+        email: user.email,
+        name: user.displayName,
+        points: 0,
+        totalPoints: 0,
+        transactions: [],
+        initiatves: [],
+        joined: Date.now(),
+        establishmentId: false,
+      };
+      const userDocRef = doc(db, "users", id);
+      const docSnap = await getDoc(userDocRef);
+      if (docSnap.data()) {
+        return;
+      }
+      await setDoc(doc(db, "users", id), userDetails);
+    } catch (error) {
+      console.log(error);
     }
-    console.log(docSnap.data());
-    await setDoc(doc(db, "users", id), userDetails);
   };
+
+  const handleScroll = () => ref.current.scrollIntoView({ behavior: "smooth" });
 
   const changeHandler = (e) => {
     setAddress(e.target.value);
@@ -60,7 +75,7 @@ const Home = ({ handleSearchSubmit }) => {
           </section>
           <section className="home__right">
             {user && <h1>Welcome back, {user.displayName}</h1>}
-            {/* <img src={umi} alt="" /> */}
+
             <h1 className="home__title">Earth's Loyalty Card</h1>
             <p className="home__text">
               Earn points when choosing an eco-friendly alternative.
@@ -78,12 +93,12 @@ const Home = ({ handleSearchSubmit }) => {
                   name="search"
                   onChange={changeHandler}
                 ></input>
-                {/* <select name="category" className="home__select">
-              <option value="Cafe">Cafe</option>
-              <option value="Restaurant">Restaurant</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Retail">Retail</option>
-            </select> */}
+                <select name="category" className="home__select">
+                  <option value="Cafe">Cafe</option>
+                  <option value="Restaurant">Restaurant</option>
+                  <option value="Groceries">Groceries</option>
+                  <option value="Retail">Retail</option>
+                </select>
                 <Icon
                   type="submit"
                   form="searchForm"
@@ -100,46 +115,88 @@ const Home = ({ handleSearchSubmit }) => {
             )}
           </section>
           <div className="initiatives">
-            <NavLink className="initiatives__link" to="/exchange">
+            <p className="initiatives__link" to="#sustainable">
               Sustainable initiatives
-            </NavLink>
-            <Icon icon="dashicons:arrow-down" color="white" height="40" />
+            </p>
+            <Icon
+              onClick={handleScroll}
+              icon="dashicons:arrow-down"
+              color="white"
+              height="40"
+            />
           </div>
         </div>
-
-        {/* <div className="home__left">
-          <h1 className="home__header">umi: Earth's Loyalty Card App</h1>
-          <p className="home__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            repellendus obcaecati, autem praesentium culpa doloribus.
+      </div>
+      <div className="sustainable">
+        <div className="sustainable__about" ref={ref}>
+          <h2 className="sustainable__title">What is umi.card?</h2>
+          <p>
+            Umi 海, Japanese for ocean or sea, is a way to help people think
+            about the way they shop by rewarding users for choosing an
+            eco-friendly alternative to their usual choices. Umi.card skips past
+            the tick-bock initiatives and filters out companies employing
+            greenwashing techniques.
           </p>
-          {!user && (
-            <Link className="home__button" to="/login">
-              GET STARTED
-            </Link>
-          )}
         </div>
-        <div className="home__right">
-          <img className="home__elephant" src={elephant} alt="elephant" />
+
+        <div className="sustainable__initiatives">
+          <h2 className="sustainable__title">Sustainable Initiatives</h2>
+          <div className="icons-wrapper">
+            <div className="initiative-card">
+              <img src={zeroWaste} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Zero waste</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={ecoEnergy} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Renewable Energy</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={organic} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Organic</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={local} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Localy-sourced</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={reuse} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Reuse/Recycle</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={plantBased} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Plant-based</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+            <div className="initiative-card">
+              <img src={handMade} className="initiative-card__icon"></img>
+              <h3 className="initiative-card__name">Hand-made</h3>
+              <p className="initiative-card__text">
+                Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <section className="about">
-        <div className="about__left">
-          <h1 className="about__header">Earn umi Points</h1>
-          <p className="about__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            repellendus obcaecati, autem praesentium culpa doloribus.
-          </p>
-        </div>
-      </section>
-      <section className="initiatives">
-        <div className="about__left">
-          <h1 className="about__header">Earn umi Points</h1>
-          <p className="about__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            repellendus obcaecati, autem praesentium culpa doloribus.
-          </p>
-        </div> */}
+      <div className="app">
+        <button className="app__cta">Download the app</button>
+        <img className="app__image" src={umiPhone} alt="umi phone app image" />
       </div>
     </>
   );

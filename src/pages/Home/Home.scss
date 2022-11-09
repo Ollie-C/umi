@@ -23,7 +23,7 @@
     padding: 4rem;
     background: none;
     position: relative;
-
+    scroll-behavior: smooth;
     @include tablet {
       flex-direction: row;
     }
@@ -54,7 +54,7 @@
   }
 
   &__image-wrapper {
-    width: 70%;
+    width: 60%;
   }
 
   &__loyaltycard {
@@ -76,26 +76,27 @@
     width: 80%;
     border-radius: 10px;
     border: 2px solid rgb(66, 66, 66);
-    background: none;
+    background: rgba(255, 255, 255, 0.13);
     padding: 1.2rem 2rem;
     margin-right: 4px;
+    color: $primary-grey;
+    text-align: center;
+    font-size: 1.6rem;
     &:active {
-      color: $primary-blue;
+      outline: none;
+      border: none;
     }
-    &:hover {
-      color: $primary-white;
-    }
+
     @include tablet {
       font-size: 1.4rem;
       width: 30rem;
-
-      color: rgb(66, 66, 66, 0.7);
     }
 
     &::placeholder {
-      color: $primary-white;
+      color: $primary-grey;
       font-size: 1.6rem;
-      text-align: right;
+      text-align: center;
+      opacity: 100%;
     }
   }
 
@@ -153,39 +154,87 @@
     font-size: 2rem;
   }
 }
-// .home,
-// .about {
-//   width: 100%;
-//   background-size: cover;
-//   display: flex;
-//   padding: 12rem 2rem;
 
-//   &__left {
-//     padding: 5rem;
-//     background-color: #ffd1664f;
-//     flex-grow: 1;
-//   }
+.sustainable {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  transition: all 2s ease;
+  text-align: center;
 
-//   &__header {
-//     width: 70%;
-//     padding-bottom: 3rem;
-//     font-size: 5.5rem;
-//     color: #fff;
-//   }
+  &__about,
+  &__initiatives {
+    padding: 4rem 0;
+    width: 80%;
+  }
 
-//   &__description {
-//     line-height: 4rem;
-//     color: #fff;
-//     font-size: 1.8rem;
-//     margin-bottom: 6rem;
-//   }
+  &__about {
+    width: 70%;
+  }
 
-//   &__elephant {
-//     width: 90rem;
-//   }
+  &__title {
+    padding: 2rem 0;
+    font-size: 4rem;
+  }
+}
 
-//   &__earth {
-//     width: 60rem;
-//     margin-right: 4rem;
-//   }
-// }
+.icons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.initiative-card {
+  padding: 4rem 8rem;
+
+  &__icon {
+    width: 8rem;
+    color: $primary-grey;
+    margin: 2rem;
+    transition: all 1s ease;
+    &:hover {
+      width: 7rem;
+    }
+  }
+
+  &__name {
+    color: $primary-blue;
+    font-size: 1.6rem;
+    font-family: Quicksand-bold;
+  }
+
+  &__text {
+    padding: 1rem 0;
+  }
+}
+
+.app {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 60vh;
+
+  &__image {
+    width: 60rem;
+    border-radius: 20px;
+  }
+
+  &__cta {
+    font-size: 1.8rem;
+    border: none;
+    padding: 2rem 4rem;
+    color: #fff;
+    background-color: $primary-blue;
+    border-radius: 20px;
+    &:hover {
+      cursor: pointer;
+      transition: all 1s ease;
+      background-color: $secondary-blue;
+    }
+  }
+}

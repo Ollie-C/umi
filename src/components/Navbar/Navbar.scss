@@ -41,28 +41,6 @@
       transition: all 1s ease-in-out;
     }
   }
-
-  &__searchbar,
-  &__select {
-    border-radius: 10px;
-    border: 1px solid rgb(66, 66, 66);
-    width: 22rem;
-    background: none;
-    padding: 0.5rem 2rem;
-    margin-right: 4px;
-    &:hover {
-      color: #ffd166;
-    }
-    @include tablet {
-      font-size: 1.4rem;
-      width: 30rem;
-      color: rgb(66, 66, 66, 0.7);
-    }
-
-    &::placeholder {
-      color: rgb(66, 66, 66, 0.7);
-    }
-  }
 }
 
 .user {

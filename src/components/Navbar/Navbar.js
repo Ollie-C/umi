@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/umi_logo-white.png";

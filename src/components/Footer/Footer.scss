@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  width: 100%;
+  padding: 6rem;
+  margin-top: 4rem;
+  background-color: $primary-grey;
+  text-align: center;
+
+  &__text {
+    color: $primary-blue;
+    font-size: 1.3rem;
+    font-family: "Quicksand-bold";
+  }
+}
