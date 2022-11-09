@@ -122,6 +122,7 @@ const EstablishmentDashboard = () => {
           <div className="dashboard__bottom"></div>
         </div>
       </div>
+      <button className="dashboard__delete">Delete Establishment</button>
     </div>
   );
 };

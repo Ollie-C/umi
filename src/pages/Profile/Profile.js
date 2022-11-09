@@ -138,7 +138,7 @@ const Profile = () => {
             <p className="profile__detail"> {getDate(currentUser.joined)}</p>
           </div>
         </div>
-        <div className="initiatives">
+        <div className="profile__initiatives">
           <h2 className="profile__header">Initiatives you follow:</h2>
         </div>
       </section>
