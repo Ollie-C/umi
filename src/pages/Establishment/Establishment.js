@@ -3,13 +3,21 @@ import { doc, getDoc } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+//icons
+import zeroWaste from "../../assets/icons/zeroWaste.png";
+import ecoEnergy from "../../assets/icons/eco-light.png";
+import organic from "../../assets/icons/organic.png";
+import local from "../../assets/icons/place.png";
+import reuse from "../../assets/icons/reuse.png";
+import plantBased from "../../assets/icons/vegan.png";
+import handMade from "../../assets/icons/hand-made.png";
 
-import Vurger from "../../assets/images/vurger.PNG";
+import cafe from "../../assets/images/coffee-shop.jpg";
 
 const Establishment = () => {
   const { establishmentId } = useParams();
   const [currentEstablishment, setCurrentEstablishment] = useState([]);
-  const [rewardAccess, setRewardAccess] = useState(false);
+  const [rewardAccess, setRewardAccess] = useState(true);
   const establishmentDocRef = doc(db, "establishments", establishmentId);
 
   const getCurrentEstablishment = async () => {
@@ -35,53 +43,40 @@ const Establishment = () => {
     <div className="establishment">
       <div className="establishment__images-wrapper">
         <img
-          src={Vurger}
+          src={cafe}
           alt="establishment-cover-image"
           className="establishment__cover"
         />
-        <div className="establishment__gallery">
-          <img src={Vurger} alt="" className="establishment__image" />
-          <img src={Vurger} alt="" className="establishment__image" />
-          <img src={Vurger} alt="" className="establishment__image" />
-          <img src={Vurger} alt="" className="establishment__image" />
+      </div>
+      <div className="establishment__details">
+        <div className="establishment__title">
+          <h2 className="establishment__name">{currentEstablishment.name}</h2>
+          <p className="establishment__rating">{currentEstablishment.rating}</p>
         </div>
-      </div>
-      <div className="establishment__title">
-        <h2 className="establishment__name">{currentEstablishment.name}</h2>
-        <p className="establishment__rating">{currentEstablishment.rating}</p>
-      </div>
-      <button onClick={() => setRewardAccess(true)}>Check in</button>
-      <p className="establishment__description">
-        {currentEstablishment.description}
-      </p>
-      <div className="establishment__contact">
-        <h2 className="establishment__header">Address:</h2>
-        <p className="establishment__description ">
-          56 Road Avenue, London NW8 7BT
+        <div className="establishment__initiatives">
+          <img className="establishment__icons" src={plantBased} alt="" />
+          <img className="establishment__icons" src={organic} alt="" />
+          <img className="establishment__icons" src={local} alt="" />
+        </div>
+        <p className="establishment__description">
+          {currentEstablishment.description}
         </p>
-      </div>
-      <div className="establishment__initiatives">
-        <h2 className="initiatives__title">Sustainable Initiatives:</h2>
-        <article className="initiatives__card">
-          <h3 className="initiatives__name">PLANT-BASED</h3>
-        </article>
-        <article className="initiatives__card">
-          <h3 className="initiatives__name">ZERO-WASTE</h3>
-        </article>
-        <article className="initiatives__card">
-          <h3 className="initiatives__name">ZERO-WASTE</h3>
-        </article>
-      </div>
+        <div className="establishment__contact">
+          <p className="establishment__description ">
+            56 Road Avenue, London NW8 7BT
+          </p>
+        </div>
 
-      {rewardAccess ? (
-        <button className="establishment__button">
-          <p className="establishment__points">Collect 20 points</p>
-        </button>
-      ) : (
-        <button className="establishment__button establishment__button--locked">
-          [Locked] 20 points
-        </button>
-      )}
+        {rewardAccess ? (
+          <button className="establishment__button">
+            <p className="establishment__points">Collect 20 umi</p>
+          </button>
+        ) : (
+          <button className="establishment__button establishment__button--locked">
+            [Locked] 20 umi
+          </button>
+        )}
+      </div>
     </div>
   );
 };

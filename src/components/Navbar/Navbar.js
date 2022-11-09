@@ -1,6 +1,6 @@
 import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/images/umi_logo-white.png";
+import logo from "../../assets/images/umi_logo-white2.png";
 import { Icon } from "@iconify/react";
 
 import { UserAuth } from "../../context/AuthContext";

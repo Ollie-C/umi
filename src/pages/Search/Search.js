@@ -88,8 +88,8 @@ const Search = ({ searchedPlace }) => {
 
           <div className="search__listings">
             <h2 className="search__header">
-              Showing 8 results near
-              <span className="search__location"> {location}</span>:
+              Showing results near
+              <span className="search__location"> {location}:</span>
             </h2>
             <ul className="cards-wrapper">
               {results.map((result) => {

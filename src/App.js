@@ -79,7 +79,6 @@ const App = () => {
             </Route>
           </Routes>
         </main>
-        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );

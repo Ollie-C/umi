@@ -3,7 +3,6 @@
 
 .login {
   min-height: 100vh;
-  padding: 2rem 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,6 +17,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     background-color: $primary-brown;
     background-image: url("../../assets/images/background.jpg");
@@ -32,9 +32,10 @@
   }
 
   &__header {
-    font-size: 6rem;
+    font-size: 4rem;
     color: $primary-white;
-    width: 30%;
+    width: 100%;
+    text-align: center;
   }
 
   &__text {
@@ -42,17 +43,14 @@
     font-size: 1.8rem;
   }
   &__google {
-    margin: 3rem 0;
-    border: 2px solid #fff;
+    margin-bottom: 3rem;
+    border: none;
     padding: 2rem;
     background-color: $primary-blue;
     color: #fff;
     font-size: 1.8rem;
-
+    width: 100%;
     border-radius: 10px;
-    @include tablet {
-      width: 50%;
-    }
 
     &:hover {
       cursor: pointer;
@@ -66,5 +64,9 @@
   &__noaccount {
     font-size: 1.3rem;
     font-weight: 600;
+  }
+
+  &__logo {
+    width: 25rem;
   }
 }

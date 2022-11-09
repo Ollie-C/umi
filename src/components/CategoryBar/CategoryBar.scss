@@ -4,7 +4,7 @@
 .categoryBar {
   display: flex;
   margin-top: 3.5rem;
-  padding: 0 2rem;
+  padding: 0 4rem;
   height: 6rem;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   z-index: 1;
 
   @include tablet {
-    padding: 0 6rem;
+    padding: 0 10rem;
   }
 
   &__button {

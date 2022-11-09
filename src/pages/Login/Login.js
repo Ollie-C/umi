@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import logo from "../../assets/images/umi_logo-black.png";
 
 import "./Login.scss";
 
@@ -27,8 +28,8 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login__card">
-        <h1 className="login__header">Welcome to umi.</h1>
-        <p className="login__text">Let's get started.</p>
+        <h1 className="login__header">Welcome to</h1>
+        <img className="login__logo" src={logo} alt="" />
         <button className="login__google" onClick={handleLogIn}>
           Log in with Google
         </button>

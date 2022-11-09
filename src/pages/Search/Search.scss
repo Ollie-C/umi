@@ -38,25 +38,29 @@
     flex-grow: 1;
     padding: 2rem;
     @include tablet {
-      box-shadow: inset 4px 0px 5px rgba(0, 0, 0, 0.25);
       padding: 6rem;
     }
   }
 
   &__header {
     font-size: 1.8rem;
+    margin-bottom: 2rem;
     color: $primary-grey;
   }
 
   &__location {
     font-family: "Quicksand-bold";
-    color: $primary-brown;
+    color: $primary-grey;
+    font-size: 2.4rem;
   }
 }
 
 .cards-wrapper {
   display: flex;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0 2rem;
+  border-radius: 20px;
   flex-wrap: wrap;
 }
 

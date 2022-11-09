@@ -100,11 +100,19 @@ const Profile = () => {
   }, [user]);
 
   if (!user) {
-    return <h1>Please log in ...</h1>;
+    return (
+      <div className="profile-wrapper">
+        <h1>Please log in ...</h1>
+      </div>
+    );
   }
 
   if (!currentUser) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="profile-wrapper">
+        <h1>Loading ...</h1>
+      </div>
+    );
   }
 
   return (

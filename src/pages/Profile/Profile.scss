@@ -13,12 +13,13 @@
   align-items: flex-start;
   min-height: 100vh;
   width: 100%;
-  padding: 8rem;
+  padding: 10rem 12rem;
 }
 
 .profile,
 .stats {
   padding: 2rem 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .profile {
   width: 30%;
@@ -75,7 +76,7 @@
 .stats {
   display: flex;
   flex-direction: column;
-  border-left: 0.5rem solid $primary-grey;
+
   padding: 2rem 15rem;
   min-height: 90vh;
 }

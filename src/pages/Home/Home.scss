@@ -56,6 +56,7 @@
 
   &__loyaltycard {
     width: 100%;
+    border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
       rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -73,12 +74,12 @@
     width: 80%;
     border-radius: 10px;
     border: 2px solid rgb(66, 66, 66);
-    background: rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.33);
     padding: 1.2rem 2rem;
     margin-right: 4px;
     color: $primary-grey;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     &:active {
       outline: none;
       border: none;
@@ -116,9 +117,10 @@
     font-size: 1.8rem;
     margin: 2rem 0;
     border: none;
-    padding: 1rem 4rem;
+    padding: 2rem 4rem;
     color: #fff;
     background-color: $primary-blue;
+    border-radius: 20px;
     &:hover {
       cursor: pointer;
       transition: all 1s ease;
@@ -181,6 +183,7 @@
   }
 
   &__title {
+    margin-top: 2rem;
     padding: 2rem 0;
     font-size: 4rem;
   }

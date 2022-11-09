@@ -33,7 +33,9 @@ const Exchange = () => {
     <div className="exchange">
       <div className="exchange__top">
         <h1 className="exchange__title">Exchange umi points </h1>
-        <p className="exchange__balance">Balance: 320</p>
+        <div className="exchange__points">
+          <p className="exchange__balance">320</p>
+        </div>
       </div>
       <div className="exchange__items">
         {items.map((item) => {

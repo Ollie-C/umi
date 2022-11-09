@@ -1,35 +1,58 @@
-.itemcard {
-  width: 40rem;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
-  padding: 2rem;
-  opacity: 80%;
-
-  &:hover {
-    opacity: 100%;
-    cursor: pointer;
+.item {
+  margin: 1rem;
+  @include tablet {
+    width: 35rem;
   }
-
   &__image {
+    margin: 1rem 0;
     width: 100%;
     border-radius: 20px;
   }
 
-  &__points {
+  &__title {
     font-size: 2rem;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.575);
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.575);
+  }
+
+  &__description {
+    padding: 1rem 0;
+  }
+
+  &__text {
+    padding: 1rem 0;
+    margin-right: 4rem;
+    font-size: 1.4rem;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__points {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: $primary-grey;
   }
 
   &__coin {
-    width: 20px;
-  }
-
-  &__bottom {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &__header {
-    font-size: 2rem;
+    width: 27px;
+    margin-right: 1rem;
   }
 }

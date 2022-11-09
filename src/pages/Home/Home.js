@@ -5,7 +5,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
 //images
-import loyaltycard from "../../assets/images/umi_loyalitycard-kraft.png";
+import loyaltycard from "../../assets/images/loyaltycard_new.png";
 import umiPhone from "../../assets/images/umi_top.png";
 //icons
 import { Icon } from "@iconify/react";
@@ -67,7 +67,7 @@ const Home = ({ handleSearchSubmit }) => {
           <section className="home__left">
             {user && <h1>Welcome back, {user.displayName}</h1>}
 
-            <h1 className="home__title">Earth's Loyalty Card</h1>
+            <h1 className="home__title">Earth Loyalty Card</h1>
             <p className="home__text">
               Earn points when choosing eco-friendly alternatives.
             </p>
