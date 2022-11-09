@@ -16,7 +16,7 @@ import UserTransaction from "../../components/UserTransaction/UserTransaction";
 import coin from "../../assets/images/unnamed.png";
 import { Icon } from "@iconify/react";
 //icons
-import zeroWaste from "../../assets/icons/zero-waste.png";
+import zeroWaste from "../../assets/icons/zeroWaste.png";
 import ecoEnergy from "../../assets/icons/eco-light.png";
 import organic from "../../assets/icons/organic.png";
 import local from "../../assets/icons/place.png";
