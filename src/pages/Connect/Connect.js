@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { UserAuth } from "../../context/AuthContext";
-import { doc, setDoc, getDoc, collection, addDoc } from "firebase/firestore";
+import { doc, setDoc, collection } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { db } from "../../fb-config";
 import { Link, useNavigate } from "react-router-dom";
 import "./Connect.scss";
+import { v4 } from "uuid";
 
 const Connect = () => {
   const { user } = UserAuth();
   const navigate = useNavigate();
+  const storage = getStorage();
+  const imageId = v4();
   const [establishment, setEstablishtment] = useState({
     name: "",
     ownerId: String(user.uid),
@@ -24,30 +28,26 @@ const Connect = () => {
       reuse: false,
       zeroWaste: false,
     },
+    imageId: imageId,
   });
-
-  console.log(user.uid);
+  const [image, setImage] = useState(null);
 
   const addEstablishment = async () => {
+    const imageRef = ref(storage, `images/${imageId}/${image.name}`);
+    await uploadBytes(imageRef, image, imageId);
     const newEstablishmentRef = doc(collection(db, "establishments"));
-
     await setDoc(newEstablishmentRef, establishment);
   };
 
-  // later...
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setEstablishtment({ ...establishment, [name]: value });
-
-    console.log(establishment);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
     addEstablishment();
-    console.log("Submitted.");
+    navigate("/profile");
   };
 
   return (
@@ -69,6 +69,14 @@ const Connect = () => {
               name="name"
               placeholder="Name of organisation"
               onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="connect__fields">
+            <input
+              type="file"
+              onChange={(e) => {
+                setImage(e.target.files[0]);
+              }}
             />
           </div>
           <div className="connect__fields">

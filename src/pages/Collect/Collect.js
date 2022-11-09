@@ -61,6 +61,7 @@ const Collect = () => {
       navigate("/profile");
       await updateDoc(currentEstablishmentRef, {
         rewardId: newToken,
+        visitors: increment(1),
       });
     } catch (error) {
       console.log(error);

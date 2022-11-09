@@ -29,8 +29,10 @@ const Home = ({ handleSearchSubmit }) => {
     const userDocRef = doc(db, "users", id);
     const docSnap = await getDoc(userDocRef);
     if (docSnap.data()) {
+      console.log("User exists");
       return;
     }
+    console.log(docSnap.data());
     await setDoc(doc(db, "users", id), userDetails);
   };
 
@@ -39,9 +41,7 @@ const Home = ({ handleSearchSubmit }) => {
   };
 
   useEffect(() => {
-    if (user) {
-      processNewUser(user.uid);
-    }
+    if (user) processNewUser(user.uid);
   }, []);
 
   return (

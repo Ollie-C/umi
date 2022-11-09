@@ -23,7 +23,7 @@ const Profile = () => {
   const [transactions, setTransactions] = useState([]);
   const [userEstablishment, setUserEstablishment] = useState("");
 
-  const date = new Date(currentUser.joined).toLocaleString("en-GB");
+  const getDate = (date) => new Date(date).toLocaleDateString("en-GB");
 
   const handleLogOut = async () => {
     try {
@@ -84,7 +84,6 @@ const Profile = () => {
       console.log(error);
     }
   };
-  console.log(userEstablishment);
 
   useEffect(() => {
     getCurrentUser();
@@ -111,11 +110,8 @@ const Profile = () => {
           height="50"
         />
         {userEstablishment.length == 0 ? (
-          <button
-            onClick={() => navigate("/add")}
-            className="profile__dashboard"
-          >
-            Connect
+          <button onClick={() => navigate("/add")} className="profile__connect">
+            Connect Your Organisation
           </button>
         ) : (
           <>
@@ -139,7 +135,7 @@ const Profile = () => {
             <label htmlFor="" className="profile__label">
               user since:
             </label>
-            <p className="profile__detail"> {String(date)}</p>
+            <p className="profile__detail"> {getDate(currentUser.joined)}</p>
           </div>
         </div>
         <div className="initiatives">
@@ -169,7 +165,7 @@ const Profile = () => {
         <div className="activity">
           <h2 className="profile__header">ACTIVITY</h2>
           <div className="activity__container">
-            {transactions ? (
+            {transactions.length > 0 ? (
               transactions.map((transaction) => {
                 return (
                   <UserTransaction
@@ -179,7 +175,7 @@ const Profile = () => {
                 );
               })
             ) : (
-              <p>No transactions recorded.</p>
+              <p className="profile__noactivity">No recorded activity.</p>
             )}
           </div>
         </div>
