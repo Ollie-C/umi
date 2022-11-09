@@ -25,7 +25,7 @@ const Home = ({ handleSearchSubmit }) => {
   const [address, setAddress] = useState();
   const navigate = useNavigate();
   const ref = useRef(null);
-
+  console.log("test");
   const processNewUser = async (id) => {
     try {
       const userDetails = {
