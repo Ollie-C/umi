@@ -15,6 +15,14 @@ import "./Profile.scss";
 import UserTransaction from "../../components/UserTransaction/UserTransaction";
 import coin from "../../assets/images/unnamed.png";
 import { Icon } from "@iconify/react";
+//icons
+import zeroWaste from "../../assets/icons/zero-waste.png";
+import ecoEnergy from "../../assets/icons/eco-light.png";
+import organic from "../../assets/icons/organic.png";
+import local from "../../assets/icons/place.png";
+import reuse from "../../assets/icons/reuse.png";
+import plantBased from "../../assets/icons/vegan.png";
+import handMade from "../../assets/icons/hand-made.png";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -140,6 +148,11 @@ const Profile = () => {
         </div>
         <div className="profile__initiatives">
           <h2 className="profile__header">Initiatives you follow:</h2>
+          <div className="icon-wrapper">
+            <img className="initiative-icon" src={zeroWaste} alt="" />
+            <img className="initiative-icon" src={plantBased} alt="" />
+            <img className="initiative-icon" src={local} alt="" />
+          </div>
         </div>
       </section>
       <section className="stats">

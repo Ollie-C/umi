@@ -65,20 +65,11 @@ const Home = ({ handleSearchSubmit }) => {
       <div className="home">
         <div className="home__top">
           <section className="home__left">
-            <div className="home__image-wrapper">
-              <img
-                className="home__loyaltycard"
-                src={loyaltycard}
-                alt="umi-loyalty-card-image"
-              />
-            </div>
-          </section>
-          <section className="home__right">
             {user && <h1>Welcome back, {user.displayName}</h1>}
 
             <h1 className="home__title">Earth's Loyalty Card</h1>
             <p className="home__text">
-              Earn points when choosing an eco-friendly alternative.
+              Earn points when choosing eco-friendly alternatives.
             </p>
             {!user ? (
               <button onClick={() => navigate("/login")} className="home__cta">
@@ -114,11 +105,21 @@ const Home = ({ handleSearchSubmit }) => {
               </form>
             )}
           </section>
+          <section className="home__right">
+            <div className="home__image-wrapper">
+              <img
+                className="home__loyaltycard"
+                src={loyaltycard}
+                alt="umi-loyalty-card-image"
+              />
+            </div>
+          </section>
           <div className="initiatives">
             <p className="initiatives__link" to="#sustainable">
               Sustainable initiatives
             </p>
             <Icon
+              className="initiatives__icon"
               onClick={handleScroll}
               icon="dashicons:arrow-down"
               color="white"
@@ -135,7 +136,8 @@ const Home = ({ handleSearchSubmit }) => {
             about the way they shop by rewarding users for choosing an
             eco-friendly alternative to their usual choices. Umi.card skips past
             the tick-bock initiatives and filters out companies employing
-            greenwashing techniques.
+            greenwashing techniques to connect with eco-friendly businesses,
+            events and charities.
           </p>
         </div>
 
@@ -146,49 +148,50 @@ const Home = ({ handleSearchSubmit }) => {
               <img src={zeroWaste} className="initiative-card__icon"></img>
               <h3 className="initiative-card__name">Zero waste</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Bulk selling in resuable packaging
               </p>
             </div>
             <div className="initiative-card">
               <img src={ecoEnergy} className="initiative-card__icon"></img>
               <h3 className="initiative-card__name">Renewable Energy</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Majority of energy usage is from renewable sources
               </p>
             </div>
             <div className="initiative-card">
               <img src={organic} className="initiative-card__icon"></img>
               <h3 className="initiative-card__name">Organic</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Organic or natural ingredients sustainably farmed
               </p>
             </div>
             <div className="initiative-card">
               <img src={local} className="initiative-card__icon"></img>
-              <h3 className="initiative-card__name">Localy-sourced</h3>
+              <h3 className="initiative-card__name">Locally-sourced</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Products made from ingredients sourced locally
               </p>
             </div>
             <div className="initiative-card">
               <img src={reuse} className="initiative-card__icon"></img>
-              <h3 className="initiative-card__name">Reuse/Recycle</h3>
+              <h3 className="initiative-card__name">Reuse/Upcycle/Recycle</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Share products and services
               </p>
             </div>
             <div className="initiative-card">
               <img src={plantBased} className="initiative-card__icon"></img>
               <h3 className="initiative-card__name">Plant-based</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Products using minimal water to produce and are not derived from
+                or contain meat or dairy
               </p>
             </div>
             <div className="initiative-card">
               <img src={handMade} className="initiative-card__icon"></img>
               <h3 className="initiative-card__name">Hand-made</h3>
               <p className="initiative-card__text">
-                Lorem ipsum dolor sit amet.
+                Products and services crafted domestically from raw materials
               </p>
             </div>
           </div>
