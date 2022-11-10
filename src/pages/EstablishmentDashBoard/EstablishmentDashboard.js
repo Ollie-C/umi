@@ -7,6 +7,13 @@ import { db } from "../../fb-config";
 import { Icon } from "@iconify/react";
 import { UserAuth } from "../../context/AuthContext";
 import { useParams } from "react-router-dom";
+import zeroWaste from "../../assets/icons/zeroWaste.png";
+import ecoEnergy from "../../assets/icons/eco-light.png";
+import organic from "../../assets/icons/organic.png";
+import local from "../../assets/icons/place.png";
+import reuse from "../../assets/icons/reuse.png";
+import plantBased from "../../assets/icons/vegan.png";
+import handMade from "../../assets/icons/hand-made.png";
 
 const EstablishmentDashboard = () => {
   const [currentEstablishment, setCurrentEstablishment] = useState({});
@@ -119,7 +126,11 @@ const EstablishmentDashboard = () => {
           <div className="dashboard__top">
             <h3 className="dashboard__card-header">Sustainable Initiatives </h3>
           </div>
-          <div className="dashboard__bottom"></div>
+          <div className="dashboard__bottom">
+            <img src={local} className="dashboard__icon"></img>
+            <img src={zeroWaste} className="dashboard__icon"></img>
+            <img src={handMade} className="dashboard__icon"></img>
+          </div>
         </div>
       </div>
       <button className="dashboard__delete">Delete Establishment</button>

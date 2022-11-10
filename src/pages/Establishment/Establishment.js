@@ -12,7 +12,7 @@ import reuse from "../../assets/icons/reuse.png";
 import plantBased from "../../assets/icons/vegan.png";
 import handMade from "../../assets/icons/hand-made.png";
 
-import cafe from "../../assets/images/coffee-shop.jpg";
+import cafe from "../../assets/images/origin.PNG";
 
 const Establishment = () => {
   const { establishmentId } = useParams();

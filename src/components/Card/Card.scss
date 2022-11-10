@@ -50,3 +50,14 @@
     color: $primary-grey;
   }
 }
+
+.coin-wrapper {
+  width: 5rem;
+  display: flex;
+}
+
+.itemcard {
+  &__coin {
+    width: 100%;
+  }
+}

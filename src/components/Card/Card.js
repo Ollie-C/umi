@@ -16,8 +16,10 @@ const Card = ({ result }) => {
           <h2 className="card__title">
             {result.name ? result.name : "No name."}
           </h2>
-          <img className="itemcard__coin" src={coin} alt="" />
-          <p className="card__points">20</p>
+          <div className="coin-wrapper">
+            <img className="itemcard__coin" src={coin} alt="" />
+            <p className="card__points">20</p>
+          </div>
         </div>
         <div className="card__description">
           <p className="card__text">BYOB | ZERO-WASTE | ORGANIC</p>
