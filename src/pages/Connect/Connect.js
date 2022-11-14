@@ -48,6 +48,14 @@ const Connect = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (
+      !establishment.name ||
+      !establishment.address ||
+      !establishment.postcode
+    ) {
+      alert("Please fill in all fields.");
+      return false;
+    }
     addEstablishment();
     navigate("/profile");
   };
