@@ -58,14 +58,16 @@ const Establishment = () => {
           <img className="establishment__icons" src={organic} alt="" />
           <img className="establishment__icons" src={local} alt="" />
         </div>
-        <p className="establishment__description">
-          {currentEstablishment.description}
-        </p>
         <div className="establishment__contact">
           <p className="establishment__description ">
             56 Road Avenue, London NW8 7BT
           </p>
         </div>
+        <p className="establishment__description">
+          {currentEstablishment.description
+            ? currentEstablishment.description
+            : "No details."}
+        </p>
 
         {rewardAccess ? (
           <button className="establishment__button">

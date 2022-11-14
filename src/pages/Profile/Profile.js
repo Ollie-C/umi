@@ -71,6 +71,7 @@ const Profile = () => {
         id: establishment.id,
       }));
       setUserEstablishment(establishmentData);
+      console.log(userEstablishment);
     } catch (error) {
       console.log(error);
     }
@@ -116,12 +117,7 @@ const Profile = () => {
     <div className="profile-wrapper">
       <section className="profile">
         <h1 className="profile__name">{currentUser.name}</h1>
-        <Icon
-          onClick={handleLogOut}
-          className="logout"
-          icon="ph:sign-out-duotone"
-          height="50"
-        />
+
         {userEstablishment.length == 0 ? (
           <button onClick={() => navigate("/add")} className="profile__connect">
             Connect Your Organisation
@@ -159,6 +155,9 @@ const Profile = () => {
             <img className="initiative-icon" src={local} alt="" />
           </div>
         </div>
+        <button onClick={handleLogOut} className="logout">
+          LOGOUT
+        </button>
       </section>
       <section className="stats">
         <h2 className="profile__header">POINTS</h2>

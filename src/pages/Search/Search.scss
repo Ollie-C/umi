@@ -34,11 +34,11 @@
 
   &__listings {
     margin-top: 12rem;
-    width: 100%;
+
     flex-grow: 1;
     padding: 2rem;
     @include tablet {
-      padding: 6rem;
+      padding: 12rem;
     }
   }
 
@@ -57,15 +57,13 @@
 
 .cards-wrapper {
   display: flex;
-  justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 0 2rem;
   border-radius: 20px;
   flex-wrap: wrap;
 }
 
 .card-wrapper {
-  margin: 3rem 0;
+  margin: 2rem;
   &:hover {
     cursor: pointer;
   }

@@ -17,8 +17,8 @@ const Card = ({ result }) => {
             {result.name ? result.name : "No name."}
           </h2>
           <div className="coin-wrapper">
-            <img className="itemcard__coin" src={coin} alt="" />
             <p className="card__points">20</p>
+            <img className="itemcard__coin" src={coin} alt="" />
           </div>
         </div>
         <div className="card__description">

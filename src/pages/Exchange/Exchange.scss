@@ -3,7 +3,10 @@
 @use "../../styles/partials/typology";
 .exchange {
   min-height: 100vh;
-  padding: 8rem 12rem;
+  padding: 8rem 2rem;
+  @include desktop {
+    padding: 8rem 12rem;
+  }
 
   &__top {
     display: flex;
@@ -17,17 +20,22 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
   }
+
   &__title {
+    font-size: 2.5rem;
     color: $primary-blue;
-    font-size: 4rem;
 
     padding: 3rem 0;
+    @include tablet {
+      font-size: 4rem;
+    }
   }
 
   &__points {

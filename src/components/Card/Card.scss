@@ -54,10 +54,13 @@
 .coin-wrapper {
   width: 5rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .itemcard {
   &__coin {
-    width: 100%;
+    width: 3rem;
+    margin: 0 1rem;
   }
 }

@@ -3,9 +3,11 @@
 
 .item {
   margin: 1rem;
+  width: 100%;
   @include tablet {
-    width: 35rem;
+    width: 50rem;
   }
+
   &__image {
     margin: 1rem 0;
     width: 100%;

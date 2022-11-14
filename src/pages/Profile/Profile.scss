@@ -3,17 +3,29 @@
 @use "../../styles/partials/typology";
 
 .logout {
-  padding-bottom: 2rem;
+  background: none;
+  padding: 4rem 0;
+  border: none;
+  width: 3rem;
+  font-weight: 600;
   &:hover {
     cursor: pointer;
   }
 }
 .profile-wrapper {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
   width: 100%;
-  padding: 10rem 12rem;
+  padding: 10rem 2rem;
+  @include tablet {
+    padding: 10rem 12rem;
+  }
+  @include desktop {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 }
 
 .profile,
@@ -22,11 +34,14 @@
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .profile {
-  width: 30%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding-right: 8rem;
-  margin-right: 4rem;
+  @include desktop {
+    margin-right: 4rem;
+    padding-right: 8rem;
+    width: 40%;
+  }
 
   &__name {
     font-size: 6rem;
@@ -48,6 +63,11 @@
       transition: all 1s ease;
       background-color: $secondary-blue;
     }
+  }
+
+  &__dashboard,
+  &__connect {
+    width: 100%;
   }
 
   &__details {
@@ -76,9 +96,11 @@
 .stats {
   display: flex;
   flex-direction: column;
-
-  padding: 2rem 15rem;
   min-height: 90vh;
+  width: 100%;
+  @include desktop {
+    padding: 2rem 15rem;
+  }
 }
 
 .points {
