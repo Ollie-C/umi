@@ -4,14 +4,9 @@ import { db, auth } from "../../fb-config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 //icons
-import zeroWaste from "../../assets/icons/zeroWaste.png";
-import ecoEnergy from "../../assets/icons/eco-light.png";
 import organic from "../../assets/icons/organic.png";
 import local from "../../assets/icons/place.png";
-import reuse from "../../assets/icons/reuse.png";
 import plantBased from "../../assets/icons/vegan.png";
-import handMade from "../../assets/icons/hand-made.png";
-
 import cafe from "../../assets/images/origin.PNG";
 
 const Establishment = () => {
@@ -43,24 +38,34 @@ const Establishment = () => {
     <div className="establishment">
       <div className="establishment__images-wrapper">
         <img
-          src={cafe}
-          alt="establishment-cover-image"
+          src={currentEstablishment.image ? currentEstablishment.image : cafe}
+          alt={`${currentEstablishment.name} cover image`}
           className="establishment__cover"
         />
       </div>
       <div className="establishment__details">
         <div className="establishment__title">
           <h2 className="establishment__name">{currentEstablishment.name}</h2>
-          <p className="establishment__rating">{currentEstablishment.rating}</p>
+          <p className="establishment__rating">
+            {currentEstablishment.category}
+          </p>
         </div>
         <div className="establishment__initiatives">
-          <img className="establishment__icons" src={plantBased} alt="" />
-          <img className="establishment__icons" src={organic} alt="" />
-          <img className="establishment__icons" src={local} alt="" />
+          <img
+            className="establishment__icons"
+            src={plantBased}
+            alt="plant based icon"
+          />
+          <img
+            className="establishment__icons"
+            src={organic}
+            alt="organic icon"
+          />
+          <img className="establishment__icons" src={local} alt="local icon" />
         </div>
         <div className="establishment__contact">
           <p className="establishment__description ">
-            56 Road Avenue, London NW8 7BT
+            {currentEstablishment.address}, {currentEstablishment.postcode}
           </p>
         </div>
         <p className="establishment__description">

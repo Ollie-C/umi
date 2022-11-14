@@ -2,7 +2,7 @@ import "./Search.scss";
 import CategoryBar from "../../components/CategoryBar/CategoryBar";
 import Map from "../../components/Map/Map";
 import Card from "../../components/Card/Card";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { collection, getDocs } from "firebase/firestore";
@@ -26,7 +26,6 @@ const Search = ({ searchedPlace }) => {
           id: doc.id,
         }));
         setResults(establishmentData);
-        console.log(results);
       }
     } catch (error) {
       console.log(error);
@@ -40,7 +39,6 @@ const Search = ({ searchedPlace }) => {
       );
       setCoordinates(data.results[0].geometry.location);
     }
-    console.log(searchedPlace);
   };
 
   useEffect(() => {

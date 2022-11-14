@@ -39,8 +39,6 @@ const Exchange = () => {
       </div>
       <div className="exchange__items">
         {items.map((item) => {
-          console.log(item);
-
           return <ExchangeItem key={item.id} item={item} />;
         })}
       </div>

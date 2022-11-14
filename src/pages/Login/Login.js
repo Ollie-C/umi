@@ -27,7 +27,7 @@ const Login = () => {
     <div className="login">
       <div className="login__card">
         <h1 className="login__header">Welcome to</h1>
-        <img className="login__logo" src={logo} alt="" />
+        <img className="login__logo" src={logo} alt="umi logo" />
         <button className="login__google" onClick={handleLogIn}>
           Log in with Google
         </button>

@@ -14,7 +14,6 @@ import "./Profile.scss";
 import UserTransaction from "../../components/UserTransaction/UserTransaction";
 //icons
 import coin from "../../assets/images/unnamed.png";
-import { Icon } from "@iconify/react";
 import zeroWaste from "../../assets/icons/zeroWaste.png";
 import local from "../../assets/icons/place.png";
 import plantBased from "../../assets/icons/vegan.png";
@@ -27,8 +26,6 @@ const Profile = () => {
   const [userEstablishment, setUserEstablishment] = useState("");
 
   const getDate = (date) => new Date(date).toLocaleDateString("en-GB");
-  console.log(user.uid);
-
   const handleLogOut = async () => {
     try {
       await logOut();
@@ -65,13 +62,11 @@ const Profile = () => {
         where("ownerId", "==", String(user.uid))
       );
       const querySnapshot = await getDocs(establishmentQuery);
-      console.log(querySnapshot);
       const establishmentData = querySnapshot.docs.map((establishment) => ({
         ...establishment.data(),
         id: establishment.id,
       }));
       setUserEstablishment(establishmentData);
-      console.log(userEstablishment);
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +77,6 @@ const Profile = () => {
       const docSnap = await getDoc(userDocRef);
       if (docSnap.data()) {
         setCurrentUser(docSnap.data());
-        console.log(docSnap.data());
       } else {
         console.log("User data not found");
       }
@@ -150,9 +144,17 @@ const Profile = () => {
         <div className="profile__initiatives">
           <h2 className="profile__header">Initiatives you follow:</h2>
           <div className="icon-wrapper">
-            <img className="initiative-icon" src={zeroWaste} alt="" />
-            <img className="initiative-icon" src={plantBased} alt="" />
-            <img className="initiative-icon" src={local} alt="" />
+            <img
+              className="initiative-icon"
+              src={zeroWaste}
+              alt="zerowaste icon"
+            />
+            <img
+              className="initiative-icon"
+              src={plantBased}
+              alt="plant based icon"
+            />
+            <img className="initiative-icon" src={local} alt="local icon" />
           </div>
         </div>
         <button onClick={handleLogOut} className="logout">

@@ -27,16 +27,6 @@ const Navbar = () => {
         className="logo"
       />
 
-      {/* {user && (
-        <Icon
-          onClick={() => navigate("/exchange")}
-          className="user__icon"
-          icon="majesticons:coins"
-          color="black"
-          height="40"
-        />
-      )} */}
-
       <div className="user__wrapper">
         <Icon
           onClick={() => (user ? navigate("/profile") : navigate("/login"))}

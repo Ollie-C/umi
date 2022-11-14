@@ -3,7 +3,7 @@
 
 .card {
   @include tablet {
-    width: 40rem;
+    width: 35rem;
   }
   &__image {
     margin: 2rem 0;
