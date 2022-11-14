@@ -40,6 +40,7 @@ const Search = ({ searchedPlace }) => {
       );
       setCoordinates(data.results[0].geometry.location);
     }
+    console.log(searchedPlace);
   };
 
   useEffect(() => {

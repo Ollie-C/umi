@@ -32,6 +32,7 @@ const Profile = () => {
   const [userEstablishment, setUserEstablishment] = useState("");
 
   const getDate = (date) => new Date(date).toLocaleDateString("en-GB");
+  console.log(user.uid);
 
   const handleLogOut = async () => {
     try {
@@ -83,8 +84,9 @@ const Profile = () => {
   const getCurrentUser = async () => {
     try {
       const docSnap = await getDoc(userDocRef);
-      if (docSnap) {
+      if (docSnap.data()) {
         setCurrentUser(docSnap.data());
+        console.log(docSnap.data());
       } else {
         console.log("User data not found");
       }
