@@ -34,7 +34,7 @@
   &__right {
     width: 100%;
     padding: 4rem 0;
-    @include tablet {
+    @include desktop {
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -55,11 +55,16 @@
   }
 
   &__loyaltycard {
+    display: none;
     width: 100%;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
       rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    @include desktop {
+      display: flex;
+    }
   }
 
   &__search {
@@ -71,7 +76,7 @@
 
   &__searchbar,
   &__select {
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     border: 2px solid rgb(66, 66, 66);
     background: rgba(255, 255, 255, 0.33);
@@ -85,7 +90,7 @@
       border: none;
     }
 
-    @include tablet {
+    @include desktop {
       font-size: 1.4rem;
       width: 30rem;
     }
@@ -100,17 +105,22 @@
 
   &__arrow {
     color: $primary-grey;
-    margin-left: 3rem;
     &:hover {
       color: $primary-blue;
       cursor: pointer;
       transition: all 1s ease;
     }
+    @include desktop {
+      margin-left: 3rem;
+    }
   }
 
   &__select {
-    margin-left: 1rem;
-    width: 20rem;
+    width: 100%;
+    @include desktop {
+      margin-left: 1rem;
+      width: 20rem;
+    }
   }
 
   &__cta {
@@ -141,12 +151,16 @@
 }
 
 .initiatives {
+  display: none;
   position: absolute;
   bottom: 2rem;
   left: 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include desktop {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+  }
   &__link {
     font-family: Quicksand-medium;
     color: $primary-white;
@@ -225,27 +239,42 @@
 
 .app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 60vh;
+  flex-wrap: wrap;
+  @include desktop {
+    flex-direction: row;
+  }
 
   &__image {
-    width: 60rem;
+    display: none;
     border-radius: 20px;
-    margin-left: 8rem;
+    @include tablet {
+      width: 60rem;
+      display: flex;
+    }
+    @include desktop {
+      margin-left: 8rem;
+    }
   }
 
   &__cta {
     font-size: 1.8rem;
-    margin-right: 8rem;
     border: none;
     padding: 2rem 4rem;
     color: #fff;
     background-color: $primary-blue;
     border-radius: 20px;
+    margin-bottom: 4rem;
     &:hover {
       cursor: pointer;
       background-color: $secondary-blue;
+    }
+    @include desktop {
+      margin-right: 8rem;
+      margin-bottom: none;
     }
   }
 }

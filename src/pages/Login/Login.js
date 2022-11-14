@@ -19,8 +19,6 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      console.log("here", user);
-
       navigate("/");
     }
   }, [user]);
