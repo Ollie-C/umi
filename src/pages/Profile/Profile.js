@@ -6,23 +6,18 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db, auth } from "../../fb-config";
-import { useEffect, useState } from "react";
-import React from "react";
+import { db } from "../../fb-config";
+import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./Profile.scss";
 import UserTransaction from "../../components/UserTransaction/UserTransaction";
+//icons
 import coin from "../../assets/images/unnamed.png";
 import { Icon } from "@iconify/react";
-//icons
 import zeroWaste from "../../assets/icons/zeroWaste.png";
-import ecoEnergy from "../../assets/icons/eco-light.png";
-import organic from "../../assets/icons/organic.png";
 import local from "../../assets/icons/place.png";
-import reuse from "../../assets/icons/reuse.png";
 import plantBased from "../../assets/icons/vegan.png";
-import handMade from "../../assets/icons/hand-made.png";
 
 const Profile = () => {
   const navigate = useNavigate();

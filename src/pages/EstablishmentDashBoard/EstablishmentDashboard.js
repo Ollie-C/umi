@@ -2,17 +2,14 @@ import "./EstablishmentDashboard.scss";
 import { v4 as uuidv4 } from "uuid";
 import QRCode from "qrcode";
 import { useState, useEffect } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, deleteDoc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
-import { Icon } from "@iconify/react";
 import { UserAuth } from "../../context/AuthContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+//ICONS
+import { Icon } from "@iconify/react";
 import zeroWaste from "../../assets/icons/zeroWaste.png";
-import ecoEnergy from "../../assets/icons/eco-light.png";
-import organic from "../../assets/icons/organic.png";
 import local from "../../assets/icons/place.png";
-import reuse from "../../assets/icons/reuse.png";
-import plantBased from "../../assets/icons/vegan.png";
 import handMade from "../../assets/icons/hand-made.png";
 
 const EstablishmentDashboard = () => {
@@ -20,12 +17,11 @@ const EstablishmentDashboard = () => {
   const [qrcode, setQrcode] = useState("");
   const { user } = UserAuth();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const baseURL = "https://umi-lime.vercel.app/";
-
   let token = uuidv4();
   let url = `${baseURL}/${id}/collect/${token}`;
-  console.log(url);
 
   const establishmentRef = doc(db, "establishments", id);
 
@@ -34,6 +30,15 @@ const EstablishmentDashboard = () => {
       const docSnap = await getDoc(establishmentRef);
       const establishmentData = docSnap.data();
       setCurrentEstablishment(establishmentData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteEstablishment = async () => {
+    try {
+      await deleteDoc(establishmentRef);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +54,6 @@ const EstablishmentDashboard = () => {
 
   useEffect(() => {
     getEstablishment();
-    console.log(currentEstablishment);
   }, []);
 
   if (!user) {
@@ -63,7 +67,7 @@ const EstablishmentDashboard = () => {
   if (user.uid !== currentEstablishment.ownerId) {
     return (
       <div className="dashboard">
-        <h1>Authorising...</h1>
+        <h1>You must be the owner to view this page.</h1>
       </div>
     );
   }
@@ -133,7 +137,12 @@ const EstablishmentDashboard = () => {
           </div>
         </div>
       </div>
-      <button className="dashboard__delete">Delete Establishment</button>
+      <button
+        onClick={() => deleteEstablishment()}
+        className="dashboard__delete"
+      >
+        Delete Establishment
+      </button>
     </div>
   );
 };
