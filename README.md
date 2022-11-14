@@ -39,7 +39,7 @@ npm i
 
 ### App example walkthrough
 
-Please note Google API only works on localhost as opposed to hosted version but most of the app requires the hosted version for full functionality so give them both a go.
+Please note Google API is a little bit buggy on the hosted version. But the QR code functionality ONLY works on the hosted version. 
 
 -- Collect points as a user
 1. Log into the app on desktop using the test business user log-in details provided in the .env sent seperately. Give it a whirl
