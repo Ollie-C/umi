@@ -2,21 +2,11 @@ import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/umi_logo-white2.png";
 import { Icon } from "@iconify/react";
-
 import { UserAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
-  const { user, logOut } = UserAuth();
+  const { user } = UserAuth();
   const navigate = useNavigate();
-
-  const handleLogOut = async () => {
-    try {
-      await logOut();
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <nav className="navbar">

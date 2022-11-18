@@ -4,6 +4,7 @@
 .item {
   margin: 1rem;
   width: 100%;
+
   @include tablet {
     width: 50rem;
   }

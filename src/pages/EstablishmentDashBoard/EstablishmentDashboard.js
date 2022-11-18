@@ -107,7 +107,6 @@ const EstablishmentDashboard = () => {
                 onClick={GenerateQRCode}
               />
             )}
-            <Link to={url}>Collect</Link>
           </div>
         </div>
         <div className="dashboard__card">
@@ -115,17 +114,25 @@ const EstablishmentDashboard = () => {
             <h3 className="dashboard__card-header">Establishment details </h3>
           </div>
           <div className="dashboard__bottom">
-            <label className="dashboard__label">name</label>
+            <label className="dashboard__label">NAME</label>
             <div className="detail-wrapper">
               <p className="dashboard__detail">{currentEstablishment.name}</p>
               <Icon icon="ant-design:edit-filled" color="black" height="20" />
             </div>
-            <label className="dashboard__label">address</label>
+            <label className="dashboard__label">ADDRESS</label>
             <div className="detail-wrapper">
               <p className="dashboard__detail">
                 {currentEstablishment.address}, {currentEstablishment.postcode}
               </p>
               <Icon icon="ant-design:edit-filled" color="black" height="20" />
+            </div>
+            <label className="dashboard__label">VISITORS</label>
+            <div className="detail-wrapper">
+              <p className="dashboard__detail">
+                {currentEstablishment.visitors
+                  ? currentEstablishment.visitors
+                  : "No visitors yet!"}
+              </p>
             </div>
           </div>
         </div>
@@ -134,9 +141,18 @@ const EstablishmentDashboard = () => {
             <h3 className="dashboard__card-header">Sustainable Initiatives </h3>
           </div>
           <div className="dashboard__bottom">
-            <img src={local} className="dashboard__icon"></img>
-            <img src={zeroWaste} className="dashboard__icon"></img>
-            <img src={handMade} className="dashboard__icon"></img>
+            <div className="dashboard-icon-wrapper">
+              <p className="dashboard__label">LOCALLY-SOURCED</p>
+              <img src={local} className="dashboard__icon"></img>
+            </div>
+            <div className="dashboard-icon-wrapper">
+              <p className="dashboard__label">ZERO-WASTE</p>
+              <img src={zeroWaste} className="dashboard__icon"></img>
+            </div>
+            <div className="dashboard-icon-wrapper">
+              <p className="dashboard__label">HAND-MADE</p>
+              <img src={handMade} className="dashboard__icon"></img>
+            </div>
           </div>
         </div>
       </div>
