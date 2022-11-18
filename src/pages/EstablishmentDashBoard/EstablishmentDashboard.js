@@ -20,10 +20,10 @@ const EstablishmentDashboard = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // const baseURL = "https://umi-lime.vercel.app";
+  const baseURL = "https://umi-lime.vercel.app";
   const token = uuidv4();
-  // let url = `${baseURL}/${id}/collect/${token}`;
-  let url = `/${id}/collect/${token}`;
+  let url = `${baseURL}/${id}/collect/${token}`;
+  // let url = `/${id}/collect/${token}`; -> for testing purposes
 
   const establishmentRef = doc(db, "establishments", id);
 
@@ -52,7 +52,7 @@ const EstablishmentDashboard = () => {
       setQrcode(url);
     });
     await updateDoc(establishmentRef, { rewardId: token });
-    navigate(`${url}`);
+    // navigate(`${url}`); -> for testing purposes
   };
 
   useEffect(() => {
