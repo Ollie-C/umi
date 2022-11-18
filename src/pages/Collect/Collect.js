@@ -1,45 +1,26 @@
 import "./Collect.scss";
 import { UserAuth } from "../../context/AuthContext";
-import {
-  doc,
-  updateDoc,
-  increment,
-  setDoc,
-  collection,
-  getDoc,
-} from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { useNavigate, useParams } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import { useState, useEffect } from "react";
+
+import { useEffect } from "react";
 
 const Collect = () => {
   const { id, token } = useParams();
   const { user } = UserAuth();
-  const [currentEstablishment, setCurrentEstablishment] = useState();
-
   const navigate = useNavigate();
-  let newToken = uuidv4();
 
-  const currentEstablishmentRef = doc(db, "establishments", id);
-  const newTransactionRef = doc(
-    collection(db, "users", String(user.uid), "transactions")
-  );
+  const currentEstablishment = doc(db, "establishments", id);
 
-  const getEstablishment = async () => {
+  const validToken = async () => {
     try {
-      const docSnap = await getDoc(currentEstablishmentRef);
-      const establishmentData = docSnap.data();
-      setCurrentEstablishment(establishmentData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const validateToken = async () => {
-    try {
-      const docSnap = await getDoc(currentEstablishmentRef);
+      const docSnap = await getDoc(currentEstablishment);
       const currentRewardId = docSnap.data().rewardId;
+      if (currentRewardId !== token) {
+        return false;
+      }
+      return true;
     } catch (error) {
       console.log(error);
     }
@@ -49,20 +30,10 @@ const Collect = () => {
     const currentUser = doc(db, "users", String(user.uid));
 
     try {
-      await setDoc(newTransactionRef, {
-        date: Date.now(),
-        location: currentEstablishment.name,
-        points: 20,
-      });
       await updateDoc(currentUser, {
-        points: increment(20),
-        totalPoints: increment(20),
+        token: token,
       });
-      navigate("/profile");
-      await updateDoc(currentEstablishmentRef, {
-        rewardId: newToken,
-        visitors: increment(1),
-      });
+      navigate(`/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -70,13 +41,18 @@ const Collect = () => {
 
   useEffect(() => {
     if (user) {
-      getEstablishment();
+      if (validToken) {
+        return console.log("all good");
+      }
+      return console.log("not valid");
     }
   }, []);
 
   useEffect(() => {
     if (user) {
-      validateToken();
+      setTimeout(() => {
+        collectPoints();
+      }, 3000);
     }
   }, []);
 
@@ -86,10 +62,7 @@ const Collect = () => {
 
   return (
     <div className="collect">
-      <p>Token: {token} </p>
-      <button className="collect__button" onClick={collectPoints}>
-        COLLECT 20 POINTS
-      </button>
+      <h1>Hold tight. . .</h1>
     </div>
   );
 };

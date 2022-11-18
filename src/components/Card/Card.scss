@@ -8,6 +8,9 @@
   &__image {
     margin: 2rem 0;
     width: 100%;
+    height: auto;
+
+    max-height: 30rem;
     border-radius: 20px;
   }
 
@@ -63,4 +66,9 @@
     width: 3rem;
     margin: 0 1rem;
   }
+}
+
+.card-image-wrapper {
+  width: 35rem;
+  height: auto;
 }

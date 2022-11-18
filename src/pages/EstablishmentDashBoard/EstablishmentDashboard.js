@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import { doc, deleteDoc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+
 //ICONS
 import { Icon } from "@iconify/react";
 import zeroWaste from "../../assets/icons/zeroWaste.png";
@@ -19,9 +20,10 @@ const EstablishmentDashboard = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const baseURL = "https://umi-lime.vercel.app/";
-  let token = uuidv4();
-  let url = `${baseURL}/${id}/collect/${token}`;
+  // const baseURL = "https://umi-lime.vercel.app";
+  const token = uuidv4();
+  // let url = `${baseURL}/${id}/collect/${token}`;
+  let url = `/${id}/collect/${token}`;
 
   const establishmentRef = doc(db, "establishments", id);
 
@@ -50,6 +52,7 @@ const EstablishmentDashboard = () => {
       setQrcode(url);
     });
     await updateDoc(establishmentRef, { rewardId: token });
+    navigate(`${url}`);
   };
 
   useEffect(() => {
@@ -104,9 +107,9 @@ const EstablishmentDashboard = () => {
                 onClick={GenerateQRCode}
               />
             )}
+            <Link to={url}>Collect</Link>
           </div>
         </div>
-        {/* <Link to={url}>Collect</Link> */}
         <div className="dashboard__card">
           <div className="dashboard__top">
             <h3 className="dashboard__card-header">Establishment details </h3>

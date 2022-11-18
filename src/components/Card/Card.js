@@ -7,11 +7,13 @@ const Card = ({ result }) => {
   return (
     <>
       <div className="card">
-        <img
-          src={result.image ? result.image : OriginCoffee}
-          alt={`${result.name} image`}
-          className="card__image"
-        />
+        <div className="card-image-wrapper">
+          <img
+            src={result.image ? result.image : OriginCoffee}
+            alt={`${result.name} image`}
+            className="card__image"
+          />
+        </div>
         <div className="card__top">
           <h2 className="card__title">
             {result.name ? result.name : "No name."}

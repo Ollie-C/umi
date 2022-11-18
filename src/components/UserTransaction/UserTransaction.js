@@ -15,8 +15,8 @@ const UserTransaction = ({ transaction }) => {
         height="20"
       />
       <p className="activity__text">
-        {transaction.points} points earned at {transaction.location} on
-        {String(date)}
+        {String(date)}: {transaction.points} points earned at{" "}
+        {transaction.location}
       </p>
     </div>
   );
