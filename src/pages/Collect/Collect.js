@@ -54,7 +54,7 @@ const Collect = () => {
         collectPoints();
       }, 3000);
     }
-  }, []);
+  }, [user]);
 
   if (!user) {
     return <p>You are not logged in</p>;
