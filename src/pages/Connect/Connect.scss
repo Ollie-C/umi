@@ -3,12 +3,19 @@
 
 .connect {
   padding: 6rem 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   @include desktop {
     padding: 6rem 12rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  }
+  &__form {
+    @include tablet {
+      padding: 2rem;
+      width: 80%;
+    }
   }
 
   &__header {
@@ -66,12 +73,6 @@
     }
   }
 
-  &__form {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-
   &__addimage {
     padding: 1rem;
   }
@@ -79,7 +80,6 @@
 
 .form__left,
 .form__right {
-  width: 40rem;
   margin: 0 2rem;
 }
 
