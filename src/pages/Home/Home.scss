@@ -3,7 +3,7 @@
 
 .home-wrapper,
 .home {
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
 }
 
 .home-wrapper {
-  min-height: 110vh;
+  min-height: 100vh;
   position: absolute;
   background-image: url("../../assets/images/turtle.jpg");
   background-size: cover;
@@ -168,14 +168,13 @@
     color: #fff;
     background-color: $primary-blue;
     border-radius: 20px;
-    width: 40rem;
+    width: 30rem;
     &:hover {
       cursor: pointer;
       transition: all 1s ease;
       background-color: $secondary-blue;
     }
     @include tablet {
-      width: 30rem;
       padding: 2rem 4rem;
     }
   }
@@ -228,9 +227,10 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
   transition: all 2s ease;
   text-align: center;
+  margin-top: 2rem;
   @include tablet {
     padding: 8rem 6rem;
   }
