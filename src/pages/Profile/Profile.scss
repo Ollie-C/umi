@@ -6,8 +6,11 @@
   background: none;
   padding: 4rem 0;
   border: none;
-  width: 3rem;
+  width: 100%;
   font-weight: 600;
+  font-size: 2rem;
+  color: $primary-grey;
+  text-decoration: underline;
   &:hover {
     cursor: pointer;
   }
@@ -24,14 +27,18 @@
   }
   @include desktop {
     align-items: flex-start;
-    flex-direction: row;
   }
 }
 
 .profile,
 .stats {
-  padding: 2rem 0;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 2rem;
+  @include tablet {
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
 }
 .profile {
   width: 100%;
@@ -40,21 +47,22 @@
   @include desktop {
     margin-right: 4rem;
     padding-right: 8rem;
-    width: 40%;
+    width: 100%;
   }
 
   &__name {
     font-size: 6rem;
+    margin: 1rem 0;
     font-family: Quicksand-medium;
   }
 
   &__dashboard,
   &__exchange,
   &__connect {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: 1rem 0;
     border: none;
-    padding: 1rem 4rem;
+    padding: 2rem 4rem;
     color: #fff;
     background-color: $primary-blue;
     border-radius: 10px;
@@ -63,6 +71,10 @@
       transition: all 1s ease;
       background-color: $secondary-blue;
     }
+  }
+
+  &__exchange {
+    width: 100%;
   }
 
   &__dashboard,
@@ -99,18 +111,24 @@
   min-height: 90vh;
   width: 100%;
   @include desktop {
-    padding: 2rem 15rem;
+    padding: 2rem;
   }
 }
 
 .points {
   display: flex;
-  padding: 4rem 0;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__right {
-    padding: 0 4rem;
     display: flex;
     flex-direction: column;
+    margin: 2rem 0;
   }
 
   &__balance {

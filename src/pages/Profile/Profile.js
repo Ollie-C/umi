@@ -157,32 +157,31 @@ const Profile = () => {
             <img className="initiative-icon" src={local} alt="local icon" />
           </div>
         </div>
-        <button onClick={handleLogOut} className="logout">
-          LOGOUT
-        </button>
       </section>
       <section className="stats">
-        <h2 className="profile__header">POINTS</h2>
+        <h2 className="profile__header">Your Points:</h2>
         <div className="points">
-          <div className="points__left">
-            <img src={coin} alt="umi-points-icon" />
+          <div className="points__top">
+            <div className="points__left">
+              <h3>Current balance:</h3>
+              <h2 className="points__balance">{currentUser.points}</h2>
+              <p className="points__total">
+                Total points: {currentUser.totalPoints}
+              </p>
+            </div>
+            <div className="points__right">
+              <img src={coin} alt="umi-points-icon" />
+            </div>
           </div>
-          <div className="points__right">
-            <h3>Your points balance:</h3>
-            <h2 className="points__balance">{currentUser.points} umi</h2>
-            <p className="points__total">
-              Total points: {currentUser.totalPoints}
-            </p>
-            <button
-              onClick={() => navigate("/exchange")}
-              className="profile__exchange"
-            >
-              Use points
-            </button>
-          </div>
+          <button
+            onClick={() => navigate("/exchange")}
+            className="profile__exchange"
+          >
+            Use points
+          </button>
         </div>
         <div className="activity">
-          <h2 className="profile__header">ACTIVITY</h2>
+          <h2 className="profile__header">Your Contributions:</h2>
           <div className="activity__container">
             {transactions.length > 0 ? (
               transactions.map((transaction) => {
@@ -199,6 +198,9 @@ const Profile = () => {
           </div>
         </div>
       </section>
+      <button onClick={handleLogOut} className="logout">
+        LOGOUT
+      </button>
     </div>
   );
 };
