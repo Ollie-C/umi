@@ -75,7 +75,6 @@ const Search = ({ searchedPlace }) => {
   return (
     <>
       <div className="search">
-        <CategoryBar />
         <div className="results-wrapper">
           <div className="search__map">
             <Map
@@ -85,6 +84,7 @@ const Search = ({ searchedPlace }) => {
             />
           </div>
 
+          <CategoryBar />
           <div className="search__listings">
             <h2 className="search__header">
               Showing results near

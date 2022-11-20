@@ -6,7 +6,7 @@
     opacity: 80%;
   }
   @include tablet {
-    width: 35rem;
+    width: 30rem;
   }
   &__image {
     margin: 2rem 0;
@@ -74,6 +74,5 @@
 }
 
 .card-image-wrapper {
-  width: 35rem;
   height: auto;
 }

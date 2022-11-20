@@ -8,6 +8,9 @@
   padding: 10rem 2rem;
   min-height: 100vh;
   @include tablet {
+    padding: 8rem 6rem;
+  }
+  @include desktop {
     padding: 8rem 12rem;
   }
 
@@ -18,7 +21,8 @@
   }
 
   &__name {
-    font-size: 6.2rem;
+    padding: 2rem 0;
+    font-size: 4.5rem;
     color: $primary-grey;
     @include tablet {
       font-size: 5rem;

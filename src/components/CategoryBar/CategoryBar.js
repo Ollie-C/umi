@@ -1,4 +1,8 @@
 import "./CategoryBar.scss";
+//icons
+import zeroWaste from "../../assets/icons/zeroWaste.png";
+import local from "../../assets/icons/place.png";
+import plantBased from "../../assets/icons/vegan.png";
 
 const CategoryBar = () => {
   return (
@@ -13,9 +17,13 @@ const CategoryBar = () => {
       <button className="categoryBar__button categoryBar__button--extra">
         ORIGIN
       </button>
-      <button className="categoryBar__button categoryBar__button--extra">
-        RECYCLE
-      </button>
+      <img className="categoryBar__icon" src={zeroWaste} alt="zerowaste icon" />
+      <img
+        className="categoryBar__icon"
+        src={plantBased}
+        alt="plant based icon"
+      />
+      <img className="categoryBar__icon" src={local} alt="local icon" />
     </nav>
   );
 };

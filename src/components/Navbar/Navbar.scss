@@ -13,6 +13,10 @@
   z-index: 1;
 
   @include tablet {
+    padding: 1rem 6rem;
+  }
+
+  @include desktop {
     padding: 1rem 12rem;
   }
 

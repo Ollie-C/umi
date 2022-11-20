@@ -3,27 +3,26 @@
 
 .categoryBar {
   display: flex;
-  margin-top: 3.5rem;
-  padding: 0 4rem;
-  height: 6rem;
+  padding: 0 2rem;
+  min-height: 7rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: $primary-blue;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
+  border-radius: 20px;
+  align-self: center;
+  margin: 2rem;
 
   @include tablet {
-    padding: 0 10rem;
+    justify-content: space-between;
+    padding: 0 4rem;
+    margin: 2rem 6rem;
   }
 
   &__button {
-    padding: 2rem 0;
-    height: 85%;
+    display: none;
+    padding: 1rem 0.5rem;
     border: none;
-    flex-grow: 1;
     font-size: 1.4rem;
-    margin: auto 2px;
     background-color: $primary-blue;
     color: #fff;
     border-radius: 10px;
@@ -31,9 +30,8 @@
       display: none;
     }
     &--all {
-      padding: 0 2rem;
+      display: block;
       margin-right: 4rem;
-      flex-grow: 0;
       font-weight: 800;
     }
     &:hover {
@@ -44,10 +42,18 @@
     }
 
     @include tablet {
+      display: block;
       font-size: 1.4rem;
       &--extra {
         display: block;
       }
+    }
+  }
+
+  &__icon {
+    width: 3rem;
+    @include tablet {
+      display: none;
     }
   }
 }
