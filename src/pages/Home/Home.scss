@@ -3,14 +3,13 @@
 
 .home-wrapper,
 .home {
-  min-height: 90vh;
+  min-height: 150vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   @include tablet {
-    min-height: 100vh;
     flex-direction: row;
     justify-content: center;
     padding: 4rem 8rem;
@@ -18,7 +17,6 @@
 }
 
 .home-wrapper {
-  min-height: 100vh;
   position: absolute;
   background-image: url("../../assets/images/turtle.jpg");
   background-size: cover;
@@ -26,6 +24,9 @@
   top: 0;
   opacity: 60%;
   z-index: -1;
+  @include tablet {
+    min-height: 110vh;
+  }
 }
 .home {
   padding: 8rem 2rem;
@@ -33,6 +34,7 @@
   position: relative;
   scroll-behavior: smooth;
   @include tablet {
+    min-height: 100vh;
     flex-direction: row;
     justify-content: center;
     padding: 4rem 8rem;
@@ -148,6 +150,8 @@
     @include tablet {
       margin: 0;
       margin-left: 3rem;
+    }
+    @include desktop {
       width: 8rem;
     }
   }
