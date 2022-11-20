@@ -1,9 +1,24 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.home-wrapper {
+.home-wrapper,
+.home {
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  @include tablet {
+    min-height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    padding: 4rem 8rem;
+  }
+}
+
+.home-wrapper {
+  min-height: 110vh;
   position: absolute;
   background-image: url("../../assets/images/turtle.jpg");
   background-size: cover;
@@ -13,21 +28,14 @@
   z-index: -1;
 }
 .home {
-  &__top {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
+  padding: 8rem 2rem;
+  background: none;
+  position: relative;
+  scroll-behavior: smooth;
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
     padding: 4rem 8rem;
-    background: none;
-    position: relative;
-    scroll-behavior: smooth;
-    @include tablet {
-      flex-direction: row;
-      justify-content: center;
-    }
   }
 
   &__left,
@@ -43,11 +51,30 @@
     }
   }
 
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__right {
+    display: none;
+    @include tablet {
+      display: flex;
+    }
+  }
+
   &__title {
     margin-top: 2rem;
-    font-size: 6rem;
-    padding: 2rem 0;
+    font-size: 5rem;
+    padding-bottom: 4rem;
+    text-align: center;
     color: $primary-grey;
+    @include tablet {
+      padding: 2rem 0;
+      font-size: 6rem;
+      text-align: left;
+    }
   }
 
   &__image-wrapper {
@@ -70,8 +97,11 @@
   &__search {
     display: flex;
     align-items: center;
-    padding: 4rem 0;
+    padding: 10rem 0;
     flex-wrap: wrap;
+    @include tablet {
+      padding: 4rem 0;
+    }
   }
 
   &__searchbar,
@@ -80,14 +110,17 @@
     border-radius: 10px;
     border: 2px solid rgb(66, 66, 66);
     background: rgba(255, 255, 255, 0.33);
-    padding: 1.2rem 2rem;
-    margin-right: 4px;
+    padding: 2rem 2rem;
     color: $primary-grey;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    margin: 1rem 0;
     &:active {
       outline: none;
       border: none;
+    }
+    @include tablet {
+      padding: 1.2rem 2rem;
     }
 
     @include desktop {
@@ -97,7 +130,7 @@
 
     &::placeholder {
       color: $primary-grey;
-      font-size: 1.6rem;
+      font-size: 2rem;
       text-align: center;
       opacity: 100%;
     }
@@ -105,13 +138,17 @@
 
   &__arrow {
     color: $primary-grey;
+    width: 100%;
+    margin: 3rem;
     &:hover {
       color: $primary-blue;
       cursor: pointer;
       transition: all 1s ease;
     }
-    @include desktop {
+    @include tablet {
+      margin: 0;
       margin-left: 3rem;
+      width: 8rem;
     }
   }
 
@@ -124,22 +161,31 @@
   }
 
   &__cta {
-    font-size: 1.8rem;
-    margin: 2rem 0;
+    font-size: 2.5rem;
+    margin: 6rem 2rem;
     border: none;
-    padding: 2rem 4rem;
+    padding: 3rem 4rem;
     color: #fff;
     background-color: $primary-blue;
     border-radius: 20px;
+    width: 40rem;
     &:hover {
       cursor: pointer;
       transition: all 1s ease;
       background-color: $secondary-blue;
     }
+    @include tablet {
+      width: 30rem;
+      padding: 2rem 4rem;
+    }
   }
 
   &__text {
-    color: $primary-white;
+    font-size: 3rem;
+    text-align: center;
+    @include tablet {
+      color: $primary-white;
+    }
   }
 }
 
@@ -182,18 +228,28 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 4rem;
+  padding: 2rem;
   transition: all 2s ease;
   text-align: center;
+  @include tablet {
+    padding: 8rem 6rem;
+  }
 
   &__about,
   &__initiatives {
-    padding: 4rem 0;
+    padding: 2rem 0;
     width: 90%;
+    @include tablet {
+      padding: 4rem 0;
+    }
   }
 
   &__about {
-    width: 70%;
+    width: 90%;
+
+    @include tablet {
+      width: 70%;
+    }
   }
 
   &__title {
@@ -276,5 +332,14 @@
       margin-right: 8rem;
       margin-bottom: none;
     }
+  }
+}
+
+.username {
+  font-size: 2.4rem;
+  text-align: center;
+  color: $primary-white;
+  @include tablet {
+    text-align: left;
   }
 }

@@ -67,69 +67,69 @@ const Home = ({ handleSearchSubmit }) => {
     <>
       <div className="home-wrapper"></div>
       <div className="home">
-        <div className="home__top">
-          <section className="home__left">
-            {user && <h1>Welcome back, {user.displayName}</h1>}
+        <section className="home__left">
+          {user && (
+            <h1 className="username">Welcome back, {user.displayName}</h1>
+          )}
 
-            <h1 className="home__title">Earth Loyalty Card</h1>
-            <p className="home__text">
-              Earn points when choosing eco-friendly alternatives.
-            </p>
-            {!user ? (
-              <button onClick={() => navigate("/login")} className="home__cta">
-                Get Started
-              </button>
-            ) : (
-              <form id="searchForm" className="home__search">
-                <input
-                  type="text"
-                  className="home__searchbar"
-                  placeholder="Search a city ..."
-                  name="search"
-                  onChange={changeHandler}
-                ></input>
-                <select name="category" className="home__select">
-                  <option value="Cafe">Cafe</option>
-                  <option value="Restaurant">Restaurant</option>
-                  <option value="Groceries">Groceries</option>
-                  <option value="Retail">Retail</option>
-                </select>
-                <Icon
-                  type="submit"
-                  form="searchForm"
-                  className="home__arrow"
-                  icon="majesticons:map-marker-area"
-                  width="40"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSearchSubmit(address);
-                    navigate(`search/${address}`);
-                  }}
-                />
-              </form>
-            )}
-          </section>
-          <section className="home__right">
-            <div className="home__image-wrapper">
-              <img
-                className="home__loyaltycard"
-                src={loyaltycard}
-                alt="umi-loyalty-card-image"
+          <h1 className="home__title">Earth Loyalty Card</h1>
+          <p className="home__text">
+            Earn points by choosing eco-friendly alternatives.
+          </p>
+          {!user ? (
+            <button onClick={() => navigate("/login")} className="home__cta">
+              Get Started
+            </button>
+          ) : (
+            <form id="searchForm" className="home__search">
+              <input
+                type="text"
+                className="home__searchbar"
+                placeholder="Search . . ."
+                name="search"
+                onChange={changeHandler}
+              ></input>
+              <select name="category" className="home__select">
+                <option value="Cafe">Cafe</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Retail">Retail</option>
+              </select>
+              <Icon
+                type="submit"
+                form="searchForm"
+                className="home__arrow"
+                icon="majesticons:map-marker-area"
+                width="60"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSearchSubmit(address);
+                  navigate(`search/${address}`);
+                }}
               />
-            </div>
-          </section>
-          <div className="initiatives">
-            <p className="initiatives__link" to="#sustainable">
-              Sustainable initiatives
-            </p>
-            <Icon
-              className="initiatives__icon"
-              onClick={handleScroll}
-              icon="dashicons:arrow-down"
-              color="white"
-              height="40"
+            </form>
+          )}
+        </section>
+        <section className="home__right">
+          <div className="home__image-wrapper">
+            <img
+              className="home__loyaltycard"
+              src={loyaltycard}
+              alt="umi-loyalty-card-image"
             />
           </div>
+        </section>
+        <div className="initiatives">
+          <p className="initiatives__link" to="#sustainable">
+            Sustainable initiatives
+          </p>
+          <Icon
+            className="initiatives__icon"
+            onClick={handleScroll}
+            icon="dashicons:arrow-down"
+            color="white"
+            height="40"
+          />
         </div>
       </div>
       <div className="sustainable">
