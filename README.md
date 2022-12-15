@@ -1,4 +1,4 @@
-# UMI.CARD (formerly ecolocation)
+# umi (formerly ecolocation)
 
 A loyalty card app for use at eco-friendly organisations and events. 
 
