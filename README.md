@@ -2,8 +2,6 @@
 
 A loyalty card app for use at eco-friendly organisations and events. 
 
-Copy .env.example to .env using the values sent separately. 
-
 
 ## Description
 
