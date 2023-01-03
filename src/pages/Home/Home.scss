@@ -37,7 +37,7 @@
     min-height: 100vh;
     flex-direction: row;
     justify-content: center;
-    padding: 4rem 8rem;
+    padding: 4rem 12rem;
   }
 
   &__left,
@@ -48,7 +48,7 @@
       width: 50%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+
       justify-content: center;
     }
   }
@@ -56,12 +56,12 @@
   &__left {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   &__right {
     display: none;
     @include tablet {
+      padding-left: 10rem;
       display: flex;
     }
   }
@@ -166,7 +166,7 @@
 
   &__cta {
     font-size: 2.5rem;
-    margin: 6rem 2rem;
+    margin: 6rem 0;
     border: none;
     padding: 3rem 4rem;
     color: #fff;
@@ -185,9 +185,9 @@
 
   &__text {
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
     @include tablet {
-      color: $primary-white;
+      color: $primary-grey;
     }
   }
 }

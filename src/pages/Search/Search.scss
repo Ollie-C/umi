@@ -30,6 +30,8 @@
 
     @include tablet {
       display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #fff;
       width: 100%;
       height: 50rem;
@@ -87,4 +89,8 @@
   &__text {
     padding: 4rem;
   }
+}
+
+.map-disabled {
+  font-size: 3rem;
 }

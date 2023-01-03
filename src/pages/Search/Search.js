@@ -32,36 +32,36 @@ const Search = ({ searchedPlace }) => {
     }
   };
 
-  const getCentre = async () => {
-    if (searchedPlace) {
-      const { data } = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${searchedPlace}&key=${REACT_APP_GM_API_KEY}`
-      );
-      setCoordinates(data.results[0].geometry.location);
-    }
-  };
+  // const getCentre = async () => {
+  //   if (searchedPlace) {
+  //     const { data } = await axios.get(
+  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${searchedPlace}&key=${REACT_APP_GM_API_KEY}`
+  //     );
+  //     setCoordinates(data.results[0].geometry.location);
+  //   }
+  // };
 
   useEffect(() => {
     getEstablishments();
   }, []);
 
-  useEffect(() => {
-    getCentre();
-  }, [searchedPlace]);
+  // useEffect(() => {
+  //   getCentre();
+  // }, [searchedPlace]);
 
-  if (!coordinates) {
-    return (
-      <div className="search">
-        <div className="search__error">
-          <h1 className="search-error__text">No results found.</h1>
-          <p>Try a different location.</p>
-          <Link className="search__back" to="/">
-            Back
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  // if (!coordinates) {
+  //   return (
+  //     <div className="search">
+  //       <div className="search__error">
+  //         <h1 className="search-error__text">No results found.</h1>
+  //         <p>Try a different location.</p>
+  //         <Link className="search__back" to="/">
+  //           Back
+  //         </Link>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   if (!searchedPlace) {
     return (
@@ -77,11 +77,12 @@ const Search = ({ searchedPlace }) => {
       <div className="search">
         <div className="results-wrapper">
           <div className="search__map">
-            <Map
+            <p className="map-disabled">Google Maps temporarily disabled.</p>
+            {/* <Map
               apiKey={REACT_APP_GM_API_KEY}
               location={coordinates}
               zoomLevel={15}
-            />
+            /> */}
           </div>
 
           <CategoryBar />

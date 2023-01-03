@@ -41,10 +41,8 @@ const Home = ({ handleSearchSubmit }) => {
       const userDocRef = doc(db, "users", id);
       const docSnap = await getDoc(userDocRef);
       if (docSnap.data()) {
-        console.log("User is logged in.");
         return;
       }
-      console.log("User has signed up.");
       await setDoc(doc(db, "users", id), userDetails);
     } catch (error) {
       console.log(error);
@@ -56,6 +54,7 @@ const Home = ({ handleSearchSubmit }) => {
   const changeHandler = (e) => {
     setAddress(e.target.value);
   };
+  console.log(user);
 
   useEffect(() => {
     if (user) {
