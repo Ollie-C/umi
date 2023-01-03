@@ -1,8 +1,6 @@
-# UMI.CARD (formerly ecolocation)
+# umi (formerly ecolocation)
 
 A loyalty card app for use at eco-friendly organisations and events. 
-
-Copy .env.example to .env using the values sent separately. 
 
 
 ## Description
@@ -39,8 +37,6 @@ npm i
 
 ### App example walkthrough
 
-Please note Google API is a little bit buggy on the hosted version. But the QR code functionality ONLY works on the hosted version. 
-
 -- Collect points as a user
 1. Log into the app on desktop using the test business user log-in details provided in the .env sent seperately. Give it a whirl
 2. Open another instance of the app on your mobile logging in with your own Google account. Leave it on the profile page. Activity and points should be blank.
@@ -60,5 +56,4 @@ Please note Google API is a little bit buggy on the hosted version. But the QR c
 The following are currently broken or incomplete:
 * The initiatives part of the app hasn't been implemented fully. All values are hardcoded.
 * Search filter bar is not currently functional
-* Google API only works on localhost
 
