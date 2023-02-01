@@ -115,12 +115,12 @@
   &__select {
     width: 100%;
     border-radius: 10px;
-    border: 2px solid rgb(66, 66, 66);
-    background: rgba(255, 255, 255, 0.33);
+    border: 1px solid $primary-grey;
+    background: rgba(44, 44, 44, 0.775);
     padding: 2rem 2rem;
-    color: $primary-grey;
-    text-align: center;
-    font-size: 2.2rem;
+    color: $primary-white;
+    text-align: left;
+
     margin: 1rem 0;
     &:active {
       outline: none;
@@ -136,9 +136,9 @@
     }
 
     &::placeholder {
-      color: $primary-grey;
-      font-size: 2rem;
-      text-align: center;
+      color: $primary-white;
+      font-size: 1.6rem;
+      text-align: left;
       opacity: 100%;
     }
   }
@@ -146,7 +146,7 @@
   &__arrow {
     color: $primary-grey;
     width: 100%;
-    margin: 3rem;
+    margin: 1rem;
     &:hover {
       color: $primary-blue;
       cursor: pointer;

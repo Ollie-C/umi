@@ -98,7 +98,7 @@ const Home = ({ handleSearchSubmit }) => {
                 type="submit"
                 form="searchForm"
                 className="home__arrow"
-                icon="majesticons:map-marker-area"
+                icon="mdi:chevron-right-circle"
                 width="60"
                 onClick={(e) => {
                   e.preventDefault();
