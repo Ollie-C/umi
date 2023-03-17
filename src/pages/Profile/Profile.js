@@ -132,13 +132,19 @@ const Profile = () => {
             <label htmlFor="" className="profile__label">
               email:
             </label>
-            <p className="profile__detail"> {currentUser.email}</p>
+            <p className="profile__detail">
+              {" "}
+              <b>{currentUser.email}</b>
+            </p>
           </div>
           <div className="detail__wrapper">
             <label htmlFor="" className="profile__label">
               user since:
             </label>
-            <p className="profile__detail"> {getDate(currentUser.joined)}</p>
+            <p className="profile__detail">
+              {" "}
+              <b>{getDate(currentUser.joined)}</b>
+            </p>
           </div>
         </div>
         <div className="profile__initiatives">
@@ -172,26 +178,28 @@ const Profile = () => {
             <div className="points__right">
               <img src={coin} alt="umi-points-icon" />
             </div>
+            <button
+              onClick={() => navigate("/exchange")}
+              className="profile__exchange"
+            >
+              Use points
+            </button>
           </div>
-          <button
-            onClick={() => navigate("/exchange")}
-            className="profile__exchange"
-          >
-            Use points
-          </button>
         </div>
         <div className="activity">
           <h2 className="profile__header">Your Contributions:</h2>
           <div className="activity__container">
             {transactions.length > 0 ? (
-              transactions.map((transaction) => {
-                return (
-                  <UserTransaction
-                    key={transaction.id}
-                    transaction={transaction}
-                  />
-                );
-              })
+              transactions
+                .map((transaction) => {
+                  return (
+                    <UserTransaction
+                      key={transaction.id}
+                      transaction={transaction}
+                    />
+                  );
+                })
+                .slice(0, 5)
             ) : (
               <p className="profile__noactivity">No recorded activity.</p>
             )}

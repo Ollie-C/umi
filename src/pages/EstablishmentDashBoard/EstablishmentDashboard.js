@@ -76,7 +76,8 @@ const EstablishmentDashboard = () => {
   }
   return (
     <div className="dashboard">
-      <h1 className="dashboard__header">Dashboard</h1>
+      <h1 className="dashboard__header">Welcome to Your Dashboard</h1>
+
       <div className="dashboard__card-wrapper">
         <div className="dashboard__card">
           <div className="dashboard__top">
@@ -97,13 +98,14 @@ const EstablishmentDashboard = () => {
                 onClick={GenerateQRCode}
                 icon="carbon:add-alt"
                 color="black"
-                height="80"
+                height="120"
               />
             ) : (
               <Icon
                 icon="foundation:refresh"
                 color="black"
                 height="40"
+                className="regenerate"
                 onClick={GenerateQRCode}
               />
             )}
@@ -117,14 +119,24 @@ const EstablishmentDashboard = () => {
             <label className="dashboard__label">NAME</label>
             <div className="detail-wrapper">
               <p className="dashboard__detail">{currentEstablishment.name}</p>
-              <Icon icon="ant-design:edit-filled" color="black" height="20" />
+              <Icon
+                className="dashboard__icon"
+                icon="ant-design:edit-filled"
+                color="black"
+                height="20"
+              />
             </div>
             <label className="dashboard__label">ADDRESS</label>
             <div className="detail-wrapper">
               <p className="dashboard__detail">
                 {currentEstablishment.address}, {currentEstablishment.postcode}
               </p>
-              <Icon icon="ant-design:edit-filled" color="black" height="20" />
+              <Icon
+                className="dashboard__icon"
+                icon="ant-design:edit-filled"
+                color="black"
+                height="20"
+              />
             </div>
             <label className="dashboard__label">VISITORS</label>
             <div className="detail-wrapper">

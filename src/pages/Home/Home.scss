@@ -9,6 +9,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+
   @include tablet {
     flex-direction: row;
     justify-content: center;
@@ -18,9 +19,7 @@
 
 .home-wrapper {
   position: absolute;
-  background-image: url("../../assets/images/turtle.jpg");
-  background-size: cover;
-  background-position: center;
+  background-color: $primary-white;
   top: 0;
   opacity: 60%;
   z-index: -1;
@@ -79,7 +78,7 @@
     color: $primary-grey;
     @include tablet {
       padding: 2rem 0;
-      font-size: 6rem;
+      font-size: 7rem;
       text-align: left;
     }
   }
@@ -143,21 +142,19 @@
     }
   }
 
-  &__arrow {
-    color: $primary-grey;
-    width: 100%;
-    margin: 1rem;
+  &__searchButton {
+    padding: 1.2rem;
+    margin: 0 1rem;
+    background-color: $primary-white;
+    border-radius: 10px;
+    font-weight: 600;
+
     &:hover {
-      color: $primary-blue;
+      background-color: $primary-blue;
+      color: $primary-white;
+      border: none;
       cursor: pointer;
-      transition: all 1s ease;
-    }
-    @include tablet {
-      margin: 0;
-      margin-left: 3rem;
-    }
-    @include desktop {
-      width: 8rem;
+      transition: all 1s ease-in-out;
     }
   }
 
@@ -205,30 +202,6 @@
   }
 }
 
-.initiatives {
-  display: none;
-  position: absolute;
-  bottom: 2rem;
-  left: 45%;
-  @include desktop {
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
-  }
-  &__link {
-    font-family: Quicksand-medium;
-    color: $primary-white;
-    font-size: 2rem;
-  }
-
-  &__icon {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
 .sustainable {
   min-height: 100vh;
   display: flex;
@@ -241,14 +214,26 @@
   transition: all 2s ease;
   text-align: center;
   margin-top: 2rem;
+  background-color: #ebf7ff;
+
   @include tablet {
-    padding: 8rem 6rem;
+    padding: 4rem 6rem;
+  }
+
+  &__initiatives {
+    // border: 4px solid $primary-grey;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 10px;
+    margin: 4rem 0;
   }
 
   &__about,
   &__initiatives {
-    padding: 2rem 0;
+    padding: 1rem 0;
     width: 90%;
+
     @include tablet {
       padding: 4rem 0;
     }
@@ -293,8 +278,8 @@
   }
 
   &__name {
-    color: $primary-blue;
-    font-size: 1.6rem;
+    color: $secondary-blue;
+    font-size: 1.9rem;
     font-family: Quicksand-bold;
   }
 
@@ -310,6 +295,7 @@
   align-items: center;
   min-height: 60vh;
   flex-wrap: wrap;
+  padding: 8rem 0;
   @include desktop {
     flex-direction: row;
   }
@@ -348,7 +334,8 @@
 .username {
   font-size: 2.4rem;
   text-align: center;
-  color: $primary-white;
+  color: $primary-grey;
+  margin-bottom: 4rem;
   @include tablet {
     text-align: left;
   }

@@ -7,7 +7,7 @@ const Card = ({ result }) => {
   return (
     <>
       <div className="card">
-        <div className="card-image-wrapper">
+        <div className="card__imageWrapper">
           <img
             src={result.image ? result.image : OriginCoffee}
             alt={`${result.name} image`}

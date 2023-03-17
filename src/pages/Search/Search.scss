@@ -61,16 +61,14 @@
 }
 
 .cards-wrapper {
-  display: flex;
-  justify-content: center;
+  @include flex(row, center, flex-start);
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 20px;
   flex-wrap: wrap;
 }
 .card-wrapper {
-  min-width: 90%;
-  margin: 2rem;
+  margin: 1rem;
   &:hover {
     cursor: pointer;
   }
