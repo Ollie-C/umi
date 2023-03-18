@@ -11,6 +11,8 @@
   color: $primary-grey;
   padding: 1rem;
   align-self: flex-end;
+  // width: 100%;
+  margin: 1rem;
 
   &:hover {
     cursor: pointer;
@@ -18,12 +20,9 @@
 }
 .profile-wrapper {
   width: 100%;
-  padding: 10rem 2rem;
-  @include tablet {
-    padding: 10rem 12rem;
-  }
+  margin-top: 1rem;
   @include desktop {
-    @include flex(row, space-between, flex-start);
+    @include flex(row, center, center);
   }
 }
 
@@ -31,7 +30,10 @@
 .stats {
   padding: 2rem;
   margin: 0 1rem;
-  height: 60rem;
+
+  @include tablet {
+    height: 60rem;
+  }
 
   @include tablet {
     border-radius: 10px;
@@ -40,16 +42,16 @@
   }
 }
 .profile {
-  width: 35%;
+  @include desktop {
+    width: 30%;
+  }
   &__name {
     font-size: 4rem;
     margin: 1rem 0;
     font-family: Quicksand-medium;
   }
 
-  &__dashboard,
-  &__exchange,
-  &__connect {
+  &__button {
     font-size: 2rem;
     padding: 2rem;
     margin: 1rem 0;
@@ -85,39 +87,37 @@
   &__noactivity {
     color: $primary-grey;
   }
+  &__icon {
+    width: 3.7rem;
+    margin-right: 1rem;
+    opacity: 70%;
+  }
 }
 
 .stats {
-  display: flex;
-  flex-direction: column;
-  width: 55%;
   @include desktop {
     padding: 2rem;
+    width: 65%;
   }
 }
 
 .points {
-  display: flex;
-  flex-direction: column;
-  &__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 1rem 0;
+  @include flex(column, center, flex-start);
+  @include tablet {
+    @include flex(row, center, center);
+    * {
+      margin: 0 1rem;
+    }
   }
 
-  &__right {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 0;
-  }
+  &__section {
+    img {
+      display: none;
 
-  &__balance {
-    font-size: 8rem;
+      @include tablet {
+        display: inline;
+      }
+    }
   }
-}
-
-.initiative-icon {
-  width: 3.7rem;
-  margin-right: 1rem;
-  opacity: 70%;
 }

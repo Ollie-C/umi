@@ -111,9 +111,8 @@ const Profile = () => {
     <div className="profile-wrapper">
       <section className="profile">
         <h1 className="profile__name">{currentUser.name}</h1>
-
-        {userEstablishment.length == 0 ? (
-          <button onClick={() => navigate("/add")} className="profile__connect">
+        {userEstablishment.length === 0 ? (
+          <button onClick={() => navigate("/add")} className="profile__button">
             Connect Your Organisation
           </button>
         ) : (
@@ -121,70 +120,63 @@ const Profile = () => {
             <p className="profile__owner">{userEstablishment[0].name} Owner</p>
             <button
               onClick={() => navigate(`/dashboard/${userEstablishment[0].id}`)}
-              className="profile__dashboard"
+              className="profile__button"
             >
               Go to Dashboard
             </button>
           </>
         )}
         <div className="profile__details">
-          <div className="detail__wrapper">
-            <label htmlFor="" className="profile__label">
-              email:
-            </label>
-            <p className="profile__detail">
-              {" "}
-              <b>{currentUser.email}</b>
-            </p>
-          </div>
-          <div className="detail__wrapper">
-            <label htmlFor="" className="profile__label">
-              user since:
-            </label>
-            <p className="profile__detail">
-              {" "}
-              <b>{getDate(currentUser.joined)}</b>
-            </p>
-          </div>
+          <p className="profile__detail">
+            email: <b>{currentUser.email}</b>
+          </p>
+          <p className="profile__detail">
+            user since: <b>{getDate(currentUser.joined)}</b>
+          </p>
         </div>
         <div className="profile__initiatives">
           <h2 className="profile__header">Initiatives you follow:</h2>
-          <div className="icon-wrapper">
+          <div className="profile__icons-wrapper">
             <img
-              className="initiative-icon"
+              className="profile__icon"
               src={zeroWaste}
               alt="zerowaste icon"
             />
             <img
-              className="initiative-icon"
+              className="profile__icon"
               src={plantBased}
               alt="plant based icon"
             />
-            <img className="initiative-icon" src={local} alt="local icon" />
+            <img className="profile__icon" src={local} alt="local icon" />
           </div>
         </div>
       </section>
+
       <section className="stats">
         <h2 className="profile__header">Your Points:</h2>
         <div className="points">
-          <div className="points__top">
-            <div className="points__left">
-              <h3>Current balance:</h3>
-              <h2 className="points__balance">{currentUser.points}</h2>
-              <p className="points__total">
-                Total points: {currentUser.totalPoints}
-              </p>
-            </div>
-            <div className="points__right">
-              <img src={coin} alt="umi-points-icon" />
-            </div>
-            <button
-              onClick={() => navigate("/exchange")}
-              className="profile__exchange"
-            >
-              Use points
-            </button>
+          <div className="points__section">
+            <h3>Current balance:</h3>
+            {currentUser.totalPoints ? (
+              <>
+                <h2 className="points__balance">{currentUser.points}</h2>
+                <p className="points__total">
+                  Total points: {currentUser.totalPoints}
+                </p>
+              </>
+            ) : (
+              <p>No points yet!</p>
+            )}
           </div>
+          <div className="points__section">
+            <img src={coin} alt="umi-points-icon" />
+          </div>
+          <button
+            onClick={() => navigate("/exchange")}
+            className="profile__button"
+          >
+            Use points
+          </button>
         </div>
         <div className="activity">
           <h2 className="profile__header">Your Contributions:</h2>

@@ -1,8 +1,10 @@
-import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/images/umi_logo-white2.png";
-import { Icon } from "@iconify/react";
+//Styles
+import "./Navbar.scss";
+//Context
 import { UserAuth } from "../../context/AuthContext";
+//Images & Icons
+import logo from "../../assets/images/umi_logo-blue1.png";
 
 const Navbar = () => {
   const { user } = UserAuth();
@@ -10,20 +12,23 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <img
-        onClick={() => navigate("/")}
-        src={logo}
-        alt="umi-logo"
-        className="logo"
-      />
-
-      <div className="user__wrapper">
-        <Icon
-          onClick={() => (user ? navigate("/profile") : navigate("/login"))}
-          className="user__icon"
-          icon="bxs:user-circle"
-          height="35"
+      <div className="navbar__logo-wrapper">
+        <img
+          onClick={() => navigate("/")}
+          src={logo}
+          alt="umi logo"
+          className="navbar__logo"
         />
+      </div>
+
+      <div className="navbar__user">
+        <button
+          onClick={() => (user ? navigate("/profile") : navigate("/login"))}
+          className="navbar__button"
+          alt="user icon"
+        >
+          PROFILE
+        </button>
       </div>
     </nav>
   );

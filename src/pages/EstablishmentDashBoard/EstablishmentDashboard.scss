@@ -2,15 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .dashboard {
-  min-height: 100vh;
-  padding: 8rem 2rem;
+  min-height: 90vh;
+  padding: 2rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  @include tablet {
-    padding: 8rem 12rem;
-  }
 
   &__header {
     color: $primary-grey;

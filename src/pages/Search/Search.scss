@@ -3,7 +3,7 @@
 
 .search {
   min-height: 200vh;
-  padding: 10rem 0;
+  padding: 10rem 1rem;
 
   @include tablet {
     padding: 5.5rem 0;
@@ -40,11 +40,8 @@
 
   &__listings {
     margin-top: 2rem;
-    padding: 2rem;
+
     width: 100%;
-    @include tablet {
-      padding: 2rem 6rem;
-    }
   }
 
   &__header {
@@ -63,7 +60,7 @@
 .cards-wrapper {
   @include flex(row, center, flex-start);
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-bottom: 3px solid $primary-brown;
   border-radius: 20px;
   flex-wrap: wrap;
 }

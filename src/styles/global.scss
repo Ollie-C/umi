@@ -3,5 +3,13 @@
 @use "./partials/mixins" as *;
 
 .main {
-  position: relative;
+  padding: 1.2rem;
+
+  @include tablet {
+    padding: 2rem 6rem;
+  }
+
+  @include desktop {
+    padding: 2rem 10rem;
+  }
 }

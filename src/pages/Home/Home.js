@@ -1,27 +1,32 @@
 //Styles
 import "./Home.scss";
-//Firebase & context
+//Context
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../fb-config";
 import { UserAuth } from "../../context/AuthContext";
-//images
+//Images
 import loyaltycard from "../../assets/images/loyaltycard_new.png";
 import umiPhone from "../../assets/images/umi_top.png";
-//icons
-import { Icon } from "@iconify/react";
 //Hooks
-import { useState, useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Initiatives from "../../components/Initiatives/Initiatives";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 const Home = ({ handleSearchSubmit }) => {
   const { user } = UserAuth();
-  const [address, setAddress] = useState();
+
   const navigate = useNavigate();
-  const ref = useRef(null);
 
   const processNewUser = async (id) => {
     try {
+      //Check database if user already exists
+      const userDocRef = doc(db, "users", id);
+      const docSnap = await getDoc(userDocRef);
+      if (docSnap.data()) {
+        return;
+      }
+      //Create new user if not
       const userDetails = {
         email: user.email,
         name: user.displayName,
@@ -32,94 +37,56 @@ const Home = ({ handleSearchSubmit }) => {
         joined: Date.now(),
         establishmentId: false,
       };
-      const userDocRef = doc(db, "users", id);
-      const docSnap = await getDoc(userDocRef);
-      if (docSnap.data()) {
-        return;
-      }
       await setDoc(doc(db, "users", id), userDetails);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleScroll = () => ref.current.scrollIntoView({ behavior: "smooth" });
-
-  const changeHandler = (e) => {
-    setAddress(e.target.value);
-  };
-
   useEffect(() => {
     if (user) {
       processNewUser(user.uid);
-      console.log(user);
     }
   }, [user]);
 
   return (
-    <>
-      <div className="home-wrapper"></div>
-      <div className="home">
-        <section className="home__left">
-          {user && (
-            <h1 className="username">Welcome back, {user.displayName}</h1>
-          )}
-
-          <h1 className="home__title">This is YOUR Earth Loyalty Card</h1>
-          <p className="home__text">
-            Earn some more points by choosing the eco-friendly alternative
-            today.
+    <div className="homepage">
+      <div className="background"></div>
+      <section className="top">
+        {user && (
+          <p className="top__text">
+            The ocean is in your hands,{" "}
+            {/* <b>{user.displayName.toUpperCase().split(" ")[0]}</b> */}
           </p>
-          {!user ? (
-            <button onClick={() => navigate("/login")} className="home__cta">
-              Get Started
-            </button>
-          ) : (
-            <form id="searchForm" className="home__search">
-              <input
-                type="text"
-                className="home__searchbar"
-                placeholder="Search . . ."
-                name="search"
-                onChange={changeHandler}
-              ></input>
-              <select name="category" className="home__select">
-                <option value="Cafe">Cafe</option>
-                <option value="Restaurant">Restaurant</option>
-                <option value="Groceries">Groceries</option>
-                <option value="Retail">Retail</option>
-              </select>
-              <button
-                type="submit"
-                form="searchForm"
-                className="home__searchButton"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSearchSubmit(address);
-                  navigate(`search/${address}`);
-                }}
-              >
-                GO
-              </button>
-            </form>
-          )}
-        </section>
-        <section className="home__right">
-          <div className="home__image-wrapper">
-            <img
-              className="home__loyaltycard"
-              src={loyaltycard}
-              alt="umi-loyalty-card-image"
-            />
-          </div>
-        </section>
+        )}
+        <h2 className="top__header">EARTH'S LOYALTY CARD APP</h2>
+
+        {!user ? (
+          <button onClick={() => navigate("/login")} className="top__cta">
+            Get Started
+          </button>
+        ) : (
+          <SearchForm handleSearchSubmit={handleSearchSubmit} />
+        )}
+        <div className="top__image-wrapper">
+          <img
+            className="top__loyaltyCard"
+            src={loyaltycard}
+            alt="umi loyalty card"
+          />
+        </div>
+      </section>
+
+      <Initiatives />
+      <div className="download">
+        <button className="download__cta">Download the app</button>
+        <img
+          className="download__image"
+          src={umiPhone}
+          alt="umi phone app image"
+        />
       </div>
-      <Initiatives ref={ref} />
-      <div className="app">
-        <button className="app__cta">Download the app</button>
-        <img className="app__image" src={umiPhone} alt="umi phone app image" />
-      </div>
-    </>
+    </div>
   );
 };
 

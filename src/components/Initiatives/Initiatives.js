@@ -8,10 +8,10 @@ import reuse from "../../assets/icons/reuse.png";
 import plantBased from "../../assets/icons/vegan.png";
 import handMade from "../../assets/icons/hand-made.png";
 
-const Initiatives = ({ ref }) => {
+const Initiatives = () => {
   return (
     <div className="sustainable">
-      <div className="sustainable__about" ref={ref}>
+      <div className="sustainable__about">
         <h2 className="sustainable__title">What is umi.card?</h2>
         <p>
           Umi 海, Japanese for ocean or sea, is a way to help people think about
@@ -27,40 +27,64 @@ const Initiatives = ({ ref }) => {
         <h2 className="sustainable__title">Sustainable Initiatives</h2>
         <div className="icons-wrapper">
           <div className="initiative-card">
-            <img src={zeroWaste} className="initiative-card__icon"></img>
+            <img
+              src={zeroWaste}
+              alt="zero waste icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Zero waste</h3>
             <p className="initiative-card__text">
               Bulk selling in resuable packaging
             </p>
           </div>
           <div className="initiative-card">
-            <img src={ecoEnergy} className="initiative-card__icon"></img>
+            <img
+              src={ecoEnergy}
+              alt="eco energy icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Renewable Energy</h3>
             <p className="initiative-card__text">
               Majority of energy usage is from renewable sources
             </p>
           </div>
           <div className="initiative-card">
-            <img src={organic} className="initiative-card__icon"></img>
+            <img
+              src={organic}
+              alt="organic icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Organic</h3>
             <p className="initiative-card__text">
               Organic or natural ingredients sustainably farmed
             </p>
           </div>
           <div className="initiative-card">
-            <img src={local} className="initiative-card__icon"></img>
+            <img
+              src={local}
+              alt="local source icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Locally-sourced</h3>
             <p className="initiative-card__text">
               Products made from ingredients sourced locally
             </p>
           </div>
           <div className="initiative-card">
-            <img src={reuse} className="initiative-card__icon"></img>
+            <img
+              src={reuse}
+              alt="reuse icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Reuse/Upcycle/Recycle</h3>
             <p className="initiative-card__text">Share products and services</p>
           </div>
           <div className="initiative-card">
-            <img src={plantBased} className="initiative-card__icon"></img>
+            <img
+              src={plantBased}
+              alt="plant-based icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Plant-based</h3>
             <p className="initiative-card__text">
               Products using minimal water to produce and are not derived from
@@ -68,7 +92,11 @@ const Initiatives = ({ ref }) => {
             </p>
           </div>
           <div className="initiative-card">
-            <img src={handMade} className="initiative-card__icon"></img>
+            <img
+              src={handMade}
+              alt="handmade product icon"
+              className="initiative-card__icon"
+            ></img>
             <h3 className="initiative-card__name">Hand-made</h3>
             <p className="initiative-card__text">
               Products and services crafted domestically from raw materials

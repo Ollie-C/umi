@@ -2,64 +2,36 @@
 @use "../../styles/partials/variables" as *;
 
 .navbar {
-  display: flex;
-  padding: 2rem;
-  align-items: center;
   width: 100%;
-  background-color: $primary-grey;
-  justify-content: space-between;
-  position: fixed;
-  flex-wrap: wrap;
-  z-index: 1;
+  @include flex(row, space-between, center);
 
-  @include tablet {
-    padding: 1rem 6rem;
+  &__logo-wrapper {
+    width: 25rem;
   }
 
-  @include desktop {
-    padding: 1rem 12rem;
+  &__logo {
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
-  &__home {
-    border-radius: 50%;
+  &__user {
+    margin-right: 1rem;
+  }
+  &__button {
+    color: $primary-blue;
     padding: 2rem;
-    background-color: #ffd166;
-    &:hover {
-      background-color: #fff;
-      transition: background-color 1s ease;
-    }
-  }
-
-  &__search {
-    display: flex;
-    align-items: center;
-  }
-
-  &__link {
-    position: absolute;
-    bottom: 0;
-    margin-right: 4rem;
-    &:hover {
-      cursor: pointer;
-      color: $primary-blue;
-      transition: all 1s ease-in-out;
-    }
-  }
-}
-
-.user {
-  &__wrapper {
-    display: flex;
-    align-items: center;
-  }
-  &__icon {
-    color: $primary-white;
+    border-radius: 10px;
+    border: 1px solid $primary-grey;
+    font-weight: 800;
+    background-color: $primary-white;
 
     &:hover {
       cursor: pointer;
-      color: $primary-blue;
-      background-color: $primary-white;
-      border-radius: 50%;
+      color: $primary-white;
+      background-color: $primary-blue;
+      border-radius: 20px;
       transition: all 1s ease-in-out;
     }
   }

@@ -1,0 +1,66 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.searchForm {
+  width: 90%;
+
+  @include desktop {
+    width: 50%;
+  }
+  &__fields {
+    width: 100%;
+    @include flex(column, center, center);
+
+    @include tablet {
+      @include flex(row, space-between, center);
+      width: 60%;
+    }
+  }
+
+  &__input,
+  &__select {
+    flex-grow: 1;
+    border-radius: 8px;
+    border: 1px solid $secondary-blue;
+    background: $primary-white;
+    padding: 2rem 1.5rem;
+    color: $primary-grey;
+    width: 100%;
+    margin: 4px 0;
+
+    &::placeholder {
+      color: $primary-grey;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__select {
+    @include tablet {
+      margin-left: 1rem;
+    }
+  }
+
+  &__button {
+    margin: 8px 0;
+    padding: 1rem;
+    background-color: $primary-blue;
+    border: none;
+    color: $primary-white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 2rem;
+    width: 100%;
+
+    @include tablet {
+      padding: 2rem;
+      width: 60%;
+    }
+
+    &:hover {
+      background-color: $secondary-blue;
+      color: $primary-white;
+      cursor: pointer;
+      transition: all 1s ease-in-out;
+    }
+  }
+}

@@ -1,21 +1,21 @@
 import "./Search.scss";
 import CategoryBar from "../../components/CategoryBar/CategoryBar";
-import Map from "../../components/Map/Map";
+// import Map from "../../components/Map/Map";
 import Card from "../../components/Card/Card";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { collection, getDocs } from "firebase/firestore";
 import { db, auth } from "../../fb-config";
 
 const Search = ({ searchedPlace }) => {
   const navigate = useNavigate();
   const { location } = useParams();
-  const [coordinates, setCoordinates] = useState();
+  // const [coordinates, setCoordinates] = useState();
   const [results, setResults] = useState([]);
   const establishmentsCollectionRef = collection(db, "establishments");
 
-  const { REACT_APP_GM_API_KEY } = process.env;
+  // const { REACT_APP_GM_API_KEY } = process.env;
 
   const getEstablishments = async () => {
     try {
