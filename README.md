@@ -1,59 +1,57 @@
-# umi (formerly ecolocation)
+# Umi (formerly ecolocation)
 
-A loyalty card app for use at eco-friendly organisations and events. 
-
+"Umi 海", Japanese for ocean or sea
 
 ## Description
 
-Umi 海, Japanese for ocean or sea, is a way to help people think about the way they shop by rewarding users for choosing an eco-friendly alternative to their usual
-choices. 
-Umi.card skips past the tick-bock initiatives and filters out companies employing greenwashing techniques to connect with eco-friendly businesses, events and 
-charities.
+Umi is a *conceptual* loyalty card app for use at businesses that promote sustainable or eco-friendly practices. Users are rewarded for shopping sustainably and can use points earned to purchase items at the store. Items either give to a local cause or offer reusable products. 
 
-## Getting Started
+Businesses can generate a QR code on their dashboard. On purchase of an item, users are offered to scan the QR code which will automatically update their account with new points. 
 
-### Dependencies
+### Getting Started
 
-"@iconify/icons-mdi": "^1.2.32",
-    "@iconify/react": "^4.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.1.3",
-    "crypto": "^1.0.1",
-    "firebase": "^9.13.0",
-    "google-map-react": "^2.2.0",
-    "qrcode": "^1.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.2",
-    "react-scripts": "5.0.1",
-    "sass": "^1.55.0",
-    "uuid": "^9.0.0",
+1. In your terminal: ``git clone https://github.com/Ollie-C/cakeday.git`` 
+2. Install dependencies: ``npm i / npm install / yarn install``
+3. Give it a whirl: ``npm run``
 
-### Installing
+### Using the app
 
-npm i
+The app is currently conceptual. As of 19/03/23, Google Maps API has been disabled on the app and the search will only returns organisations stored in the database (which consists of mock businesses and user-added organisations. 
 
-### App example walkthrough
+The QR-code-verified points functionality can be tested though. To do this you will need access to 2 devices:
 
--- Collect points as a user
-1. Log into the app on desktop using the test business user log-in details provided in the .env sent seperately. Give it a whirl
-2. Open another instance of the app on your mobile logging in with your own Google account. Leave it on the profile page. Activity and points should be blank.
-3. On the business account, go to your profile page, go to dashboard and generate a QR code.
-4. Use your user account on mobile to scan the QR code. Accept the prompt to collect your points.
-5. Check back on your profile page to see your updated activity and points.
+PART A - **Create a fake business**
+1. Create a google account (Firebase auth stores login details. Please let me know if you'd like these deleted!)
+2. Head over to your profile page in the top right hand corner of the landing page.
+3. Click "Add organisation". Fill in some general data for your organisation
+4. Head back to your profile page and click on **Go to Dashboard** and generate a QR code on the dashboard
+5. Find your new organisation added to the list of organisation (doesn't matter what you type into search). Go to your new page
 
---Create a business
-1. On your regular user account, go to profile page and click Connect Organisation. Fill in the form. 
-2. Check profile page again to see if business account has been connected.
-3. Go back to homepage and search (currently map location and search results are not connected so any location will suffice.)
-4. Check for your new business in the search results
+PART B - **Collect points as a user**
+5. Logged in on your phone, scan the QR code with your camera and follow the link. 
+6. On your other device, you will now notice the "Collect points" button is now enabled. Click this to add points to your account.
+7. Verify points have been added by navigating back to your profile page. 
 
+## Details
 
+### Screenshots
 
-## Issues/Bugs
-The following are currently broken or incomplete:
-* The initiatives part of the app hasn't been implemented fully. All values are hardcoded.
-* Search filter bar is not currently functional
+[Coming soon]
 
+### What did I use to build this? 
+* React
+* JavaScript
+* Firebase Auth
+* Firestore
+* qrcode
+* SASS
+* GCP
+
+### Limitations
+* I have temporarily disabled the Google Maps API. A map will not be rendered, and results will not be dynamic. 
+* Shop is currently in an early stage
+* Users can not yet edit business details on their dashboard
+* I have only integrated Google Login through Firebase Auth. Email and password logins will be added later
+
+### Final note
+Any questions then feel free to drop me a message or email! 
