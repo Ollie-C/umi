@@ -165,7 +165,10 @@ const Profile = () => {
                 </p>
               </>
             ) : (
-              <p>No points yet!</p>
+              <>
+                <h2 className="points__balance">0</h2>
+                <p className="points__total">Total points: 0</p>
+              </>
             )}
           </div>
           <div className="points__section">

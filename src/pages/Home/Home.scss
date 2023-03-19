@@ -7,9 +7,7 @@
   background-position: center;
   background-size: cover;
   opacity: 70%;
-
   right: 0;
-  // z-index: -1;
   display: none;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -60,9 +58,6 @@
     display: none;
     width: 32rem;
     position: absolute;
-    // top: 8rem;
-    // right: 0;
-
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
       rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,

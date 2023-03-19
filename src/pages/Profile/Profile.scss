@@ -12,7 +12,7 @@
   padding: 1rem;
   align-self: flex-end;
   // width: 100%;
-  margin: 1rem;
+  margin: 2rem;
 
   &:hover {
     cursor: pointer;
@@ -103,7 +103,7 @@
 
 .points {
   padding: 1rem 0;
-  @include flex(column, center, flex-start);
+  @include flex(column, center, center);
   @include tablet {
     @include flex(row, center, center);
     * {
@@ -112,6 +112,11 @@
   }
 
   &__section {
+    @include flex(row, center, center);
+
+    * {
+      margin: 5px;
+    }
     img {
       display: none;
 

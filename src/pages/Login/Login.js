@@ -31,9 +31,6 @@ const Login = () => {
         <button className="login__google" onClick={handleLogIn}>
           LOG IN WITH GOOGLE
         </button>
-        <p className="login__noaccount">
-          Don't have a Google account? Log in with email and password.
-        </p>
       </div>
     </div>
   );

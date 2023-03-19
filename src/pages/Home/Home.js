@@ -55,8 +55,9 @@ const Home = ({ handleSearchSubmit }) => {
       <section className="top">
         {user && (
           <p className="top__text">
-            The ocean is in your hands,{" "}
-            {/* <b>{user.displayName.toUpperCase().split(" ")[0]}</b> */}
+            The ocean is in your hands
+            {user.displayName &&
+              ", " + user.displayName.toUpperCase().split(" ")[0]}
           </p>
         )}
         <h2 className="top__header">EARTH'S LOYALTY CARD APP</h2>
@@ -80,11 +81,7 @@ const Home = ({ handleSearchSubmit }) => {
       <Initiatives />
       <div className="download">
         <button className="download__cta">Download the app</button>
-        <img
-          className="download__image"
-          src={umiPhone}
-          alt="umi phone app image"
-        />
+        <img className="download__image" src={umiPhone} alt="umi phone app" />
       </div>
     </div>
   );
