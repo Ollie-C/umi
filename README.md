@@ -10,7 +10,7 @@ Businesses can generate a QR code on their dashboard. On purchase of an item, us
 
 ### Getting Started
 
-1. In your terminal: ``git clone https://github.com/Ollie-C/cakeday.git`` 
+1. In your terminal: ``git clone https://github.com/Ollie-C/umi.git`` 
 2. Install dependencies: ``npm i / npm install / yarn install``
 3. Give it a whirl: ``npm run``
 
