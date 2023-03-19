@@ -6,7 +6,10 @@
   @include flex(row, space-between, center);
 
   &__logo-wrapper {
-    width: 25rem;
+    width: 15rem;
+    @include tablet {
+      width: 25rem;
+    }
   }
 
   &__logo {
@@ -21,17 +24,19 @@
   }
   &__button {
     color: $primary-blue;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 8px;
     border: 1px solid $primary-grey;
-    font-weight: 800;
     background-color: $primary-white;
+
+    @include tablet {
+      padding: 2rem;
+    }
 
     &:hover {
       cursor: pointer;
       color: $primary-white;
       background-color: $primary-blue;
-      border-radius: 20px;
       transition: all 1s ease-in-out;
     }
   }

@@ -2,15 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .login {
-  min-height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../assets/images/4.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
 
   &__card {
     height: 50rem;

@@ -1,24 +1,50 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.card {
+.card-wrapper {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  min-height: 42rem;
+  border-radius: 8px;
+  position: relative;
+  margin: 4px;
   &:hover {
-    opacity: 80%;
+    cursor: pointer;
   }
+
   @include tablet {
     width: 30rem;
   }
+}
 
-  &__imageWrapper {
-    height: 10rem;
-    width: 100%;
-    margin: 2rem 0;
-  }
+.card {
+  width: 100%;
+
   &__image {
-    height: 100%;
-    border-radius: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    height: 25rem;
+    background-position: center;
+    background-size: cover;
+    opacity: 80%;
     &:hover {
-      opacity: 50%;
+      opacity: 100%;
+    }
+  }
+
+  &__contents {
+    @include flex(column, space-between, center);
+    padding: 1rem;
+    height: 15rem;
+  }
+
+  &__description {
+    width: 100%;
+
+    * {
+      padding: 0.5rem 0;
     }
   }
 
@@ -27,32 +53,18 @@
     padding: 1rem 0;
     color: rgba(0, 0, 0, 0.575);
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.575);
-  }
-
-  &__description {
-    padding: 1rem 0;
   }
 
   &__text {
-    padding: 1rem 0;
-    margin-right: 4rem;
     font-size: 1.4rem;
   }
 
-  &__stats {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  &__bottom {
+    @include flex(row, space-between, center);
   }
 
-  &__right {
-    text-align: right;
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
+  &__bottom-section {
+    @include flex(row, center, center);
   }
 
   &__points {
@@ -60,18 +72,9 @@
     font-weight: 800;
     color: $primary-grey;
   }
-}
 
-.coin-wrapper {
-  width: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.itemcard {
   &__coin {
-    width: 3rem;
+    width: 2rem;
     margin: 0 1rem;
   }
 }

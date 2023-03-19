@@ -29,9 +29,9 @@
 .profile,
 .stats {
   padding: 2rem;
-  margin: 0 1rem;
 
   @include tablet {
+    margin: 0 2rem;
     height: 60rem;
   }
 

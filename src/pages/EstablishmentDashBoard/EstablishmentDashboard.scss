@@ -17,8 +17,7 @@
 
     @include tablet {
       padding: 2rem 0;
-
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 
@@ -50,8 +49,8 @@
     }
     @include desktop {
       height: 40rem;
-      width: 40rem;
-      margin: 1rem;
+      width: 30%;
+      margin: 1rem 0.5rem;
     }
   }
 
@@ -109,13 +108,10 @@
 }
 
 .dashboard__card-header {
-  font-size: 3rem;
+  font-size: 2.6rem;
   text-align: center;
   padding: 2rem 0;
   color: $primary-grey;
-  @include tablet {
-    font-size: 3rem;
-  }
 }
 
 .detail-wrapper {

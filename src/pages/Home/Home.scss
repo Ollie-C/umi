@@ -23,13 +23,13 @@
 }
 
 .top {
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
   position: relative;
-  height: 70vh;
+  height: 75vh;
   background-color: #fff;
   border-radius: 10px;
   background: none;
-  margin: 2rem 0;
+  margin-bottom: 3rem;
   @include flex(column, flex-start, flex-start);
   @include desktop {
   }
@@ -111,7 +111,7 @@
   transition: all 2s ease;
   text-align: center;
   margin-top: 2rem;
-  background-color: #ebf7ff;
+  background-color: #f1f6f9;
   z-index: 3;
 
   @include tablet {
@@ -168,8 +168,12 @@
   width: 100%;
 }
 .initiative-card {
-  padding: 4rem 3rem;
-  width: 40rem;
+  padding: 4rem 2rem;
+  width: 25rem;
+
+  @include tablet {
+    width: 40rem;
+  }
 
   &__icon {
     width: 8rem;
@@ -204,7 +208,7 @@
     height: 90rem;
   }
   &__image {
-    width: 40rem;
+    width: 30rem;
     border-radius: 10px;
 
     @include tablet {

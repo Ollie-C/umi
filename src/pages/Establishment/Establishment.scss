@@ -10,6 +10,13 @@
     @include flex(row, space-between, center);
   }
 
+  &__details {
+    width: 100%;
+    @include tablet {
+      width: 50%;
+    }
+  }
+
   &__cover {
     max-width: 70rem;
     width: 100%;
@@ -94,5 +101,13 @@
 }
 
 .establishment__images-wrapper {
-  width: 50%;
+  width: 100%;
+
+  @include tablet {
+    width: 60rem;
+  }
+
+  @include desktop {
+    width: 80rem;
+  }
 }

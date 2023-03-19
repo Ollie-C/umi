@@ -47,6 +47,8 @@
   &__header {
     font-size: 1.8rem;
     margin-bottom: 2rem;
+    padding: 0 3rem;
+    text-align: center;
     color: $primary-grey;
   }
 
@@ -60,18 +62,9 @@
 .cards-wrapper {
   @include flex(row, center, flex-start);
   width: 100%;
-  border-bottom: 3px solid $primary-brown;
   border-radius: 20px;
   flex-wrap: wrap;
-}
-.card-wrapper {
-  margin: 1rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @include tablet {
-    min-width: 0;
-  }
+  padding: 4rem 0;
 }
 
 .search-error {

@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .searchForm {
-  width: 90%;
+  width: 100%;
 
   @include desktop {
     width: 50%;
