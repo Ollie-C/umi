@@ -16,7 +16,7 @@ Businesses can generate a QR code on their dashboard. On purchase of an item, us
 
 ### Using the app
 
-The app is currently conceptual. As of 19/03/23, Google Maps API has been disabled on the app and the search will only returns organisations stored in the database (which consists of mock businesses and user-added organisations. 
+The app is currently conceptual. As of 19/03/23, Google Maps API has been disabled on the app and the search will only return organisations stored in the database (which consists of mock businesses and user-added organisations.) 
 
 The QR-code-verified points functionality can be tested though. To do this you will need access to 2 devices:
 
@@ -28,9 +28,9 @@ PART A - **Create a fake business**
 5. Find your new organisation added to the list of organisation (doesn't matter what you type into search). Go to your new page
 
 PART B - **Collect points as a user**
-5. Logged in on your phone, scan the QR code with your camera and follow the link. 
-6. On your other device, you will now notice the "Collect points" button is now enabled. Click this to add points to your account.
-7. Verify points have been added by navigating back to your profile page. 
+1. Logged in on your phone, scan the QR code with your camera and follow the link. 
+2. On your other device, you will now notice the "Collect points" button is now enabled. Click this to add points to your account.
+3. Verify points have been added by navigating back to your profile page. 
 
 ## Details
 
