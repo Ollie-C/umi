@@ -1,4 +1,4 @@
-# umi 海 (meaning ocean)
+# umi 海 (ocean in Japanese)
 
 Umi is a *conceptual*, heavy empahsis on conceptual (for now), loyalty card app for use at businesses that promote sustainable or eco-friendly practices. Get rewarded for shopping sustainably and use your points to purchase items at the store. 
 
@@ -54,9 +54,9 @@ Please create an issue above! This is an ongoing project and will constantly be 
 [Coming soon]
 
 ### To Do List
-[] Re-enable the Google Maps API
-[] Generate actual local business data
-[] Implement a shop and cart
-[] Allow users to fully customise their page
-[] Allow businesses to edit their business details
-[] Allow for email/password authentication
+- [] Re-enable the Google Maps API
+- [] Generate actual local business data
+- [] Implement a shop and cart
+- [] Allow users to fully customise their page
+- [] Allow businesses to edit their business details
+- [] Allow for email/password authentication
