@@ -1,135 +1,412 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 .dashboard {
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 2rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+
+  @include tablet {
+    padding: 3rem;
+  }
+
+  &__loading,
+  &__error,
+  &__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin: 8rem auto;
+    max-width: 500px;
+    width: 100%;
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 1.5rem 0;
+      color: $primary-grey;
+    }
+
+    p {
+      font-size: 1.6rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 6rem 0 2rem;
+    text-align: center;
+  }
 
   &__header {
     color: $primary-grey;
-    width: 100%;
     font-size: 3rem;
-    padding: 4rem 0;
+    margin-bottom: 1rem;
 
     @include tablet {
-      padding: 2rem 0;
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
+  }
+
+  &__subheader {
+    color: $primary-blue;
+    font-size: 1.8rem;
+    font-weight: 500;
   }
 
   &__card-wrapper {
     width: 100%;
-    border-top: 2px solid $primary-blue;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     @include desktop {
-      flex-direction: row;
       justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 2rem 0;
     }
   }
 
   &__card {
     width: 100%;
-    padding: 1rem 0;
-    border-radius: 10px;
-    margin: 2rem 0;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    max-width: 380px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
     @include tablet {
-      width: 60rem;
+      width: calc(50% - 1rem);
     }
+
     @include desktop {
-      height: 40rem;
-      width: 30%;
-      margin: 1rem 0.5rem;
+      width: calc(33.333% - 1.5rem);
     }
   }
 
-  &__top {
-    border-bottom: 1px solid $primary-blue;
-    padding: 0 2rem;
+  &__card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+
+    h3 {
+      font-size: 1.8rem;
+      color: $primary-grey;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #666;
+    }
   }
 
-  &__bottom {
+  &__card-content {
+    padding: 2rem 1.5rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // QR Code Card
+  &__qr-placeholder {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 2rem 0;
+    text-align: center;
+    gap: 2rem;
+
+    p {
+      color: #666;
+      font-size: 1.5rem;
+      max-width: 250px;
+    }
+  }
+
+  &__qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   &__qrcode {
-    width: 20rem;
-    padding: 2rem;
+    width: 200px;
+    height: 200px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  // Business Details Card
+  &__detail-group {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__label {
-    padding: 0.8rem 0;
-    font-weight: 100;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: $primary-blue;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  &__detail-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.5rem;
   }
 
   &__detail {
-    border-bottom: 1px solid rgb(224, 224, 224);
-    font-weight: 600;
-    margin-right: 1rem;
-
-    color: rgb(66, 66, 66);
+    font-size: 1.5rem;
+    color: $primary-grey;
+    font-weight: 500;
   }
 
-  &__delete {
-    border: none;
+  &__detail-large {
+    font-size: 3.5rem;
+    color: $primary-blue;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__detail-label {
+    font-size: 1.3rem;
+    color: #666;
+    text-align: center;
+  }
+
+  &__visitor-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  &__edit-button {
     background: none;
-    color: rgb(197, 59, 59);
-    margin-bottom: 2rem;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &__icon {
-    width: 4rem;
-    margin-bottom: 1rem;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-.dashboard__card-header {
-  font-size: 2.6rem;
-  text-align: center;
-  padding: 2rem 0;
-  color: $primary-grey;
-}
-
-.detail-wrapper {
-  display: flex;
-  padding-bottom: 4rem;
-}
-
-.dashboard-icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.regenerate {
-  &:hover {
+    border: none;
     cursor: pointer;
-    transform: rotate(45deg);
-    transition: 1s ease all;
+    color: #aaa;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-blue;
+    }
+  }
+
+  // Initiatives Card
+  &__initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__initiative {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  &__initiative-icon {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    margin-bottom: 0.8rem;
+  }
+
+  &__initiative-icon-svg {
+    font-size: 3rem;
+    color: $primary-blue;
+    margin-bottom: 0.8rem;
+  }
+
+  &__initiative-label {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  // Buttons
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background-color: $primary-blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-blue;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &--icon {
+      padding: 0.8rem;
+      background-color: #f0f0f0;
+      color: $primary-grey;
+
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+
+    &--outline {
+      background-color: transparent;
+      color: $primary-blue;
+      border: 1px solid $primary-blue;
+      margin-top: auto;
+
+      &:hover {
+        background-color: rgba($primary-blue, 0.05);
+        box-shadow: none;
+      }
+    }
+
+    &--secondary {
+      background-color: white;
+      color: $primary-grey;
+      border: 1px solid #ddd;
+
+      &:hover {
+        background-color: #f5f5f5;
+        color: $primary-blue;
+        box-shadow: none;
+      }
+    }
+
+    &--danger {
+      background-color: #e74c3c;
+
+      &:hover {
+        background-color: darken(#e74c3c, 10%);
+      }
+    }
+  }
+
+  &__button-icon {
+    font-size: 1.8rem;
+  }
+
+  // Delete Section
+  &__delete-button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: none;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 3rem;
+
+    &:hover {
+      background-color: rgba(#e74c3c, 0.05);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__delete-icon {
+    font-size: 1.8rem;
+  }
+
+  &__delete-confirm {
+    max-width: 500px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-bottom: 3rem;
+
+    p {
+      font-size: 1.5rem;
+      color: $primary-grey;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__delete-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba($primary-blue, 0.2);
+  border-radius: 50%;
+  border-top-color: $primary-blue;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }

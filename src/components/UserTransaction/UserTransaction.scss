@@ -1,12 +1,62 @@
-@use "../../styles/partials/variables" as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .activity {
   &__wrapper {
     display: flex;
-    padding: 1rem 0;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
   }
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: rgba($primary-blue, 0.1);
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+
   &__icon {
-    margin-right: 4rem;
+    color: $primary-blue;
+    font-size: 1.8rem;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__text {
+    font-size: 1.4rem;
     color: $primary-grey;
+    line-height: 1.4;
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 0.3rem;
+  }
+
+  &__points {
+    font-weight: 700;
+    color: $primary-blue;
+  }
+
+  &__location {
+    font-weight: 500;
   }
 }

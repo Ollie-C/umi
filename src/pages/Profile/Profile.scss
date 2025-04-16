@@ -1,6 +1,6 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/typology";
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typology';
 
 .logout {
   background: none;
@@ -19,110 +19,343 @@
   }
 }
 .profile-wrapper {
-  width: 100%;
-  margin-top: 1rem;
-  @include desktop {
-    @include flex(row, center, center);
-  }
-}
-
-.profile,
-.stats {
   padding: 2rem;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
 
   @include tablet {
-    margin: 0 2rem;
-    height: 60rem;
-  }
-
-  @include tablet {
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 3rem;
   }
 }
-.profile {
-  @include desktop {
-    width: 30%;
+
+.profile-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 6rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
   }
-  &__name {
-    font-size: 4rem;
-    margin: 1rem 0;
-    font-family: Quicksand-medium;
+}
+
+.profile-loading,
+.profile-error,
+.profile-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 8rem auto;
+  max-width: 500px;
+  width: 100%;
+
+  h2 {
+    font-size: 2.2rem;
+    margin: 1.5rem 0;
+    color: $primary-grey;
   }
 
-  &__button {
-    font-size: 2rem;
-    padding: 2rem;
-    margin: 1rem 0;
-    border: none;
-    color: #fff;
+  p {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba($primary-blue, 0.2);
+  border-radius: 50%;
+  border-top-color: $primary-blue;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profile {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+
+  @include tablet {
+    width: 40%;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     background-color: $primary-blue;
-    border-radius: 10px;
-    &:hover {
-      cursor: pointer;
-      transition: all 1s ease;
-      background-color: $secondary-blue;
-    }
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-right: 1.5rem;
+    box-shadow: 0 4px 10px rgba($primary-blue, 0.3);
+  }
+
+  &__details-container {
+    flex: 1;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+    color: $primary-grey;
   }
 
   &__details {
-    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   &__detail {
-    padding: 1rem 0;
-    font-family: "Quicksand-Medium";
+    font-size: 1.4rem;
+    color: #666;
+    display: flex;
+    align-items: center;
 
-    &__wrapper {
-      display: flex;
-      flex-direction: column;
+    .profile__icon {
+      margin-right: 0.8rem;
+      color: $primary-blue;
     }
   }
 
-  &__header {
-    padding: 2rem 0;
+  &__action-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  &__noactivity {
+  &__connect,
+  &__business {
+    h3 {
+      font-size: 1.8rem;
+      color: $primary-grey;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__business-info {
+    margin-bottom: 1.5rem;
+  }
+
+  &__owner {
+    font-size: 1.4rem;
+    color: $primary-blue;
+    font-weight: 500;
+  }
+
+  &__initiatives-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  &__header {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     color: $primary-grey;
   }
-  &__icon {
-    width: 3.7rem;
-    margin-right: 1rem;
-    opacity: 70%;
+
+  &__icons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  &__icon-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+  }
+
+  &__button {
+    border: none;
+    padding: 1.2rem 2rem;
+    background-color: $primary-blue;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      background-color: $secondary-blue;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &--secondary {
+      background-color: white;
+      color: $primary-grey;
+      border: 1px solid #ddd;
+
+      &:hover {
+        background-color: #f5f5f5;
+        color: $primary-blue;
+      }
+    }
+
+    &--text {
+      background: none;
+      color: $primary-blue;
+      padding: 0.8rem;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: rgba($primary-blue, 0.05);
+        transform: none;
+      }
+    }
+  }
+}
+
+.initiative-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  span {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.8rem;
   }
 }
 
 .stats {
-  @include desktop {
-    padding: 2rem;
-    width: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include tablet {
+    width: 60%;
   }
 }
 
+.points-card,
+.activity-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
 .points {
-  padding: 1rem 0;
-  @include flex(column, center, center);
-  @include tablet {
-    @include flex(row, center, center);
-    * {
-      margin: 0 1rem;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__section {
-    @include flex(row, center, center);
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
 
-    * {
-      margin: 5px;
-    }
-    img {
-      display: none;
-
-      @include tablet {
-        display: inline;
-      }
+    h3 {
+      font-size: 1.6rem;
+      color: #666;
+      margin-bottom: 1rem;
     }
   }
+
+  &__balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__amount {
+    font-size: 4rem;
+    font-weight: 700;
+    color: $primary-blue;
+  }
+
+  &__coin {
+    width: 3.5rem;
+    margin-left: 1rem;
+  }
+
+  &__total {
+    font-size: 1.4rem;
+    color: #666;
+  }
+}
+
+.activity__container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.activity__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+
+  svg {
+    margin-bottom: 1.5rem;
+    color: #aaa;
+  }
+}
+
+.profile__noactivity {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.profile__hint {
+  font-size: 1.4rem;
+  color: #aaa;
+}
+
+.profile__logout {
+  margin-top: 3rem;
+  max-width: 200px;
 }
