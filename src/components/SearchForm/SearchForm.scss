@@ -1,66 +1,119 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 .searchForm {
   width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
 
   @include desktop {
-    width: 50%;
+    margin: 3rem auto;
+    margin-top: 6rem;
   }
-  &__fields {
-    width: 100%;
-    @include flex(column, center, center);
+
+  &__container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
 
     @include tablet {
-      @include flex(row, space-between, center);
-      width: 60%;
+      padding: 3rem;
     }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    color: $primary-grey;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    @include tablet {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  &__field-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $primary-grey;
+    margin-bottom: 0.8rem;
   }
 
   &__input,
   &__select {
-    flex-grow: 1;
-    border-radius: 8px;
-    border: 1px solid $secondary-blue;
-    background: $primary-white;
-    padding: 2rem 1.5rem;
-    color: $primary-grey;
     width: 100%;
-    margin: 4px 0;
+    padding: 1.2rem;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    color: $primary-grey;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-blue;
+      box-shadow: 0 0 0 2px rgba($primary-blue, 0.2);
+    }
 
     &::placeholder {
-      color: $primary-grey;
-      font-size: 1.6rem;
+      color: #999;
+      font-size: 1.5rem;
     }
   }
 
-  &__select {
-    @include tablet {
-      margin-left: 1rem;
-    }
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   &__button {
-    margin: 8px 0;
-    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.2rem 2.5rem;
     background-color: $primary-blue;
+    color: white;
     border: none;
-    color: $primary-white;
     border-radius: 8px;
+    font-size: 1.6rem;
     font-weight: 600;
-    font-size: 2rem;
-    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
     @include tablet {
-      padding: 2rem;
-      width: 60%;
+      min-width: 200px;
     }
 
     &:hover {
       background-color: $secondary-blue;
-      color: $primary-white;
-      cursor: pointer;
-      transition: all 1s ease-in-out;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }

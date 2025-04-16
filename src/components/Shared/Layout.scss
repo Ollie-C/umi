@@ -1,0 +1,17 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; // Space for the fixed navbar
+
+  @include tablet {
+    padding-top: 100px;
+  }
+}
